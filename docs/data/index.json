@@ -31,9 +31,5 @@
             "email": "email@eng.pdn.ac.lk"
         }
     ],
-    "tags": [
-        {"e19"},
-        {"CO227"},
-        {"Gym Application"}
-    ]
+    "tags": ["e19","CO227","Gym Application"]
 }
