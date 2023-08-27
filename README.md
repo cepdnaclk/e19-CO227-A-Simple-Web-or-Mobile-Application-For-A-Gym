@@ -30,6 +30,9 @@ This is a sample image, to show how to add images to your page. To learn more op
 
 .....
 
+## License
+MIT
+
 ## Links
 
 - [Project Repository](https://github.com/cepdnaclk/e19-CO227-A-Simple-Web-or-Mobile-Application-For-A-Gym)
