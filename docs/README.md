@@ -10,6 +10,7 @@ title: GymHub
 [comment]: # "This is the standard layout for the project, but you can clean this and use your own template"
 
 # GymHub
+![logo](https://github.com/cepdnaclk/e19-CO227-A-Simple-Web-or-Mobile-Application-For-A-Gym/assets/111074993/f1c64a2a-440f-41b6-b325-4cd0a99105ce)
 
 ---
 
