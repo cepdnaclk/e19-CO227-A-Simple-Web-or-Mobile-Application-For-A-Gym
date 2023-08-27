@@ -31,7 +31,7 @@ This is a sample image, to show how to add images to your page. To learn more op
 .....
 
 ## License
-MIT
+[MIT License](LICENSE)
 
 ## Links
 
