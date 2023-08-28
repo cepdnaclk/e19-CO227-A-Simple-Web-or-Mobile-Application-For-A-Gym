@@ -31,9 +31,11 @@ This is a sample image, to show how to add images to your page. To learn more op
 ## Table of Contents
 1. [Introduction](#introduction)
 2. [Problems With The Existing Systems](#problems_with_the_existing_systems)
-3. [Our Goal](#our_goal)
+3. [Our Goals](#our_goal)
 4. [Background & Motivation](#background_&_motivation)
-5. [Links](#links)
+5. [Progress](#progress)
+6. [Team & Process](#team_&_process)
+7. [Links](#links)
 
 ---
 
@@ -48,12 +50,29 @@ This is a sample image, to show how to add images to your page. To learn more op
 - Insufficient Progress Tracking
 - Appointment Scheduling Challenges
 
-## Our Goal
+## Our Goals
 
 - Streamline Gym Operations and User Experience
 - Enhance Progress Tracking and Fitness Management
 - Ensure Data Security and Privacy
 - Expand User Base and Engagement
+
+## Background & Motivation
+
+- [Equinox](https://www.equinox.com/)
+- [Anytimefitness](https://www.anytimefitness.com/)
+
+## Progress
+
+- Use of modern technologies for frond-end,back-end and database
+- Continuous engagement through progress tracking promotes long-term commitment
+- Fitness app usage rising, since  demand  for easy tracking and Minimal direct competition identified
+- Fitness app usage rising, since  demand  for easy tracking and Minimal direct competition identified
+
+## Team & Process
+
+- Dharmarathne B.A.M.I.E. -
+- Gunasekara
 
 ## Links
 
