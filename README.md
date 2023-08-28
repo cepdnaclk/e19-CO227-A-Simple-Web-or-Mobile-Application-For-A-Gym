@@ -19,9 +19,8 @@ This is a sample image, to show how to add images to your page. To learn more op
 
 ## Table of Contents
 1. [Introduction](#introduction)
-2. [Our Goal](#our-goal)
-3. [Project Overview](#project_overview)
-4. [Links](#links)
+2. [Project Overview](#project_overview)
+3. [Links](#links)
 
 ---
 
