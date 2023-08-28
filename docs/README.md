@@ -29,7 +29,7 @@ This is a sample image, to show how to add images to your page. To learn more op
 ## Table of Contents
 1. [Introduction](#introduction)
 2. [Problems With The Existing Systems](#problems_with_the_existing_systems)
-3. [Our Goal](#our_goal)
+3. [Our Goals](#our_goal)
 4. [Background & Motivation](#background_&_motivation)
 5. [Links](#links)
 
@@ -46,12 +46,16 @@ This is a sample image, to show how to add images to your page. To learn more op
 - Insufficient Progress Tracking
 - Appointment Scheduling Challenges
 
-## Our Goal
+## Our Goals
 
 - Streamline Gym Operations and User Experience
 - Enhance Progress Tracking and Fitness Management
 - Ensure Data Security and Privacy
 - Expand User Base and Engagement
+
+## Background & Motivation
+
+- 
 
 ## Links
 
