@@ -33,7 +33,10 @@ This is a sample image, to show how to add images to your page. To learn more op
 4. [Background & Motivation](#background_&_motivation)
 5. [Progress](#progress)
 6. [Team & Process](#team_&_process)
-7. [Links](#links)
+7. [Proporsed Solution](#proporsed_solution)
+8. [Advantages](#advantages)
+9. [Additional Features](#additional_features)
+10. [Links](#links)
 
 ---
 
@@ -70,7 +73,34 @@ This is a sample image, to show how to add images to your page. To learn more op
 ## Team & Process
 
 - Dharmarathne B.A.M.I.E. -
-- Gunasekara
+- Gunasekara M.H.         - Presentation Design, Wiki Pages Design
+- Jayathunga W.W.k.       - Presentation Design, Readme Design, Git Page Design, UI Design
+- Weerasinghe H.A.S.N.    - Presentation Design
+
+## Proporsed Solution
+
+- Real-time progress tracking through fitness logs and measurements
+- Sync with google calendar
+- Personalized workout plan(amount of calorie burn)and goal setting
+- notifications/email for upcoming appointments and reminders
+- user friendly  interface for easy appointment scheduling
+- BMI calculator
+
+## Advantages
+
+- Convenience of booking sessions and monitoring fitness goals
+- Receiving reminders & user friendly interface
+- Monetization Strategy
+- User Experience and Usebility
+- Integration with Existing System
+
+## Additional Features
+
+- Notify with emails
+- Sync with google calender
+- BMI calculator
+- Remind required amount of calorie burn
+- Get customer feedbacks
 
 ## Links
 
