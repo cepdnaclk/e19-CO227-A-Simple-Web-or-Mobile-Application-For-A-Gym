@@ -34,11 +34,13 @@ This is a sample image, to show how to add images to your page. To learn more op
 3. [Our Goals](#our_goal)
 4. [Background & Motivation](#background_&_motivation)
 5. [Progress](#progress)
-6. [Team & Process](#team_&_process)
-7. [Proporsed Solution](#proporsed_solution)
-8. [Advantages](#advantages)
-9. [Additional Features](#additional_features)
-10. [Links](#links)
+6. [Proporsed Solution](#proporsed_solution)
+7. [Advantages](#advantages)
+8. [Additional Features](#additional_features)
+9. [Technology Stack](#technology_stack)
+10. [Timeline](#timeline)
+11. [Team & Process](#team_&_process)
+12. [Links](#links)
 
 ---
 
@@ -72,13 +74,6 @@ This is a sample image, to show how to add images to your page. To learn more op
 - Fitness app usage rising, since  demand  for easy tracking and Minimal direct competition identified
 - Fitness app usage rising, since  demand  for easy tracking and Minimal direct competition identified
 
-## Team & Process
-
-- Dharmarathne B.A.M.I.E. -
-- Gunasekara M.H.         - Presentation Design, Wiki Pages Design
-- Jayathunga W.W.k.       - Presentation Design, Readme Design, Git Page Design, UI Design
-- Weerasinghe H.A.S.N.    - Presentation Design
-
 ## Proporsed Solution
 
 - Real-time progress tracking through fitness logs and measurements
@@ -87,6 +82,49 @@ This is a sample image, to show how to add images to your page. To learn more op
 - notifications/email for upcoming appointments and reminders
 - user friendly  interface for easy appointment scheduling
 - BMI calculator
+
+### Homepage
+
+![HOME 1](https://github.com/cepdnaclk/e19-CO227-A-Simple-Web-or-Mobile-Application-For-A-Gym/assets/111074993/92302bf8-142e-4507-9385-b2a30e767485)
+
+### HomePage for the trainer
+
+![TRAINER 1](https://github.com/cepdnaclk/e19-CO227-A-Simple-Web-or-Mobile-Application-For-A-Gym/assets/111074993/ea03a3f5-a113-450b-9df1-c389ea93fe12)
+
+### Available trainees for a paticular trainer
+
+![TRAINER 2](https://github.com/cepdnaclk/e19-CO227-A-Simple-Web-or-Mobile-Application-For-A-Gym/assets/111074993/000488b9-3ded-40d0-821a-dc14d0d7f430)
+
+### HomePage for the trainee
+
+![TRAINEE 1](https://github.com/cepdnaclk/e19-CO227-A-Simple-Web-or-Mobile-Application-For-A-Gym/assets/111074993/9102de4e-9c29-40cc-a4c7-85b7a249aba3)
+
+### Exercise Tracking
+
+![TRAINEE 3](https://github.com/cepdnaclk/e19-CO227-A-Simple-Web-or-Mobile-Application-For-A-Gym/assets/111074993/7d439652-0934-4e0a-96aa-ec31e4a0f1c0)
+
+### Progress Tracking
+
+![TRAINEE 2](https://github.com/cepdnaclk/e19-CO227-A-Simple-Web-or-Mobile-Application-For-A-Gym/assets/111074993/a30950cd-c899-413e-ba77-fc8dae63bc8d)
+
+### Users 
+
+- Trainer
+- Gym Member
+
+### Features of Trainer
+
+- Create user Profiles
+- Mark the available time slots
+- Accept & decline the appointment
+- Receive reminders
+
+### Features of Gym Member
+
+- Create user profile
+- Check availability of a trainer
+- Make the appointments
+- Weight tracking
 
 ## Advantages
 
@@ -103,6 +141,26 @@ This is a sample image, to show how to add images to your page. To learn more op
 - BMI calculator
 - Remind required amount of calorie burn
 - Get customer feedbacks
+
+## Technology Stack
+
+- Figma
+- React JS
+- Spring Boot
+- JWT
+- GitHub
+- Swagger
+
+## Timeline
+
+
+
+## Team & Process
+
+- Dharmarathne B.A.M.I.E. -
+- Gunasekara M.H.         - Presentation Design, Wiki Pages Design
+- Jayathunga W.W.k.       - Presentation Design, Readme Design, Git Page Design, UI Design
+- Weerasinghe H.A.S.N.    - Presentation Design
 
 ## Links
 
