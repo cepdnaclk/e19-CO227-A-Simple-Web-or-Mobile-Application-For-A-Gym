@@ -72,10 +72,10 @@ This is a sample image, to show how to add images to your page. To learn more op
 
 ## Team & Process
 
-- Dharmarathne B.A.M.I.E. -
-- Gunasekara M.H.         - Presentation Design, Wiki Pages Design
-- Jayathunga W.W.k.       - Presentation Design, Readme Design, Git Page Design, UI Design
-- Weerasinghe H.A.S.N.    - Presentation Design
+- Dharmarathne B.A.M.I.E. - Home, About, Gallery, BMI Calculator
+- Gunasekara M.H.         - Presentation Design, Wiki Pages Design, Courses
+- Jayathunga W.W.k.       - Presentation Design, Readme Design, Git Page Design, UI Design, User Profiles
+- Weerasinghe H.A.S.N.    - Presentation Design, Pricing
 
 ## Proporsed Solution
 
