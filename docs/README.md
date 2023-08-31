@@ -153,7 +153,7 @@ This is a sample image, to show how to add images to your page. To learn more op
 
 ## Timeline
 
-
+![timeline](https://github.com/cepdnaclk/e19-CO227-A-Simple-Web-or-Mobile-Application-For-A-Gym/assets/111074993/431e2952-8a2d-418f-b2c6-d24f3a8152ea)
 
 ## Team & Process
 
