@@ -60,7 +60,7 @@ This is a sample image, to show how to add images to your page. To learn more op
 - Streamline Gym Operations and User Experience
 - Enhance Progress Tracking and Fitness Management
 - Ensure Data Security and Privacy
-- Expand User Base and Engagement
+- Expand User Base and Engagement     
 
 ## Background & Motivation
 
