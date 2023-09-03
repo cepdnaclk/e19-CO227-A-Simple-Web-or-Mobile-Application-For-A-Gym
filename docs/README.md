@@ -4,7 +4,7 @@ permalink: index.html
 
 # Please update this with your repository name and title
 repository-name: e19-CO227-A-Simple-Web-or-Mobile-Application-For-A-Gym
-title: GymHub
+title: GymHub   
 ---
 
 [comment]: # "This is the standard layout for the project, but you can clean this and use your own template"
@@ -53,14 +53,14 @@ This is a sample image, to show how to add images to your page. To learn more op
 - Lack of Reminders
 - Communication Barriers
 - Insufficient Progress Tracking
-- Appointment Scheduling Challenges
+- Appointment Scheduling Challenges  
 
 ## Our Goals
 
 - Streamline Gym Operations and User Experience
 - Enhance Progress Tracking and Fitness Management
 - Ensure Data Security and Privacy
-- Expand User Base and Engagement
+- Expand User Base and Engagement     
 
 ## Background & Motivation
 
@@ -157,7 +157,7 @@ This is a sample image, to show how to add images to your page. To learn more op
 
 ## Team & Process
 
-- Dharmarathne B.A.M.I.E. - Home, About, Gallery, BMI Calculator
+- Dharmarathne B.A.M.I.E. - Home, About, Gallery
 - Gunasekara M.H.         - Presentation Design, Wiki Pages Design, Courses
 - Jayathunga W.W.k.       - Presentation Design, Readme Design, Git Page Design, UI Design, User Profiles
 - Weerasinghe H.A.S.N.    - Presentation Design, Pricing
