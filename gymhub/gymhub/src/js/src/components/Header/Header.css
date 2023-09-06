@@ -1,0 +1,36 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    /* background-color: transparent;
+    transition: background-color 0.5s;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000; */
+}
+
+.logo{
+    width: 10rem;
+    height: 5rem;
+}
+
+.header-menu{
+    padding-top: 1rem;
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+    color: white;
+}
+
+
+
+.header-menu>li:hover{
+    cursor: pointer;
+    color: var(--red);
+    cursor: pointer;
+}
+
+.header.scrolled {
+    background-color: var(--darkbrown);
+}
