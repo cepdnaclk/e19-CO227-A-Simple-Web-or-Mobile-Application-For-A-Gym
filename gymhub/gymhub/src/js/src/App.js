@@ -2,6 +2,8 @@
 import './App.css';
 import { getAllTrainers } from './client';
 import Hero from './components/Hero/Hero';
+import Join from './components/Join/Join';
+import Footer from './components/Footer/Footer';
 
 function App() {
   
@@ -21,6 +23,8 @@ function App() {
   return (
   <div className = "App">
       <Hero/>
+      <Join />
+      <Footer />
   </div>
   );
   
