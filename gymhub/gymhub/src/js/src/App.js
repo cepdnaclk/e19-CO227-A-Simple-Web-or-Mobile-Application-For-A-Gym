@@ -1,6 +1,7 @@
 
 import './App.css';
 import { getAllTrainers } from './client';
+import Hero from './components/Hero/Hero';
 
 function App() {
   
@@ -8,6 +9,7 @@ function App() {
       .then((response) => {
         
         return response.data; // Extract the response data
+        
       })
       .then((trainers) => {
         console.log(trainers);
@@ -16,7 +18,12 @@ function App() {
       
   
 
-  return <h1>Hello World</h1>;
+  return (
+  <div className = "App">
+      <Hero/>
+  </div>
+  );
+  
 }
 
 export default App;
