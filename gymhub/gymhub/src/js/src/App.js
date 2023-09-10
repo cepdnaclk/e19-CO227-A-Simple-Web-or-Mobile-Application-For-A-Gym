@@ -1,9 +1,13 @@
 
 import './App.css';
 import { getAllTrainers } from './client';
+
 import Hero from './components/Hero/Hero';
-import Join from './components/Join/Join';
 import Footer from './components/Footer/Footer';
+import Login from './components/Login/Login';
+import { Register } from './components/Register/Register';
+import Join from "./components/Join/Join";
+import {Routes, Route } from 'react-router-dom';
 
 function App() {
   
@@ -22,9 +26,18 @@ function App() {
 
   return (
   <div className = "App">
-      <Hero/>
-      <Join />
-      <Footer />
+    
+      <Routes>
+        
+        <Route path='/' element={< Hero/>} />
+        
+        <Route path='/login' element={<Login/>} />
+        <Route path='/register' element={<Register/>} />
+        
+      </Routes>
+      <Join/>
+      <Footer/>
+
   </div>
   );
   

@@ -1,6 +1,6 @@
 .Join {
     background-color:black;
-    z-index:-1;
+    
     color: white;
     display:flex;
     padding:0 2rem;
@@ -28,6 +28,8 @@
 }
 
 .right-j{
+    display: flex;
+    flex-direction: column;
     display:flex;
     justify-content: center;
     align-items: center

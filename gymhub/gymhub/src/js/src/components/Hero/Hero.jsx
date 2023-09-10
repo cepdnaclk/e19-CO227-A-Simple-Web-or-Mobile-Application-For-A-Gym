@@ -4,6 +4,7 @@ import Header from '../Header/Header'
 import backgroundImage from '../../assets/Hero1.jpg'
 
 
+
 class Hero extends Component {
     
   
@@ -41,6 +42,8 @@ class Hero extends Component {
             
             
           </div>
+         
+  
         </div>
       );
     }

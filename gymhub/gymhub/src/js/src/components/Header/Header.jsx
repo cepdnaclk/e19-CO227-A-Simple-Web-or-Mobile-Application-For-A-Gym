@@ -1,6 +1,7 @@
 import React from 'react'
 import './Header.css'
 import Logo from '../../assets/logo.png'
+import { Link } from 'react-router-dom';
 
 const Header = () => {
   return (
@@ -8,11 +9,12 @@ const Header = () => {
         <img src={Logo} alt='Logo' className="logo" />
 
         <ul className='header-menu'>
-          <li>HOME</li>
+          <li><Link to='/' className="no-underline">HOME</Link></li>
           <li>ABOUT</li>
           <li>GALLERY</li>
-          <li>LOGIN</li>
-          <li>REGISTER</li>
+          
+          <li><Link to='/login' className="no-underline">LOGIN</Link></li>
+          <li><Link to='/register' className="no-underline">REGISTER</Link></li>
           <li>BMI CALCULATOR</li>
         </ul>
     </div>

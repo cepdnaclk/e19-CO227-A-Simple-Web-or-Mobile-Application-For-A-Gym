@@ -7,6 +7,7 @@ const Join = () => {
 
     const sendEmail = (e) => {
         e.preventDefault();
+        
     
         emailjs.sendForm('service_6vwdg9t', 'template_870gedn', form.current, 'SfFoyX5A4a5W9fv4P')
           .then((result) => {
@@ -31,7 +32,7 @@ const Join = () => {
     <div className="right-j">
         <form ref={form} className="email-container" onSubmit={sendEmail}>
             <input type="email" name="user_email" placeholder="Enter your Email address" />
-            <button className="btn btn-j">Join Now</button>
+            <button type="button" className="btn btn-j">Join Now</button>
         </form>
         </div>    
     </div>
