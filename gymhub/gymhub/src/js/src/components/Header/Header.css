@@ -1,13 +1,13 @@
 .header {
     display: flex;
     justify-content: space-between;
-    /* background-color: transparent;
-    transition: background-color 0.5s;
+    background-color: transparent;
+   /* transition: background-color 0.5s;
     position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
-    z-index: 1000; */
+    width: 100%;*/
+    z-index: 3;
 }
 
 .logo{
@@ -19,10 +19,19 @@
     padding-top: 1rem;
     list-style: none;
     display: flex;
-    gap: 2rem;
+    gap: 3rem;
     color: white;
+    
 }
 
+.header-menu>li>a{
+    text-decoration: none;
+    color: inherit;
+}
+
+.header-menu>li>a:hover{
+    color: red;
+}
 
 
 .header-menu>li:hover{
