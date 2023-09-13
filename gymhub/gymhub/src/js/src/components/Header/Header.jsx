@@ -15,6 +15,7 @@ const Header = () => {
           
           <li><Link to='/login' className="no-underline">LOGIN</Link></li>
           <li><Link to='/register' className="no-underline">REGISTER</Link></li>
+          <li><Link to='/appointments' className="no-underline">APPOINTMENTS</Link></li>
           <li>BMI CALCULATOR</li>
         </ul>
     </div>
