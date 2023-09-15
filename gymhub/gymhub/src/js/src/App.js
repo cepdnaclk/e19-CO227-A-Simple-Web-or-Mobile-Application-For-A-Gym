@@ -5,8 +5,9 @@ import { getAllTrainers } from './client';
 import Hero from './components/Hero/Hero';
 import Footer from './components/Footer/Footer';
 import Login from './components/Login/Login';
-import { Register } from './components/Register/Register';
+import { Register } from './components/Register/TraineeRegister';
 import Join from "./components/Join/Join";
+import Trainers from './components/Trainers/Trainers';
 import {Routes, Route } from 'react-router-dom';
 
 function App() {
@@ -33,7 +34,7 @@ function App() {
         
         <Route path='/login' element={<Login/>} />
         <Route path='/register' element={<Register/>} />
-        
+        <Route path='/about' element={<Trainers />} />
       </Routes>
       <Join/>
       <Footer/>
