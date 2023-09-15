@@ -10,7 +10,7 @@ const Header = () => {
 
         <ul className='header-menu'>
           <li><Link to='/' className="no-underline">HOME</Link></li>
-          <li>ABOUT</li>
+          <li><Link to='/about' className="no-underline"></Link>ABOUT</li>
           <li>GALLERY</li>
           
           <li><Link to='/login' className="no-underline">LOGIN</Link></li>
