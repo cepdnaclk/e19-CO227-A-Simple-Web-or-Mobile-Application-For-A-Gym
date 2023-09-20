@@ -5,7 +5,7 @@ import emailjs from '@emailjs/browser'
 const Join = () => {
     const form = useRef()
 
-    const sendEmail = (e) => {
+    /* const sendEmail = (e) => {
         e.preventDefault();
         
     
@@ -15,7 +15,7 @@ const Join = () => {
           }, (error) => {
               console.log(error.text);
           });
-      };
+      }; */
   return (
     <div className="Join" id="join-us">
     <div className="left-j">
@@ -29,12 +29,12 @@ const Join = () => {
         <span className="stroke-text">WITH US?</span>
     </div>
     </div>
-    <div className="right-j">
+    {/* <div className="right-j">
         <form ref={form} className="email-container" onSubmit={sendEmail}>
             <input type="email" name="user_email" placeholder="Enter your Email address" />
             <button type="button" className="btn btn-j">Join Now</button>
-        </form>
-        </div>    
+        </form> 
+        </div>  */}   
     </div>
   )
 }

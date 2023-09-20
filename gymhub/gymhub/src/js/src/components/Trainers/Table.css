@@ -1,0 +1,11 @@
+table {
+    
+  margin-right: 20px; /* Adjust the margin as needed */
+  border: 1px solid;
+  color: white;
+  border-color: white;
+    
+}
+th {
+    width: 75px;
+}

@@ -5,10 +5,16 @@ import { getAllTrainers } from './client';
 import Hero from './components/Hero/Hero';
 import Footer from './components/Footer/Footer';
 import Login from './components/Login/Login';
-import { Register } from './components/Register/TraineeRegister';
+import Register from './components/Register/Register'
 import Join from "./components/Join/Join";
-import Trainers from './components/Trainers/Trainers';
+
 import {Routes, Route } from 'react-router-dom';
+import TrainerProfile from './components/Trainers/TrainerProfile';
+import Appointments from './components/Trainers/Appointments'
+import TrainerSettings from './components/Trainers/TrainerSettings';
+
+
+
 
 function App() {
   
@@ -32,9 +38,15 @@ function App() {
         
         <Route path='/' element={< Hero/>} />
         
-        <Route path='/login' element={<Login/>} />
+        <Route path='/login' element={<Login />} />
+        
         <Route path='/register' element={<Register/>} />
-        <Route path='/about' element={<Trainers />} />
+        
+        
+        <Route path='trainerprofile' element={<TrainerProfile />} />
+        <Route path='/appointments' element={<Appointments />} />
+        <Route path='trainersettings' element={<TrainerSettings />} />
+
       </Routes>
       <Join/>
       <Footer/>
