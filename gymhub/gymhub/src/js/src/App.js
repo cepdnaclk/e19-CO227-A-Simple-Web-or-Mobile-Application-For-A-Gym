@@ -7,6 +7,7 @@ import Footer from './components/Footer/Footer';
 import Login from './components/Login/Login';
 import Register from './components/Register/Register'
 import Join from "./components/Join/Join";
+import BMI from './components/BMI/BMI';
 
 import {Routes, Route } from 'react-router-dom';
 import TrainerProfile from './components/Trainers/TrainerProfile';
@@ -46,6 +47,7 @@ function App() {
         <Route path='trainerprofile' element={<TrainerProfile />} />
         <Route path='/appointments' element={<Appointments />} />
         <Route path='trainersettings' element={<TrainerSettings />} />
+        <Route path='/bmi' element={<BMI />} />
 
       </Routes>
       <Join/>

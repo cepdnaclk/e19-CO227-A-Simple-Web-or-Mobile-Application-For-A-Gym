@@ -1,103 +1,95 @@
 .header {
-    display: flex;
-    justify-content: space-between;
-    background-color: transparent;
-   
-   /* transition: background-color 0.5s;
+  display: flex;
+  justify-content: space-between;
+  background-color: transparent;
+  padding-right: 5rem;
+  /* transition: background-color 0.5s;
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;*/
-    /* z-index: 3; */
+  /* z-index: 3; */
 }
 
-.logo{
-    width: 10rem;
-    height: 5rem;
+.logo {
+  width: 10rem;
+  height: 5rem;
 }
 
-.header-menu{
-    margin-left: -9rem;
-    padding-top: 1rem;
-    list-style: none;
-    display: flex;
-    gap: 3rem;
-    color: white;
-    
+.header-menu {
+  margin-left: -9rem;
+  padding-top: 2rem;
+  list-style: none;
+  display: flex;
+  gap: 3rem;
+  color: white;
 }
 
-.header-menu>li>a{
-    text-decoration: none;
-    color: inherit;
+.header-menu > li > a {
+  text-decoration: none;
+  color: inherit;
 }
 
-.header-menu>li>a:hover{
-    color: red;
+.header-menu > li > a:hover {
+  color: red;
 }
 
-
-.header-menu>li:hover{
-    cursor: pointer;
-    color: var(--red);
-    cursor: pointer;
+.header-menu > li:hover {
+  cursor: pointer;
+  color: var(--red);
+  cursor: pointer;
 }
-
-
 
 .header-dropdown .dropdown-label {
-    cursor: pointer;
-    position: relative;
-    padding-bottom: 1rem;
-    
-  }
-  
-  .dropdown-menu {
-    display: none;
-    position: relative;
-    top: 100%;
-    left: 0;
-    background-color: #fff; /* Change the background color as needed */
-    list-style-type: none;
-    margin-left: 0;
-    padding: 0;
-    align-items: center;
-    z-index: 1000;
+  cursor: pointer;
+  position: relative;
+  padding-bottom: 1rem;
 }
 
-  
-  .header-dropdown.open .dropdown-menu {
-    display: block;
-    
-    background-color: rgb(188, 88, 88);
-    width: 5.75rem;
-    border-color: none;
-    height: 5rem;
-    margin-top: 0.75rem;
-   
-  }
+.dropdown-menu {
+  display: none;
+  position: relative;
+  top: 100%;
+  left: 0;
+  background-color: #fff; /* Change the background color as needed */
+  list-style-type: none;
+  margin-left: 0;
+  padding: 0;
+  align-items: center;
+  z-index: 1000;
+}
 
-  .header-dropdown .dropdown-label.active {
-    background-color: rgb(188, 88, 88); 
-    padding: 0.5rem;
-    border-top: white;
+.header-dropdown.open .dropdown-menu {
+  display: block;
+
+  background-color: rgb(188, 88, 88);
+  width: 5.75rem;
+  border-color: none;
+  height: 5rem;
+  margin-top: 0.75rem;
+}
+
+.header-dropdown .dropdown-label.active {
+  background-color: rgb(188, 88, 88);
+  padding: 0.5rem;
+  border-top: white;
 }
 
 @media screen and (max-width: 768px) {
-    .header {
-        
-        right: 2rem;
-        z-index: 99;
-    }
+  .header {
+    right: 2rem;
+    z-index: 99;
+  }
 
-    .header-menu {
-        flex-direction: column;
-        background-color: black;
-        padding: 1rem;
-        margin-right: -3rem;
-    }
+  .header-menu {
+    flex-direction: column;
+    background-color: black;
+    padding: 1rem;
+    margin-right: -3rem;
+  }
 
-    .logo {
-        width: 5rem;
-        height: 3rem;
-    }
+  .logo {
+    width: 5rem;
+    height: 3rem;
+  }
 }
