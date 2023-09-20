@@ -1,5 +1,5 @@
 
-import { React, useRef, useState, useEffect, useContext } from 'react';
+import  React, { useRef, useState, useEffect, useContext } from 'react';
 import Header from "../Header/Header"
 import backgroundImage from '../../assets/Hero2.jpg'
 import './Login.css'
@@ -13,12 +13,13 @@ const LOGIN_URL = '/auth';
 const Login = () => {
 
     
+    
 
     const { setAuth } = useContext(AuthContext);
     const userRef = useRef();
     const errRef = useRef();
 
-    const [user, setUser] = useState('');
+    const [email, setEmail] = useState('');
     const [pwd, setPwd] = useState('');
     const [errMsg, setErrMsg] = useState('');
     const [success, setSuccess] = useState(false);
@@ -29,14 +30,15 @@ const Login = () => {
 
     useEffect(() => {
         setErrMsg('');
-    }, [user, pwd])
+    }, [email, pwd])
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        console.log(email);
 
         try {
             const response = await axios.post(LOGIN_URL,
-                JSON.stringify({ user, pwd }),
+                JSON.stringify({ email, pwd }),
                 {
                     headers: { 'Content-Type': 'application/json' },
                     withCredentials: true
@@ -46,8 +48,8 @@ const Login = () => {
             //console.log(JSON.stringify(response));
             const accessToken = response?.data?.accessToken;
             const roles = response?.data?.roles;
-            setAuth({ user, pwd, roles, accessToken });
-            setUser('');
+            setAuth({ email, pwd, roles, accessToken });
+            setEmail('');
             setPwd('');
             setSuccess(true);
         } catch (err) {
@@ -96,14 +98,16 @@ const Login = () => {
             ></div>
 
             <form onSubmit={handleSubmit} className="loginform">
-                        <label htmlFor="username" className="loginlable">Username:</label>
+                        <label htmlFor="email" className="loginlable">Username:</label>
                         <input
-                            type="text"
-                            id="username"
+                            type="email"
+                            id="email"
+                            onChange={(e) => setEmail(e.target.value)}
                             ref={userRef}
                             autoComplete="off"
-                            onChange={(e) => setUser(e.target.value)}
-                            value={user}
+                            
+                            value={email}
+                            
                             required
                             className='logininput'
                             
