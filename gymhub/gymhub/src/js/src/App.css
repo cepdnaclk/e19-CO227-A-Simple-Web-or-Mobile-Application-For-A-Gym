@@ -48,4 +48,10 @@
   cursor: pointer;
 }
 
-
+.blur {
+  background:#8B4513;
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(150px);
+  z-index: 2;
+}

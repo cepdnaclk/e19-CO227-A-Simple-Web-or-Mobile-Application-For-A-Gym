@@ -1,5 +1,5 @@
 
-import { useRef, useState, useEffect, useContext } from 'react';
+import { React, useRef, useState, useEffect, useContext } from 'react';
 import Header from "../Header/Header"
 import backgroundImage from '../../assets/Hero2.jpg'
 import './Login.css'
@@ -11,6 +11,9 @@ const LOGIN_URL = '/auth';
 
 
 const Login = () => {
+
+    
+
     const { setAuth } = useContext(AuthContext);
     const userRef = useRef();
     const errRef = useRef();
@@ -78,7 +81,8 @@ const Login = () => {
             <div className="login">
             
                 <div className='leftlog'>
-                    <Header/>
+                    <div className="headersection"><Header/></div>
+                    
                     <div className='login-text'>
                     <div><span className='stroke-text'>WELCOME BACK</span>
                   </div>
@@ -86,11 +90,13 @@ const Login = () => {
                     </div>
                 </div>
                 <div className="style" style={{
-            backgroundImage: `url(${backgroundImage})`}}
+            backgroundImage: `url(${backgroundImage})`, backgroundSize: 'cover', // or 'contain' depending on your preference
+            backgroundRepeat: 'no-repeat',
+            backgroundPosition: 'center'}}
             ></div>
 
-            <form onSubmit={handleSubmit}>
-                        <label htmlFor="username">Username:</label>
+            <form onSubmit={handleSubmit} className="loginform">
+                        <label htmlFor="username" className="loginlable">Username:</label>
                         <input
                             type="text"
                             id="username"
@@ -99,24 +105,29 @@ const Login = () => {
                             onChange={(e) => setUser(e.target.value)}
                             value={user}
                             required
+                            className='logininput'
+                            
                         />
 
-                        <label htmlFor="password">Password:</label>
+                        <label htmlFor="password" className="loginlable">Password:</label>
                         <input
                             type="password"
                             id="password"
                             onChange={(e) => setPwd(e.target.value)}
                             value={pwd}
                             required
+                            className='logininput'
+                           
                         />
-                        <button>Sign In</button>
+                        <button className="signinbutton">Sign In</button>
 
                         <p>
                         Need an Account?<br /><br/>
-                        <span className="line">
-                            {/*put router link here*/}
-                            <Link to="/register">Sign Up</Link>
-                        </span>
+                        
+                        <Link to='/register' className="no-underline">SIGN UP</Link>
+                           
+            
+                       
                     </p>
                         </form>
 
