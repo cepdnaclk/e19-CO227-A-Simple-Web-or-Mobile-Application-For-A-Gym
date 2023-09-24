@@ -14,6 +14,7 @@ import java.util.Optional;
 public interface AppUserDao extends JpaRepository<AppUser,Integer> {
 
     Optional<AppUser> findByEmail(String email);
+    AppUser findByUserId(Integer userId);
 
     @Transactional
     @Modifying
