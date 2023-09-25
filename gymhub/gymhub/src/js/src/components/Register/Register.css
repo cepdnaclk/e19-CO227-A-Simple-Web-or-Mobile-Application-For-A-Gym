@@ -69,14 +69,14 @@ header {
   }
 
 .lf {
-    height: 28rem;
-    width: 26rem;
+    height: 35rem;
+    width: 25rem;
     background-color: black;
     border: 2px solid white;;
     border-color: white;
     border-radius: 10px;
     margin-top:20rem;
-    margin-left: 15rem;
+    margin-left: 20rem;
     margin-right: 35rem;
     position: center;
     margin-bottom: 2rem;
@@ -98,8 +98,8 @@ header {
 }
 
 .rf {
-    height: 28rem;
-    width: 26rem;
+    height: 35rem;
+    width: 25rem;
     background-color: black;
     border: 2px solid white;;
     border-color: white;
@@ -121,25 +121,44 @@ header {
 
 input[type="text"],
 input[type="password"],
+input[type="file"]
 button,
 textarea {
   font-family: 'Nunito', sans-serif;
   font-size: 22px;
   padding: 0.25rem;
   border-radius: 0.5rem;
-  width:25rem;
+  width:22rem;
   background-color: rgb(188, 88, 88);
   margin-bottom: 2rem;
+  
+
+}
+
+.uphoto {
+    color: white;
+    cursor: pointer;
+   
 }
 
 label {
     color: rgb(254, 254, 254);
     margin-top: 1rem;
 }
+
+label>customfile {
+    overflow: hidden;
+    background-color: red;
+    color: white;
+    cursor: pointer;
+}
+
+
 button {
   margin-top: 1rem;
   background-color: red;
   color:black;
+  width: 10rem;
   
 }
 
@@ -196,6 +215,7 @@ button {
 
 .line {
     display: inline-block;
+    margin-top: -5rem;
 }
 
 a {
@@ -211,5 +231,6 @@ a:hover{
 }
 
 p {
+    margin-top: 2rem;
     color:white;
 }

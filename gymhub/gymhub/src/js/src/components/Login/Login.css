@@ -13,7 +13,7 @@
       padding: 0;
 }
 
-header {
+.headersection {
     z-index: 3;
     flex:3;
     
@@ -59,15 +59,16 @@ header {
     
   }
 
-  form {
-    height: 24rem;
-    width: 26rem;
+  .loginform {
+    height: auto;
+    max-width: 26rem;
+    width: 100%;
     background-color: black;
     border: 2px solid white;;
     border-color: white;
     border-radius: 10px;
     margin-top:20rem;
-    margin-left: 15rem;
+   /* // margin-left: 15rem; */
     margin-right: 35rem;
     position: center;
     margin-bottom: 2rem;
@@ -83,42 +84,40 @@ header {
     /* position: relative; */
 }
 
-input[type="text"],
-input[type="password"],
-button,
-textarea {
+.logininput, .signinbutton {
   font-family: 'Nunito', sans-serif;
   font-size: 22px;
   padding: 0.25rem;
   border-radius: 0.5rem;
-  width:25rem;
+  width: 22rem;
   background-color: rgb(188, 88, 88);
   margin-bottom: 2rem;
 }
 
-label {
+.loginlabel {
     color: rgb(254, 254, 254);
     margin-top: 1rem;
 }
-button {
-  margin-top: 1rem;
+.signinbutton {
+    padding-top: 500rem;
+  
   background-color: red;
   color:black;
   
   
 }
 
-button:hover {
+.signinbutton:hover {
     background-color: white;
     cursor: pointer;
 }
 
-button:disabled {
+.signinbutton:disabled {
     background-color: gray;
     color: white;
 }
 
-button {
+.signinbutton {
   padding: 0.5rem;
 }
 
@@ -174,4 +173,44 @@ a {
         
     color: inherit;
 
+}
+
+@media screen and (max-width: 768px) {
+    .login {
+        flex-direction: column;
+        background-size: contain;
+       
+    }
+
+    .leftlog {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .login-container {
+        padding: 20px;
+    }
+
+    .login-text {
+        font-size: xx-large;
+
+    }
+
+    .style {
+        background-size: contain;
+       
+    }
+
+    .loginform {
+        max-width: 100%; /* Allow it to take the full width on smaller screens */
+        margin-left: 1rem; /* Adjust the left margin for smaller screens */
+        margin-right: 1rem; 
+  
+    
+    }
+
+    .logininput,
+  .signinbutton {
+    width: 2rem;
+  }
 }

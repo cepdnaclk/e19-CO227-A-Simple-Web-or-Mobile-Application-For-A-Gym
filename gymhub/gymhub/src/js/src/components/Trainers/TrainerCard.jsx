@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import starIcon from "../../assets/Star.png"
 import { Link } from "react-router-dom"
 import { BsArrowRight } from "react-icons/bs"
 
 const TrainerCard = ({trainer}) => {
+
+    //const [tab, setTab] = useState('feedback')
 
     const {name, avgRating, totalRating, photo, specialization, totalTrainees} = trainer
 
@@ -32,8 +34,10 @@ const TrainerCard = ({trainer}) => {
                     <BsArrowRight className="group-hover:text-white w-6 h-5" />
                 </Link>
             </div>
-        </div>
+            {/* <button onClick={()=> setTab('feedback')} className={`${tab='feedback' && 'border-b border-solid border-brown'} py-2 px-5 mr-5 text-[16px] leading-7 text-black font-semibold bg-color-red`}>Feedback</button>
+         */}
+         </div>
     )
 }
 
-export default DoctorCard;
+export default TrainerCard;

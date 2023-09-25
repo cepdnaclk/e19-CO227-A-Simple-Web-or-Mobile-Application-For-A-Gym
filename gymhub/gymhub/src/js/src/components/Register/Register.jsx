@@ -107,6 +107,7 @@ export const Register = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    console.log(email);
     // if button enabled with JS hack
     const v1 = USER_REGEX.test(user);
     const v2 = PWD_REGEX.test(pwd);
@@ -202,6 +203,7 @@ export const Register = () => {
                             aria-describedby="uidnote"
                             onFocus={() => setUserFocus(true)}
                             onBlur={() => setUserFocus(false)}
+                           
                         />
                         <p id="uidnote" className={userFocus && user && !validName ? "instructions" : "offscreen"}>
                             <FontAwesomeIcon icon={faInfoCircle} />
@@ -299,6 +301,8 @@ export const Register = () => {
                             <FontAwesomeIcon icon={faInfoCircle} />
                             Enter either "Trainer" or "Trainee".
                         </p>
+
+                        
                         </form>
       </div>
 
@@ -377,13 +381,27 @@ export const Register = () => {
                             Old nic with 9 digits and v.<br/>
                             New nic with 12 digits only.
                         </p>
-
+                        <br />
+                        <select
+                        name='day'
+                        className='role'
+                        style={{backgroundColor: 'rgb(188, 88, 88)', fontSize:'1.25rem'}}
+                        >
+                            <option value="">Select Role</option>
+                            <option value="Trainer">Trainer</option>
+                            <option value="Trainee">Trainee</option>
+                        </select>
+                        <br />
+                        <br />
                         <button disabled={!valid_Name || !validPwd || !validMatch || !validEmail || !validName || !validpNumber || !validRole  ? true : false}>Sign Up</button>
                         <p>
+
+                        
+
                         Already registered?<br /><br/>
                         <span className="line">
                             
-                            <Link to="./login" className="no-underline">Sign In</Link>
+                            <Link to="/login" className="no-underline">Sign In</Link>
                         </span>
                     </p>
         </form>

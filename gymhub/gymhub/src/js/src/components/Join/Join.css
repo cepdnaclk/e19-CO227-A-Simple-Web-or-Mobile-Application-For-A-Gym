@@ -71,3 +71,14 @@
     background-color: white;
     
 }
+
+@media screen and (max-width: 768px) {
+    .Join {
+        flex-direction: column;
+    }
+
+    .left-j {
+        font-size: x-large;
+        flex-direction: column;
+    }
+}

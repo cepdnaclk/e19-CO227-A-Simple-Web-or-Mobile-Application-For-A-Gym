@@ -58,3 +58,39 @@ header {
     
     
   }
+
+  .container {
+    max-width: 570px;
+    margin-top: 400px;
+    margin-left: -380px;
+    margin-right: auto;
+    background-color: black;
+    border-radius: md;
+    display: flex;
+    align-items: center;
+    justify-content: space-between
+  }
+
+  .inputSearch {
+    padding-top: 0.9rem;
+    padding-bottom: 1rem;
+    padding-left: 7rem;
+    padding-right: 0.5rem;
+    background-color: rgb(232, 224, 224);
+    width: 100%;
+    outline: focus;
+    cursor: pointer;
+    border-color: white;
+    border-radius: md;
+    align-items: center;
+  }
+
+  button {
+    
+    margin-top: 31px;
+    background-color: red;
+    color:black;
+    height: 55px;
+    
+    
+  }
