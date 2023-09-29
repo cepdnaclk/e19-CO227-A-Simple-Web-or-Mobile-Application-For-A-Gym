@@ -3,22 +3,25 @@ package com.e19co227.gymhub.registration;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
-@CrossOrigin
 @RestController
-@RequestMapping(path = "api/v1/registration")
+@RequestMapping("api/v1/registration")
 @AllArgsConstructor
 public class RegistrationController {
 
     private final RegistrationService registrationService;
+    @PostMapping("user")
+    public String registerUser(@RequestBody RegistrationRequest request){
 
-    @PostMapping
-    public String register(@RequestBody RegistrationRequest request) {
-        return registrationService.register(request);
+        return registrationService.registerUser(request);
     }
 
-    @GetMapping(path = "confirm")
-    public String confirm(@RequestParam("token") String token) {
+//    @PostMapping("trainer")
+//    public String registerTrainer(@RequestBody RegistrationRequest request){
+//
+//        return registrationService.registerTrainer(request);
+//    }
+    @GetMapping("confirm")
+    public String confirm(@RequestParam("token") String token){
         return registrationService.confirmToken(token);
     }
-
 }

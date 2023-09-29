@@ -9,19 +9,18 @@ import java.util.Optional;
 @Service
 @AllArgsConstructor
 public class ConfirmationTokenService {
+    private final ConfirmationTokenDao confirmationTokenDao;
 
-    private final ConfirmationTokenRepository confirmationTokenRepository;
-
-    public void saveConfirmationToken(ConfirmationToken token) {
-        confirmationTokenRepository.save(token);
+    public void saveConfirmationToken(ConfirmationToken token){
+        confirmationTokenDao.save(token);
     }
-
     public Optional<ConfirmationToken> getToken(String token) {
-        return confirmationTokenRepository.findByToken(token);
+        return confirmationTokenDao.findByToken(token);
     }
 
-    public void setConfirmedAt(String token) {
-        confirmationTokenRepository.updateConfirmedAt(
+    public int setConfirmedAt(String token) {
+        return confirmationTokenDao.updateConfirmedAt(
                 token, LocalDateTime.now());
     }
+
 }

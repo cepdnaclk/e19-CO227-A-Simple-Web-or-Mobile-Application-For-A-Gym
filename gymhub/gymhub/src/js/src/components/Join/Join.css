@@ -17,7 +17,7 @@
 .left-j>hr{
     position: absolute;
     width: 10.5rem;
-    border: 2px solid red;
+    border: 2px solid brown;
     border-radius: 20%;
     margin: -10px 0;
 }

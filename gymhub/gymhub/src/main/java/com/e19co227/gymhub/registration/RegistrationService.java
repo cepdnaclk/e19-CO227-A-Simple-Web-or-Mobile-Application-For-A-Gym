@@ -1,7 +1,6 @@
 package com.e19co227.gymhub.registration;
 
 import com.e19co227.gymhub.appuser.AppUser;
-import com.e19co227.gymhub.appuser.AppUserRole;
 import com.e19co227.gymhub.appuser.AppUserService;
 import com.e19co227.gymhub.email.EmailSender;
 import com.e19co227.gymhub.registration.token.ConfirmationToken;
@@ -20,31 +19,33 @@ public class RegistrationService {
     private final EmailValidator emailValidator;
     private final ConfirmationTokenService confirmationTokenService;
     private final EmailSender emailSender;
+    public String registerUser(RegistrationRequest request){
 
-    public String register(RegistrationRequest request) {
-        boolean isValidEmail = emailValidator.
-                test(request.getEmail());
+        boolean isValidEmail = emailValidator.test(request.getEmail());
 
-        if (!isValidEmail) {
-            throw new IllegalStateException("email not valid");
+        if (!isValidEmail){
+            throw new IllegalStateException("Email not valid ");
         }
 
+        //AppUserRole role = AppUserRole.valueOf(request.getRole().toUpperCase());
+
         String token = appUserService.signUpUser(
-                new AppUser(request.getUserName(),
-                        request.getPhoneNumber(),
-                        request.getName(),
+                new AppUser(
+                        request.getUserName(),
                         request.getEmail(),
                         request.getPassword(),
-                        request.getNic(),
-                        AppUserRole.USER)
+                        request.getRole(),
+                        request.getFullName(),
+                        request.getContactNumber(),
+                        request.getNic()
+                )
         );
-
-        String link = "http://localhost:8080/api/v1/registration/confirm?token=" + token;
+        String link = "http://localhost:8080/api/v1/registration/confirm?token="+token;
         emailSender.send(
                 request.getEmail(),
-                buildEmail(request.getName(), link));
+                buildEmail(request.getFullName(), link));
 
-        return token;
+        return  token;
     }
 
     @Transactional
@@ -69,7 +70,6 @@ public class RegistrationService {
                 confirmationToken.getAppUser().getEmail());
         return "confirmed";
     }
-
     private String buildEmail(String name, String link) {
         return "<div style=\"font-family:Helvetica,Arial,sans-serif;font-size:16px;margin:0;color:#0b0c0c\">\n" +
                 "\n" +
@@ -138,4 +138,8 @@ public class RegistrationService {
                 "\n" +
                 "</div></div>";
     }
+
+
+
+
 }

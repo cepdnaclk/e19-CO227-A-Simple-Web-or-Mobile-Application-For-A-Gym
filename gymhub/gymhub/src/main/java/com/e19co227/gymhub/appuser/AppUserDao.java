@@ -8,9 +8,11 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Optional;
 
+
 @Repository
-@Transactional
-public interface AppUserRepository extends JpaRepository<AppUser, Long> {
+@Transactional(readOnly = true)
+public interface AppUserDao extends JpaRepository<AppUser,Integer> {
+
     Optional<AppUser> findByEmail(String email);
 
     @Transactional
@@ -18,4 +20,5 @@ public interface AppUserRepository extends JpaRepository<AppUser, Long> {
     @Query("UPDATE AppUser a " +
             "SET a.enabled = TRUE WHERE a.email = ?1")
     int enableAppUser(String email);
+
 }

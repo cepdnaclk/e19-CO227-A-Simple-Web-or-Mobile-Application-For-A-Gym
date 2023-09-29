@@ -10,16 +10,16 @@ import lombok.ToString;
 @EqualsAndHashCode
 @ToString
 public class RegistrationRequest {
-
-
     private final String userName;
-    private final String phoneNumber;
-    private final String name;
+    private final String fullName;
     private final String email;
     private final String password;
+    private String role;
+    private String contactNumber;
+    private String nic;
 
-
-    private final String nic;
-
-
+//    public String getRole() {
+//        return role;
+//    }
 }
+

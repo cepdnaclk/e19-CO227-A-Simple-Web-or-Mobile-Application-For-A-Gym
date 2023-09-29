@@ -1,0 +1,184 @@
+.traineeprofile {
+    width: 100%;
+    height: 100%;
+      display: flex;
+      justify-content: space-between;
+      position:relative;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: top-center;
+      background-color: none;
+      
+      margin: 0;
+      padding: 0;
+}
+
+.traineepheader {
+    z-index: 3;
+    flex:3;
+}
+
+.lefttp{
+    height:15rem;
+    
+    
+}
+
+.offscreen {
+    position: absolute;
+    left: -9999px;
+}
+
+.style{
+    background-size: cover;
+    position:absolute;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 15rem;
+    z-index:-2;
+    margin: 0;
+      padding: 0;
+}
+
+.lefttp {
+    width:100%;
+
+}
+
+.tp-text {
+    position:relative;
+    margin-top:5rem ;
+    margin-bottom: 4rem;
+    margin-left: 0rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    text-transform: uppercase;
+    font-size: 4rem;
+    font-weight: bold;
+    color: white;
+    text-overflow: inherit;
+    justify-content: flex-start;
+    
+    
+  }
+
+  .lefttp2 {
+    
+    flex: 1;
+    display: flex;
+    gap: 2rem;
+    flex-direction: column;
+    }
+
+    .container {
+        height: 24rem;
+    width: 20rem;
+    background-color: black;
+    border: 2px solid white;;
+    border-color: white;
+    border-radius: 10px;
+    margin-top:20rem;
+    margin-left: -100rem;
+    margin-right: 70rem;
+    position: center;
+    margin-bottom: 2rem;
+    text-decoration: none;
+    }
+
+    .listoflinks{
+        padding-left: 20rem;
+        padding-top: 1rem;
+        list-style: none;
+        display: flex;
+        gap: 3rem;
+        color: white;
+        
+    }
+
+    .listoflinks {
+        padding-left: 0rem;
+        padding-top: 1.5rem;
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 3rem;
+        color: white;
+        font-size: 18px;
+        text-decoration: none;
+    }
+
+    .traineeprofilebuttons {
+        padding-top: 1rem;
+        padding-left: 1rem;
+    }
+
+    .traineeprofilebuttons>.btn {
+       align-items: center;
+        width: 12rem;
+        
+    }
+    .active-link {
+        background-color: rgb(188, 88, 88);
+        padding: 1rem;
+        color: white;
+    }
+
+    /* CSS for centering the confirmation modal */
+.confirmation-modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: brown; /* Semi-transparent background */
+    padding: 1rem;
+    text-align: center;
+    border-radius: 8px;
+    z-index: 1000; /* Ensure it's above other elements */
+    color: white; /* Text color */
+    display: flex;
+  flex-direction: column;
+  align-items: center;
+    
+  }
+  
+  .confirmation-modal p {
+    margin: 0.5rem 0; /* Add spacing around the text */
+  }
+  
+  .confirmation-modal button {
+    margin: 0.5rem; /* Add spacing around the buttons */
+    flex-direction: row;
+  }
+   
+/* Media query for screens smaller than 768px (e.g., mobile devices) */
+@media screen and (max-width: 768px) {
+    .traineeprofile {
+      /* Adjust styles for smaller screens */
+      flex-direction: column; /* Stack elements vertically */
+      /* Add any other necessary adjustments */
+    }
+  
+    .container {
+      /* Update container styles for smaller screens */
+      width: 75%; /* Full width on smaller screens */
+      margin-top: 2rem;
+      margin-left: 2rem; /* Remove margin to fill the entire width */
+      padding: 1rem; /* Add some padding for spacing */
+      /* Add any other necessary adjustments */
+      align-items: center;
+    }
+  
+    .listoflinks {
+      /* Adjust styles for the navigation links on smaller screens */
+      padding-left: 0; /* Remove left padding */
+      text-align: center; /* Center-align the links */
+      /* Add any other necessary adjustments */
+    }
+
+    .btn {
+        margin-left: 2rem;
+        background-color: brown;
+    }
+}

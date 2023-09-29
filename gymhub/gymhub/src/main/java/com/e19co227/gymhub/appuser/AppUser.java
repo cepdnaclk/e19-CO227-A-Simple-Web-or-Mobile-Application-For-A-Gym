@@ -1,11 +1,9 @@
 package com.e19co227.gymhub.appuser;
 
-
 import jakarta.persistence.*;
+import lombok.Data;
 import lombok.EqualsAndHashCode;
-import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -13,92 +11,71 @@ import org.springframework.security.core.userdetails.UserDetails;
 import java.util.Collection;
 import java.util.Collections;
 
-@Getter
-@Setter
+@Data
+@Entity
 @EqualsAndHashCode
 @NoArgsConstructor
-@Entity
 public class AppUser implements UserDetails {
 
 
-
     @SequenceGenerator(
-            name = "appUser_sequence",
-            sequenceName = "appUser_sequence",
+            name = "user_sequence",
+            sequenceName = "user_sequence",
             allocationSize = 1
     )
 
     @Id
     @GeneratedValue(
             strategy = GenerationType.SEQUENCE,
-            generator = "appUser_sequence"
+            generator = "user_sequence"
     )
-    private Long id;
+    private Integer userId;
+
+    //@Column(name = "user_name",nullable = false)
     private String userName;
-    private String phoneNumber;
-    private String name;
     private String email;
     private String password;
-    private String nic;
     @Enumerated(EnumType.STRING)
     private AppUserRole appUserRole;
+    private String fullName;
+    private String contactNumber;
+    private String nic;
+    private String address1;
+    private String address2;
+    private String address3;
     private Boolean locked = false;
     private Boolean enabled = false;
 
     public AppUser(String userName,
-                   String phoneNumber,
                    String email,
                    String password,
-                   String nic,
-                   String name,
-                   AppUserRole appUserRole) {
+                   String role,
+                   String fullName,
+                   String contactNumber,
+                   String nic
+                   ) {
         this.userName = userName;
-        this.phoneNumber = phoneNumber;
         this.email = email;
         this.password = password;
+        this.appUserRole = AppUserRole.valueOf(role.toUpperCase());
+        this.fullName = fullName;
+        this.contactNumber = contactNumber;
         this.nic = nic;
-        this.name = name;
-        this.appUserRole = appUserRole;
-
 
     }
+
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        SimpleGrantedAuthority authority =
-                new SimpleGrantedAuthority(appUserRole.name());
+        //AppUserRole appUserRole = AppUserRole.valueOf(role.toUpperCase());
+        SimpleGrantedAuthority authority = new SimpleGrantedAuthority(appUserRole.name());
         return Collections.singletonList(authority);
-    }
-
-    public String getPhoneNumber() {
-        return phoneNumber;
-    }
-
-    public String getNic() {
-        return nic;
-    }
-
-    @Override
-    public String getPassword() {
-        return password;
     }
 
     @Override
     public String getUsername() {
         return userName;
     }
-
-
-    public String getName() {
-        return name;
-    }
-
-
-
-    public String getEmail() {
-        return email;
-    }
-
 
 
     @Override
@@ -120,23 +97,5 @@ public class AppUser implements UserDetails {
     public boolean isEnabled() {
         return enabled;
     }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    /*@OneToMany(mappedBy = "appUser")
-    private Collection<ConfirmationToken> app_user_id;
-
-    public Collection<ConfirmationToken> getApp_user_id() {
-        return app_user_id;
-    }
-
-    public void setApp_user_id(Collection<ConfirmationToken> app_user_id) {
-        this.app_user_id = app_user_id;
-    }*/
 }
+

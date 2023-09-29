@@ -1,15 +1,34 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './Appointments.css'
 import Table from './Table'
 import TrainerProfile from './TrainerProfile';
-
+import { useAuth } from '../../context/AuthProvider';
 
 
 const Appointments = () => {
 
+    const { loggedInUserId } = useAuth(); // Retrieve the logged-in user's ID from the AuthContext
     // State to manage appointments
     //const [appointments, setAppointments] = useState([ ... ]); // Initialize with your appointments data
-    const [appointments, setAppointments] = useState([]);
+    
+    const [pendingAppointments, setPendingAppointments] = useState([]);
+    const [acceptedAppointments, setAcceptedAppointments] = useState([]);
+
+    useEffect(() => {
+        // Fetch the user's appointments based on the logged-in user's ID
+        fetch(`/api/users/${loggedInUserId}/appointments`)
+          .then((response) => response.json())
+          .then((data) => {
+            // Assuming the data contains an array of user-specific appointments
+            const pending = data.filter(appointment => appointment.status === 'pending');
+                const accepted = data.filter(appointment => appointment.status === 'accepted');
+                setPendingAppointments(pending);
+                setAcceptedAppointments(accepted);
+          })
+          .catch((error) => {
+            console.error('Error fetching appointments: ', error);
+          });
+      }, [loggedInUserId]); // Trigger the effect whenever the logged-in user ID changes
 
 
     // Function to accept an appointment
@@ -21,9 +40,9 @@ const Appointments = () => {
         .then((response) => {
             if (response.ok) {
                 // If the update was successful, update the appointments state
-                setAppointments((prevAppointments) =>
+                setPendingAppointments((prevAppointments) =>
                 prevAppointments.map((appointment) =>
-                    appointment.id == appointmentId
+                    appointment.id === appointmentId
                     ? { ...appointment, status: 'accepted' }
                     : appointment
                 )
@@ -46,7 +65,7 @@ const Appointments = () => {
       .then((response) => {
         if (response.ok) {
              // If the deletion was successful, update the appointments state
-             setAppointments((prevAppointments) => 
+             setPendingAppointments((prevAppointments) => 
                 prevAppointments.filter((appointment) => appointment.id !== appointmentId)
              );
         } else {
@@ -60,13 +79,26 @@ const Appointments = () => {
 
   return (
     <>
-        <TrainerProfile/>
+    <div>
+        <TrainerProfile/></div>
+
+        <div className="acont">
+                <h2 style={{color:'white'}}>Accepted Appointments</h2>
+                <Table className="tcont"
+                    appointments={acceptedAppointments}
+                    onAccept={handleAccept}
+                    onDecline={handleDecline}
+                />
+            </div>
+
+            <div className="rcont">
+                <h2 style={{color:'white'}}>Pending Appointments</h2>
         
-            <Table
-            appointments={appointments}
+            <Table className="tcont"
+            appointments={pendingAppointments}
             onAccept={handleAccept}
             onDecline={handleDecline}/>
-        
+        </div>
     </>
   )
 }

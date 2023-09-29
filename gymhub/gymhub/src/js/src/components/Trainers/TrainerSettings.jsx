@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './TrainerSettings.css'
 import TrainerProfile from './TrainerProfile';
 
@@ -8,15 +8,17 @@ const TrainerSettings = () => {
 
     const [trainerDetails, setTrainerDetails] = useState({
         name: '',
-        username: '',
+        email: '',
         phoneNumber: '',
-        address: '',
+        username: '',
+        
+        nic: '',
         height: '',
         weight: '',
         bmi: '',
-        email: '',
-        password: '',
-        nic: '',
+        
+        
+        
       });
     
      // const [timeSlots, setTimeSlots] = useState([]);
@@ -25,6 +27,24 @@ const TrainerSettings = () => {
         startTime: '',
         endTime: '',
       });
+
+      const calculateBMI = () => {
+        const { height, weight } = trainerDetails;
+    
+        if (height && weight) {
+          const heightInMeters = height / 100; // Convert height to meters
+          const bmi = (weight / (heightInMeters * heightInMeters)).toFixed(2); // Calculate BMI
+    
+          setTrainerDetails({
+            ...trainerDetails,
+            bmi: bmi,
+          });
+        }
+      };
+
+      useEffect(() => {
+        calculateBMI();
+      }, [trainerDetails.height, trainerDetails.weight]);
     
       const handleTrainerDetailsChange = (e) => {
         const { name, value } = e.target;
@@ -91,8 +111,10 @@ const TrainerSettings = () => {
   return (
     <>
         <TrainerProfile />
+        <div className="form-container">
         <form onSubmit={handleSubmitTrainerDetails}
         style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }} className="trainerdetailsform">
+          <label className='trainerprofilein' htmlFor="name">Name:</label>
         <input
           type="text"
           name="name"
@@ -100,8 +122,9 @@ const TrainerSettings = () => {
           onChange={handleTrainerDetailsChange}
           placeholder="Name"
           className='trainerdetails'
-          style={{width: '40rem', backgroundColor: 'black'}}
+          style={{ backgroundColor: 'black'}}
         />
+        <label className='trainerprofilein' htmlFor="email">Email:</label>
         <input
           type="text"
           name="email"
@@ -109,8 +132,9 @@ const TrainerSettings = () => {
           onChange={handleTrainerDetailsChange}
           placeholder="Email"
           className='trainerdetails'
-          style={{width: '40rem', backgroundColor: 'black'}}
+          style={{backgroundColor: 'black'}}
         />
+        <label className='trainerprofilein' htmlFor="phoneNumber">Phone Number:</label>
         <input
           type="text"
           name="phoneNumber"
@@ -118,8 +142,9 @@ const TrainerSettings = () => {
           onChange={handleTrainerDetailsChange}
           placeholder="Phone Number"
           className='trainerdetails'
-          style={{width: '40rem', backgroundColor: 'black'}}
+          style={{backgroundColor: 'black'}}
         />
+        <label className='trainerprofilein' htmlFor="username">User Name:</label>
        <input
           type="text"
           name="username"
@@ -127,17 +152,9 @@ const TrainerSettings = () => {
           onChange={handleTrainerDetailsChange}
           placeholder="Username"
           className='trainerdetails'
-          style={{width: '40rem', backgroundColor: 'black'}}
+          style={{backgroundColor: 'black'}}
         />
-        <input
-          type="text"
-          name="password"
-          value={trainerDetails.password}
-          onChange={handleTrainerDetailsChange}
-          placeholder="Password"
-          className='trainerdetails'
-          style={{width: '40rem', backgroundColor: 'black'}}
-        />
+        <label className='trainerprofilein' htmlFor="nic">NIC:</label>
         <input
           type="text"
           name="nic"
@@ -145,8 +162,9 @@ const TrainerSettings = () => {
           onChange={handleTrainerDetailsChange}
           placeholder="Nic"
           className='trainerdetails'
-          style={{width: '40rem', backgroundColor: 'black'}}
+          style={{backgroundColor: 'black'}}
         />
+        <label className='trainerprofilein' htmlFor="height">Height:</label>
         <input
           type="text"
           name="height"
@@ -154,8 +172,9 @@ const TrainerSettings = () => {
           onChange={handleTrainerDetailsChange}
           placeholder="Height"
           className='trainerdetails'
-          style={{width: '40rem', backgroundColor: 'black'}}
+          style={{backgroundColor: 'black'}}
         />
+        <label className='trainerprofilein' htmlFor="weight">Weight:</label>
         <input
           type="text"
           name="weight"
@@ -163,21 +182,25 @@ const TrainerSettings = () => {
           onChange={handleTrainerDetailsChange}
           placeholder="Weight"
           className='trainerdetails'
-          style={{width: '40rem', backgroundColor: 'black'}}
+          style={{backgroundColor: 'black'}}
         />
+        <label className='trainerprofilein' htmlFor="bmi">BMI:</label>
         <input
           type="text"
           name="bmi"
           value={trainerDetails.bmi}
-          onChange={handleTrainerDetailsChange}
+          
           placeholder="BMI"
           className='trainerdetails'
-          style={{width: '40rem', backgroundColor: 'black'}}
+          style={{backgroundColor: 'black'}}
+          readOnly
         />
-        <button type="submit" className="trainerdetailssubmit" style={{width: '40rem'}}>Save</button>
+        <br/>
+        <button type="submit" className="trainerdetailssubmit" >Save</button>
       </form>
+      </div>
       <div  className="time">
-      <h3 style={{color: 'white', marginLeft: '36rem', fontSize: '1.5rem', marginBottom: '2rem'}}>Add a Time Slot</h3>
+      <h3 className='timeheading' >Add a Time Slot</h3>
       <label className = "day" >
         Day:
         <select
@@ -197,7 +220,7 @@ const TrainerSettings = () => {
           <option value="Sunday">Sunday</option>
         </select>
       </label>
-      <label style={{marginLeft: '3rem', fontSize:'1.25rem'}}>
+      <label className="starttime" >
         Start Time:
         <input
           type="time"
@@ -208,7 +231,7 @@ const TrainerSettings = () => {
           style={{ color: 'black', marginLeft: '1rem', backgroundColor: 'rgb(188, 88, 88)', fontSize:'1.25rem' }}/>
         
       </label>
-      <label style={{marginLeft: '3rem', fontSize:'1.25rem'}}>
+      <label className="endtime">
         End Time:
         <input
           type="time"
@@ -219,14 +242,14 @@ const TrainerSettings = () => {
           className="traineravailabletime"
         />
       </label>
-      <button onClick={handleAddTimeSlot} style={{marginLeft: '41.5rem', marginTop: '3rem', width: '40rem'}}>Add</button>
+      <button className="addtimeslot" onClick={handleAddTimeSlot}>Add</button>
       </div>
       {/* Display existing time slots */}
       {timeSlots.map((timeSlot, index) => (
-        <div key={index} style={{color: 'white', backgroundColor: 'gray', marginLeft: "10rem", marginRight: "10rem", paddingBottom:"1.5rem", paddingTop:"0.5rem"}}>
+        <div key={index} className="timeslots" >
           {/* Display time slot information */}
-          <span style={{marginLeft: '5rem', marginTop: '-3rem'}}>{timeSlot.day} - {timeSlot.startTime} to {timeSlot.endTime}</span>
-          <button onClick={() => handleRemoveTimeSlot(timeSlot)} style={{marginLeft: '30rem', width:'25rem'}}>Remove</button>
+          <span cassName="slot" >{timeSlot.day} - {timeSlot.startTime} to {timeSlot.endTime}</span>
+          <button onClick={() => handleRemoveTimeSlot(timeSlot)} className='removeslot'>Remove</button>
         </div>
     ))}
     <div></div>
