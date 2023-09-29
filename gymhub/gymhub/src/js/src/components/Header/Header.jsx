@@ -1,4 +1,4 @@
-import { React, useState} from 'react'
+import { React, useState, useRef, useEffect} from 'react'
 import './Header.css'
 import Logo from '../../assets/logo.png'
 import Bars from '../../assets/bars.png'
@@ -8,6 +8,24 @@ const Header = () => {
 
   const mobile = window.innerWidth<=768 ? true: false;
   const [menuOpened, setMenuOpened] = useState(false);
+  const menuRef = useRef(null);
+
+  useEffect(() => {
+    function handleClickOutside(event) {
+      if (menuRef.current && !menuRef.current.contains(event.target)) {
+        // Click occurred outside the menu, so close it
+        setMenuOpened(false);
+      }
+    }
+
+    // Add a click event listener to the document
+    document.addEventListener('click', handleClickOutside);
+
+    // Clean up the event listener when the component unmounts
+    return () => {
+      document.removeEventListener('click', handleClickOutside);
+    };
+  }, []);
 
   return (
     <div className="header" >
@@ -27,7 +45,7 @@ const Header = () => {
 
         <li><Link to='/register' className="no-underline">REGISTER</Link></li>
         <li>BMI</li>
-      </ul>
+      </ul>   
       }
 
         

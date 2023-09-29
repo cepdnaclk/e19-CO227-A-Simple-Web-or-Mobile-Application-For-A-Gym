@@ -1,20 +1,20 @@
-.trainerprofile {
+.traineeprofile {
     width: 100%;
     height: 100%;
       display: flex;
       justify-content: space-between;
-      
+      position:relative;
       background-size: cover;
       background-repeat: no-repeat;
       background-position: top-center;
       background-color: none;
-      z-index: 1;
+      
       margin: 0;
       padding: 0;
 }
 
-header {
-    /* z-index: 3; */
+.traineepheader {
+    z-index: 3;
     flex:3;
 }
 
@@ -25,13 +25,13 @@ header {
 }
 
 .offscreen {
-    
+    position: absolute;
     left: -9999px;
 }
 
 .style{
     background-size: cover;
-    
+    position:absolute;
     background-repeat: no-repeat;
     width: 100%;
     height: 15rem;
@@ -72,7 +72,7 @@ header {
     }
 
     .container {
-        height: 15rem;
+        height: 24rem;
     width: 20rem;
     background-color: black;
     border: 2px solid white;;
@@ -83,12 +83,12 @@ header {
     margin-right: 70rem;
     position: center;
     margin-bottom: 2rem;
-    align-items: center;
+    text-decoration: none;
     }
 
-    ul{
+    .listoflinks{
         padding-left: 20rem;
-        padding-top: 3rem;
+        padding-top: 1rem;
         list-style: none;
         display: flex;
         gap: 3rem;
@@ -98,7 +98,7 @@ header {
 
     .listoflinks {
         padding-left: 0rem;
-        padding-top: 2.5rem;
+        padding-top: 1.5rem;
         list-style: none;
         display: flex;
         flex-direction: column;
@@ -106,14 +106,15 @@ header {
         gap: 3rem;
         color: white;
         font-size: 18px;
+        text-decoration: none;
     }
 
-    .trainerprofilebuttons {
-        padding-top: 2rem;
+    .traineeprofilebuttons {
+        padding-top: 1rem;
         padding-left: 1rem;
     }
 
-    .trainerprofilebuttons>.btn {
+    .traineeprofilebuttons>.btn {
        align-items: center;
         width: 12rem;
         
@@ -121,13 +122,39 @@ header {
     .active-link {
         background-color: rgb(188, 88, 88);
         padding: 1rem;
-        
+        color: white;
     }
 
-
-    /* Media query for screens smaller than 768px (e.g., mobile devices) */
+    /* CSS for centering the confirmation modal */
+.confirmation-modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: brown; /* Semi-transparent background */
+    padding: 1rem;
+    text-align: center;
+    border-radius: 8px;
+    z-index: 1000; /* Ensure it's above other elements */
+    color: white; /* Text color */
+    display: flex;
+  flex-direction: column;
+  align-items: center;
+    
+  }
+  
+  .confirmation-modal p {
+    margin: 0.5rem 0; /* Add spacing around the text */
+  }
+  
+  .confirmation-modal button {
+    margin: 0.5rem; /* Add spacing around the buttons */
+    flex-direction: row;
+  }
+   
+/* Media query for screens smaller than 768px (e.g., mobile devices) */
 @media screen and (max-width: 768px) {
-    .trainerprofile {
+    .traineeprofile {
       /* Adjust styles for smaller screens */
       flex-direction: column; /* Stack elements vertically */
       /* Add any other necessary adjustments */
@@ -151,8 +178,7 @@ header {
     }
 
     .btn {
-        margin-left: 2.75rem;
+        margin-left: 2rem;
+        background-color: brown;
     }
 }
-
-   

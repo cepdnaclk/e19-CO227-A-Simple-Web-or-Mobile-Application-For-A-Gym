@@ -1,0 +1,27 @@
+/* Default styles for large screens */
+.bookings-container {
+    display: flex;
+    flex-direction: row;
+  }
+  
+  .booking {
+    /* Styles for the booking container */
+    margin-left: 2rem; /* Add spacing between TraineeProfile and booking */
+  }
+
+/* Media query for screens smaller than 768px (e.g., mobile devices) */
+@media screen and (max-width: 768px) {
+    .bookings-container {
+      flex-direction: column; /* Stack elements vertically on small screens */
+    }
+  
+    .booking {
+      margin-left: 0; /* Remove left margin on small screens */
+    }
+
+    .bookingsheader {
+        margin-left: 2rem;
+    }
+  
+    /* Add more responsive styles as needed */
+  }
