@@ -20,7 +20,11 @@ This is a sample image, to show how to add images to your page. To learn more op
 ## Table of Contents
 1. [Introduction](#introduction)
 2. [Project Overview](#project_overview)
-3. [Links](#links)
+3. [High Level Architecture](#high_level_architecture)
+4. [Data Flow](#data_flow)
+5. [Appointment Approval Process](#appointment_approval_process)
+6. [License](#license)
+7. [Links](#links)
 
 ---
 
@@ -38,6 +42,18 @@ In today's fast-paced world, staying fit and healthy is a priority for many. How
 - **Progress Tracking:** Easily monitor your fitness journey by recording and visualizing your progress over time.
 
 Let's embark on a journey towards a healthier lifestyle with GymHub Web App!
+
+## High Level Architecture
+
+![Highlevel](https://github.com/cepdnaclk/e19-CO227-A-Simple-Web-or-Mobile-Application-For-A-Gym/assets/111074993/172a1df1-b934-4932-ad49-db9fa5c29f0c)
+
+## Data Flow
+
+![dataflow](https://github.com/cepdnaclk/e19-CO227-A-Simple-Web-or-Mobile-Application-For-A-Gym/assets/111074993/4e081c93-1a5b-493a-9518-78baea39bd5b)
+
+## Appointment Approval Process
+
+![newflowchart](https://github.com/cepdnaclk/e19-CO227-A-Simple-Web-or-Mobile-Application-For-A-Gym/assets/111074993/6d16ed03-adba-46c5-8c0f-dc75f0b34e8e)
 
 ## License
 [MIT License](LICENSE)
