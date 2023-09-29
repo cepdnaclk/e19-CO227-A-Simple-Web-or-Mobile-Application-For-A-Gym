@@ -60,6 +60,7 @@ Let's embark on a journey towards a healthier lifestyle with GymHub Web App!
 
 ## Links
 
+- [Mid Presentation](https://github.com/cepdnaclk/e19-CO227-A-Simple-Web-or-Mobile-Application-For-A-Gym/files/12768674/Group13.pdf)
 - [Project Repository](https://github.com/cepdnaclk/e19-CO227-A-Simple-Web-or-Mobile-Application-For-A-Gym)
 - [Project Page](https://cepdnaclk.github.io/e19-CO227-A-Simple-Web-or-Mobile-Application-For-A-Gym/)
 - [Department of Computer Engineering](http://www.ce.pdn.ac.lk/)
