@@ -1,20 +1,22 @@
 package com.e19co227.gymhub.appuser;
 
+import com.e19co227.gymhub.token.Token;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
-import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Collection;
-import java.util.Collections;
+import java.util.List;
 
 @Data
 @Entity
-@EqualsAndHashCode
+@Builder
 @NoArgsConstructor
+@AllArgsConstructor
 public class AppUser implements UserDetails {
 
 
@@ -46,6 +48,8 @@ public class AppUser implements UserDetails {
     private Boolean locked = false;
     private Boolean enabled = false;
 
+    @OneToMany(mappedBy = "user")
+    private List<Token> tokens;
     public AppUser(String userName,
                    String email,
                    String password,
@@ -67,9 +71,7 @@ public class AppUser implements UserDetails {
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        //AppUserRole appUserRole = AppUserRole.valueOf(role.toUpperCase());
-        SimpleGrantedAuthority authority = new SimpleGrantedAuthority(appUserRole.name());
-        return Collections.singletonList(authority);
+        return appUserRole.getAuthorities();
     }
 
     @Override
@@ -77,15 +79,11 @@ public class AppUser implements UserDetails {
         return userName;
     }
 
-    /* @Override
-     public String getUsername() {
-         return userName;
-     }
 
      @Override
      public String getPassword() {
          return password;
-     }*/
+     }
     @Override
     public boolean isAccountNonExpired() {
         return true;

@@ -1,14 +1,10 @@
 package com.e19co227.gymhub.registration;
 
 import lombok.AllArgsConstructor;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.ToString;
+import lombok.Data;
 
-@Getter
+@Data
 @AllArgsConstructor
-@EqualsAndHashCode
-@ToString
 public class RegistrationRequest {
     private final String userName;
     private final String fullName;

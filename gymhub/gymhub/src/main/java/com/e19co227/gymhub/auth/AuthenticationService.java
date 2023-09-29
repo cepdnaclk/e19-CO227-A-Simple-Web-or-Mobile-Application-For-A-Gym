@@ -1,25 +1,37 @@
-package com.e19co227.gymhub.registration;
+package com.e19co227.gymhub.auth;
 
 import com.e19co227.gymhub.appuser.AppUser;
+import com.e19co227.gymhub.appuser.AppUserDao;
+import com.e19co227.gymhub.appuser.AppUserRole;
 import com.e19co227.gymhub.appuser.AppUserService;
+import com.e19co227.gymhub.config.JwtService;
 import com.e19co227.gymhub.email.EmailSender;
+import com.e19co227.gymhub.registration.EmailValidator;
 import com.e19co227.gymhub.registration.token.ConfirmationToken;
 import com.e19co227.gymhub.registration.token.ConfirmationTokenService;
-import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDateTime;
 
 @Service
-@AllArgsConstructor
-public class RegistrationService {
+@RequiredArgsConstructor
+public class AuthenticationService {
 
-    private final AppUserService appUserService;
-    private final EmailValidator emailValidator;
-    private final ConfirmationTokenService confirmationTokenService;
+    private final AppUserDao appUserDao;
+    private final PasswordEncoder passwordEncoder;
+    private final JwtService jwtService;
+    private final AuthenticationManager authenticationManager;
+    private ConfirmationTokenService confirmationTokenService;
+    private AppUserService appUserService;
     private final EmailSender emailSender;
-    public String registerUser(RegistrationRequest request){
+    private final EmailValidator emailValidator;
+
+    public AuthenticationResponse register(RegisterRequest request) {
 
         boolean isValidEmail = emailValidator.test(request.getEmail());
 
@@ -27,7 +39,16 @@ public class RegistrationService {
             throw new IllegalStateException("Email not valid ");
         }
 
-        //AppUserRole role = AppUserRole.valueOf(request.getRole().toUpperCase());
+        var appUser = AppUser.builder()
+                .userName(request.getUserName())
+                .fullName(request.getFullName())
+                .email(request.getEmail())
+                .password(passwordEncoder.encode(request.getPassword()))
+                .appUserRole(AppUserRole.valueOf(request.getRole()))
+                .nic(request.getNic())
+                .build();
+
+        appUserDao.save(appUser);
 
         String token = appUserService.signUpUser(
                 new AppUser(
@@ -45,9 +66,29 @@ public class RegistrationService {
                 request.getEmail(),
                 buildEmail(request.getFullName(), link));
 
-        return  token;
+        var jwtToken = jwtService.generateToken(appUser);
+        return AuthenticationResponse.builder()
+                .token(jwtToken)
+                .build();
     }
 
+    public AuthenticationResponse authenticate(AuthenticationRequest request) {
+        authenticationManager.authenticate(
+                new UsernamePasswordAuthenticationToken(
+                        request.getEmail(),
+                        request.getPassword()
+                )
+        );
+
+        var appUser = appUserDao.findByEmail(request.getEmail())
+                .orElseThrow();
+
+        var jwtToken = jwtService.generateToken(appUser);
+        return AuthenticationResponse.builder()
+                .token(jwtToken)
+                .build();
+
+    }
     @Transactional
     public String confirmToken(String token) {
         ConfirmationToken confirmationToken = confirmationTokenService
@@ -70,6 +111,7 @@ public class RegistrationService {
                 confirmationToken.getAppUser().getEmail());
         return "confirmed";
     }
+
     private String buildEmail(String name, String link) {
         return "<div style=\"font-family:Helvetica,Arial,sans-serif;font-size:16px;margin:0;color:#0b0c0c\">\n" +
                 "\n" +
@@ -138,8 +180,5 @@ public class RegistrationService {
                 "\n" +
                 "</div></div>";
     }
-
-
-
 
 }
