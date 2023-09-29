@@ -62,7 +62,7 @@
   .loginform {
     height: auto;
     max-width: 26rem;
-    width: 100%;
+    width: 23rem;
     background-color: black;
     border: 2px solid white;;
     border-color: white;
@@ -72,6 +72,7 @@
     margin-right: 35rem;
     position: center;
     margin-bottom: 2rem;
+    align-items: center;
     
     /* display: flex;
     flex-direction: column;
@@ -92,6 +93,8 @@
   width: 22rem;
   background-color: rgb(188, 88, 88);
   margin-bottom: 2rem;
+  align-self: center;
+  padding-right: -7rem;
 }
 
 .loginlabel {
@@ -100,8 +103,9 @@
 }
 .signinbutton {
     padding-top: 500rem;
+    margin-left: 3rem;
   
-  background-color: red;
+  background-color: brown;
   color:black;
   
   
@@ -118,7 +122,10 @@
 }
 
 .signinbutton {
-  padding: 0.5rem;
+    
+  padding: 0.25rem;
+  width: 22rem;
+  margin-left: 0.3rem;
 }
 
 
@@ -163,54 +170,66 @@
     display: inline-block;
 }
 
-a:hover{
-    color:red;
-    cursor: pointer;
+.no-underlinelogin:hover {
+    color:brown;
 }
 
-a {
-    
-        
-    color: inherit;
-
-}
+   
 
 @media screen and (max-width: 768px) {
-    .login {
+    .login-section {
         flex-direction: column;
-        background-size: contain;
-       
     }
 
     .leftlog {
-        flex-direction: column;
+        
+        text-align: center;
         width: 100%;
+        margin-bottom: 2rem;
     }
 
-    .login-container {
-        padding: 20px;
-    }
-
-    .login-text {
-        font-size: xx-large;
-
+    .login {
+        flex-direction: column;
+        justify-content: flex-start; /* Align content to the top */
+        align-items: center;
     }
 
     .style {
-        background-size: contain;
-       
+        background-size: contain; /* Adjust as needed */
+        height: 200px; /* Adjust the height for the image */
     }
 
     .loginform {
-        max-width: 100%; /* Allow it to take the full width on smaller screens */
-        margin-left: 1rem; /* Adjust the left margin for smaller screens */
-        margin-right: 1rem; 
-  
-    
+        max-width: 75%; /* Allow it to take the full width on smaller screens */
+        margin: 3rem; /* Add margin for spacing */
+        align-items: center;
     }
 
     .logininput,
-  .signinbutton {
-    width: 2rem;
-  }
+    .signinbutton {
+        
+        align-items: center;
+        width: 100%; /* Make inputs and button full width */
+    }
+
+    .logininput {
+        padding-right: -3rem;
+        width: 16.5rem;
+    }
+
+    .loginlable {
+        margin-top: 0.5rem; /* Adjust margin for labels */
+    }
+
+    .login-text {
+        
+        margin-top: 8rem; /* Adjust top margin for text */
+        font-size: 2rem; /* Adjust font size for text */
+        text-align: left; /* Center text */
+    }
+
+    .errmsg {
+        margin-top: 1rem; /* Adjust top margin for error message */
+        margin-bottom: 1rem; /* Adjust bottom margin for error message */
+    }
 }

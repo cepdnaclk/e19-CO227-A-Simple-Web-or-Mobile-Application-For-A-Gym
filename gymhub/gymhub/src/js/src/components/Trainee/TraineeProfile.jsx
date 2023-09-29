@@ -1,16 +1,16 @@
 import React, { useState, useEffect } from 'react'
 import Header from "../Header/Header";
 import backgroundImage from "../../assets/Hero2.jpg"
-import './TrainerProfile.css'
+import './TraineeProfile.css'
 import {Routes, Route, Link, useLocation, useNavigate } from 'react-router-dom'
-import TrainerOverview from "./TrainerOverview"
-import Appointments from "./Appointments"
+import ViewTrainers from "./ViewTrainers"
+import Bookings from "./Bookings"
 
-const TrainerProfile = () => {
+const TraineeProfile = () => {
 
-        const [TrainerName, setTrainerName] = useState('');
+        const [TraineeName, setTraineeName] = useState('');
         const location = useLocation();
-        const navigate = useNavigate();
+        const navigate = useNavigate(); // Using useNavigate instead of useHistory
         const [showConfirmation, setShowConfirmation] = useState(false);
 
         useEffect(() => {
@@ -23,7 +23,7 @@ const TrainerProfile = () => {
             })
             .then((response) => response.json())
             .then((data) => {
-                setTrainerName(data.name);  // // Set the user's name in state
+                setTraineeName(data.name);  // // Set the user's name in state
             })
             .catch((error) => {
                 console.error('Error fetching user name;', error);
@@ -78,12 +78,14 @@ const TrainerProfile = () => {
   };
 
   return (
+    
 
-    <div className="trainerprofile">
+    <div className="traineeprofile">
         <div className='lefttp'>
-            <Header/>
+            <div className="traineepheader"><Header/></div>
+            
             <div className='tp-text'>
-            <div><span className='stroke-text'>Hi {TrainerName} </span>
+            <div><span className='stroke-text'>Hi {TraineeName} </span>
             </div>
         
             </div>
@@ -94,19 +96,21 @@ const TrainerProfile = () => {
        
             <div className='container'>
                 <ul className="listoflinks">
-                    
-                    <li className="no-underline"><Link to="/appointments" className={location.pathname === '/appointments' ? 'active-link' : ''} style={{textDecoration: 'none', color:'brown'}}>Appointments</Link></li>
-                    <li className="no-underline"><Link to="/trainersettings" className={location.pathname === '/trainersettings' ? 'active-link' : ''} style={{textDecoration: 'none', color:'brown'}}>Profile</Link></li>
+                    <li ><Link to="/viewtrainers" className={location.pathname === '/viewtrainers' ? 'active-link' : ''} style={{textDecoration: 'none', color:'brown'}}>Find Trainers</Link></li>
+                    <li><Link to="/bookings" className={location.pathname === '/bookings' ? 'active-link' : ''} style={{textDecoration: 'none', color:'brown'}}>My Appointments</Link></li>
+                    <li ><Link to="/traineesettings" className={location.pathname === '/traineesettings' ? 'active-link' : ''} style={{textDecoration: 'none', color:'brown'}}>Profile</Link></li>
                 </ul>
-                <div className="trainerprofilebuttons">
+                <br />
+                <br />
+                <div className="traineeprofilebuttons">
                 <button className="btn" onClick={handleLogout}>Logout</button>
                 <button className="btn" onClick={handleDeleteUser}>Delete Account</button>
                 </div>
             </div>
-       {/* Logout confirmation prompt */}
+            {/* Logout confirmation prompt */}
       {showConfirmation && (
         <div className="confirmation-modal">
-          <p>Are you sure you want to logout?</p>
+          <p style={{color:'white'}}>Are you sure you want to logout?</p>
           <button className="btn" onClick={confirmLogout}>
             Yes
           </button>
@@ -120,4 +124,4 @@ const TrainerProfile = () => {
   )
 }
 
-export default TrainerProfile;
+export default TraineeProfile;

@@ -3,7 +3,7 @@
 }
 
 .Footer-container>hr{
-    border: 1px solid rgb(178, 174, 174);
+    border: 1px solid #F2ECBE;
 }
 
 .footer{
@@ -39,7 +39,7 @@
     width: 26rem;
     height: 12rem;
     filter: blur(200px);
-    background: red;
+    background: brown;
 }
 
 .blur-f-2 {
@@ -48,5 +48,5 @@
     width: 26rem;
     height: 12rem;
     filter: blur(200px);
-    background: brown;
+    background: brown;   
 }
