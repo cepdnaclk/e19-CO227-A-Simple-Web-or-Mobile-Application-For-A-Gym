@@ -12,12 +12,12 @@
     background-repeat: no-repeat;
     background-position: top-center;
     background-color: black;
-    z-index: 1;
+    
     margin: 0;
     padding: 0;
   }
 
-  .hero::before {
+/*   .hero::before {
     
     position: absolute;
     top: 0;
@@ -28,10 +28,10 @@
     background-size: cover;
     background-repeat: no-repeat;
     opacity: 1; /* Adjust opacity as needed */
-    z-index: -1;
-  }
+    /* z-index: -1;
+  } */
 
-  .hero::after {
+  /* .hero::after {
     content: '';
     position: absolute;
     top: 0;
@@ -43,7 +43,7 @@
     background-repeat: no-repeat;
     opacity: 1; /* Adjust opacity as needed */
     
-  }
+  
   
   .left-h {
     flex: 3;
@@ -55,16 +55,7 @@
 
   }
   
-  .right-h {
-    flex: 1;
-    position: relative;
-    background-color: brown;
-    opacity: 0.7;
-    filter: blur(200px);
-    
-    
-
-  }
+  
   
   
   
@@ -179,5 +170,41 @@
 
   Join {
     margin-top: 50rem;
+  }
+
+  .hero-blur {
+    width: 22rem;
+    height: 45rem;
+    right: 0;
+  }
+
+  @media screen and (max-width: 768px) {
+    .hero {
+      flex-direction: column;
+      background-size: contain; /* Adjust as needed */
+    
+    }
+
+    .hero-blur {
+      width: 14rem;
+    }
+
+    .hi-ad {
+      margin-top: 0rem;
+      font-size: small;
+      align-self: center;
+      transform: scale(0.8);
+    }
+
+    .hero-text{
+      font-size: xx-large;
+      align-items: center;
+      justify-content: center;
+    }
+    .the {
+      margin-left: -1rem;
+    }
+
+    
   }
   

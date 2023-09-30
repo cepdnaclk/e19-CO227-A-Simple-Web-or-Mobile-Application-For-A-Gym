@@ -35,12 +35,16 @@ This is a sample image, to show how to add images to your page. To learn more op
 4. [Background & Motivation](#background_&_motivation)
 5. [Progress](#progress)
 6. [Proporsed Solution](#proporsed_solution)
-7. [Advantages](#advantages)
-8. [Additional Features](#additional_features)
-9. [Technology Stack](#technology_stack)
-10. [Timeline](#timeline)
-11. [Team & Process](#team_&_process)
-12. [Links](#links)
+7. [Overview & Key Features](#overview_&_key_features)
+8. [Requirement Gathering](#requirment_gathering)
+9. [Advantages](#advantages)
+10. [Additional Features](#additional_features)
+11. [Technology Stack](#technology_stack)
+12. [High Level Architectute](#high_level_architecture)
+13. [Data & Control Flow](#data_&_control_flow)
+14. [Timeline](#timeline)
+15. [Team & Process](#team_&_process)
+16. [Links](#links)
 
 ---
 
@@ -82,6 +86,8 @@ This is a sample image, to show how to add images to your page. To learn more op
 - notifications/email for upcoming appointments and reminders
 - user friendly  interface for easy appointment scheduling
 - BMI calculator
+
+
 
 ### Homepage
 
@@ -126,6 +132,29 @@ This is a sample image, to show how to add images to your page. To learn more op
 - Make the appointments
 - Weight tracking
 
+## Overview & Key Features
+
+### GymWeb App Overview
+
+- -Your All-in-One Fitness Companion
+
+### Key Features & Functionalities
+
+- User Authentication 
+              -Secure registration and login
+- Personalized Workouts
+              -Customize routines for your goals
+- Trainer Interaction
+              -Expert guidance and training plans
+- Progress Tracking
+              -Visualize and monitor your fitness journey
+
+## Requirement Gathering
+
+- Understanding the overarching goals of the gym management system and followed the requirements that are given in document       
+- Document both functional and nonfunctional requirements                            
+- Meetings with supervisors
+
 ## Advantages
 
 - Convenience of booking sessions and monitoring fitness goals
@@ -141,6 +170,7 @@ This is a sample image, to show how to add images to your page. To learn more op
 - BMI calculator
 - Remind required amount of calorie burn
 - Get customer feedbacks
+- AI Trainer
 
 ## Technology Stack
 
@@ -150,6 +180,38 @@ This is a sample image, to show how to add images to your page. To learn more op
 - JWT
 - GitHub
 - Swagger
+
+## High Level Architecture
+
+![Hightlevel Architecture](https://github.com/cepdnaclk/e19-CO227-A-Simple-Web-or-Mobile-Application-For-A-Gym/assets/111074993/15edd980-a4d1-4452-87a7-f3ab7a06c35f)
+
+•	Users interact with the Gym App through web browsers or mobile devices (represented as "User Devices").
+•	The "Frontend" is responsible for providing a user-friendly interface, collecting user input, and displaying information to users.
+•	The "Backend" acts as the brain of the system. It manages the entire application, handles communication between the frontend and other components, and implements core business logic.
+•	The "AI Trainer" is an intelligent component that uses OpenCV and Python to provide fitness-related assessments and recommendations. It communicates with the backend to process data and deliver results.
+•	The "MySQL Database" stores all essential data, including user profiles, appointments, and weight tracking records. The backend interacts with the database to retrieve and store data.
+•	External services, such as "Reminders," integrated to enhance the user experience by sending notifications or reminders to users.
+
+## Data & Control Flow
+
+- User Registration
+   1.	A new gym member enters their registration details via the frontend (e.g., name, email).
+   2.	The frontend sends this data to the backend as an HTTP POST request.
+   3.	The backend validates and processes the registration request.
+   4.	User profile data, including the unique identifier, is stored securely in the database.
+   5.	Confirmation is sent from the backend to the frontend, notifying the user of successful       registration.
+
+- Appointment Scheduling
+   1.	A gym member selects an available time slot and trainer for an appointment.
+   2.	The frontend sends a request to the backend, specifying the desired date, time, and           participants.
+   3.	The backend checks trainer availability and conflicts in the database.
+   4.	If the time slot is available, the backend approves the appointment and records it.
+   5.	Both the gym member and trainer receive notifications of the scheduled appointment.
+
+- Weight Tracking
+
+
+![dataflow](https://github.com/cepdnaclk/e19-CO227-A-Simple-Web-or-Mobile-Application-For-A-Gym/assets/111074993/6c741b85-02d8-42c6-9479-87e4246e4c2b)
 
 ## Timeline
 

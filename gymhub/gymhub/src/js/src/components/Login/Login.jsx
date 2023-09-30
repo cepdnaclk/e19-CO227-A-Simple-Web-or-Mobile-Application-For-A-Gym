@@ -1,5 +1,5 @@
 
-import { useRef, useState, useEffect, useContext } from 'react';
+import  React, { useRef, useState, useEffect, useContext } from 'react';
 import Header from "../Header/Header"
 import backgroundImage from '../../assets/Hero2.jpg'
 import './Login.css'
@@ -11,11 +11,15 @@ const LOGIN_URL = '/auth';
 
 
 const Login = () => {
+
+    
+    
+
     const { setAuth } = useContext(AuthContext);
     const userRef = useRef();
     const errRef = useRef();
 
-    const [user, setUser] = useState('');
+    const [email, setEmail] = useState('');
     const [pwd, setPwd] = useState('');
     const [errMsg, setErrMsg] = useState('');
     const [success, setSuccess] = useState(false);
@@ -26,14 +30,15 @@ const Login = () => {
 
     useEffect(() => {
         setErrMsg('');
-    }, [user, pwd])
+    }, [email, pwd])
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        console.log(email);
 
         try {
             const response = await axios.post(LOGIN_URL,
-                JSON.stringify({ user, pwd }),
+                JSON.stringify({ email, pwd }),
                 {
                     headers: { 'Content-Type': 'application/json' },
                     withCredentials: true
@@ -43,8 +48,8 @@ const Login = () => {
             //console.log(JSON.stringify(response));
             const accessToken = response?.data?.accessToken;
             const roles = response?.data?.roles;
-            setAuth({ user, pwd, roles, accessToken });
-            setUser('');
+            setAuth({ email, pwd, roles, accessToken });
+            setEmail('');
             setPwd('');
             setSuccess(true);
         } catch (err) {
@@ -78,7 +83,8 @@ const Login = () => {
             <div className="login">
             
                 <div className='leftlog'>
-                    <Header/>
+                    <div className="headersection"><Header/></div>
+                    
                     <div className='login-text'>
                     <div><span className='stroke-text'>WELCOME BACK</span>
                   </div>
@@ -86,37 +92,46 @@ const Login = () => {
                     </div>
                 </div>
                 <div className="style" style={{
-            backgroundImage: `url(${backgroundImage})`}}
+            backgroundImage: `url(${backgroundImage})`, backgroundSize: 'cover', // or 'contain' depending on your preference
+            backgroundRepeat: 'no-repeat',
+            backgroundPosition: 'center'}}
             ></div>
 
-            <form onSubmit={handleSubmit}>
-                        <label htmlFor="username">Username:</label>
+            <form onSubmit={handleSubmit} className="loginform">
+                        <label htmlFor="email" className="loginlable">Username:</label>
                         <input
-                            type="text"
-                            id="username"
+                            type="email"
+                            id="email"
+                            onChange={(e) => setEmail(e.target.value)}
                             ref={userRef}
                             autoComplete="off"
-                            onChange={(e) => setUser(e.target.value)}
-                            value={user}
+                            
+                            value={email}
+                            
                             required
+                            className='logininput'
+                            
                         />
 
-                        <label htmlFor="password">Password:</label>
+                        <label htmlFor="password" className="loginlable">Password:</label>
                         <input
                             type="password"
                             id="password"
                             onChange={(e) => setPwd(e.target.value)}
                             value={pwd}
                             required
+                            className='logininput'
+                           
                         />
-                        <button>Sign In</button>
+                        <button className="signinbutton">Sign In</button>
 
                         <p>
                         Need an Account?<br /><br/>
-                        <span className="line">
-                            {/*put router link here*/}
-                            <Link to="/register">Sign Up</Link>
-                        </span>
+                        
+                        <Link to='/register' className="no-underline">SIGN UP</Link>
+                           
+            
+                       
                     </p>
                         </form>
 

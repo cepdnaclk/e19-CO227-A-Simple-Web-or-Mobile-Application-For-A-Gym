@@ -299,6 +299,10 @@ export const Register = () => {
                             <FontAwesomeIcon icon={faInfoCircle} />
                             Enter either "Trainer" or "Trainee".
                         </p> */}
+                        <label>Insert a Profile Image:</label>
+                        <div className="uphoto">
+                            <input type="file" name="photo" id="customFile" accept=".jpg, .png" />
+                        </div>
                         </form>
       </div>
 
