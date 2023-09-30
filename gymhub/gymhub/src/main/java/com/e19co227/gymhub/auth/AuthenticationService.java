@@ -2,20 +2,27 @@ package com.e19co227.gymhub.auth;
 
 import com.e19co227.gymhub.appuser.AppUser;
 import com.e19co227.gymhub.appuser.AppUserDao;
-import com.e19co227.gymhub.appuser.AppUserRole;
 import com.e19co227.gymhub.appuser.AppUserService;
 import com.e19co227.gymhub.config.JwtService;
 import com.e19co227.gymhub.email.EmailSender;
 import com.e19co227.gymhub.registration.EmailValidator;
 import com.e19co227.gymhub.registration.token.ConfirmationToken;
 import com.e19co227.gymhub.registration.token.ConfirmationTokenService;
+import com.e19co227.gymhub.token.Token;
+import com.e19co227.gymhub.token.TokenDao;
+import com.e19co227.gymhub.token.TokenType;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpHeaders;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.io.IOException;
 import java.time.LocalDateTime;
 
 @Service
@@ -30,6 +37,7 @@ public class AuthenticationService {
     private AppUserService appUserService;
     private final EmailSender emailSender;
     private final EmailValidator emailValidator;
+    private final TokenDao tokenDao;
 
     public AuthenticationResponse register(RegisterRequest request) {
 
@@ -44,33 +52,28 @@ public class AuthenticationService {
                 .fullName(request.getFullName())
                 .email(request.getEmail())
                 .password(passwordEncoder.encode(request.getPassword()))
-                .appUserRole(AppUserRole.valueOf(request.getRole()))
+                .appUserRole(request.getAppUserRole())
                 .nic(request.getNic())
                 .build();
 
-        appUserDao.save(appUser);
-
-        String token = appUserService.signUpUser(
-                new AppUser(
-                        request.getUserName(),
-                        request.getEmail(),
-                        request.getPassword(),
-                        request.getRole(),
-                        request.getFullName(),
-                        request.getContactNumber(),
-                        request.getNic()
-                )
-        );
+        var savedUser = appUserDao.save(appUser);
+        // Generate a confirmation token
+        String token = appUserService.signUpUser(appUser);
         String link = "http://localhost:8080/api/v1/registration/confirm?token="+token;
         emailSender.send(
                 request.getEmail(),
                 buildEmail(request.getFullName(), link));
 
         var jwtToken = jwtService.generateToken(appUser);
+        var refreshToken = jwtService.generateRefreshToken(appUser);
+        saveUserToken(savedUser, jwtToken);
         return AuthenticationResponse.builder()
-                .token(jwtToken)
+                .accessToken(jwtToken)
+                .refreshToken(refreshToken)
+                .appUserRole(request.getAppUserRole())
                 .build();
     }
+
 
     public AuthenticationResponse authenticate(AuthenticationRequest request) {
         authenticationManager.authenticate(
@@ -84,8 +87,13 @@ public class AuthenticationService {
                 .orElseThrow();
 
         var jwtToken = jwtService.generateToken(appUser);
+        var refreshToken = jwtService.generateRefreshToken(appUser);
+        revokeAllUserTokens(appUser);
+        saveUserToken(appUser, jwtToken);
         return AuthenticationResponse.builder()
-                .token(jwtToken)
+                .accessToken(jwtToken)
+                .refreshToken(refreshToken)
+                .appUserRole(appUser.getAppUserRole())
                 .build();
 
     }
@@ -180,5 +188,55 @@ public class AuthenticationService {
                 "\n" +
                 "</div></div>";
     }
+
+
+    private void saveUserToken(AppUser appUser, String jwtToken) {
+        var token = Token.builder()
+                .appUser(appUser)
+                .token(jwtToken)
+                .tokenType(TokenType.BEARER)
+                .expired(false)
+                .revoked(false)
+                .build();
+        tokenDao.save(token);
+    }
+    private void revokeAllUserTokens(AppUser appUser) {
+        var validUserTokens = tokenDao.findAllValidTokenByUser(appUser.getUserId());
+        if (validUserTokens.isEmpty())
+            return;
+        validUserTokens.forEach(token -> {
+            token.setExpired(true);
+            token.setRevoked(true);
+        });
+        tokenDao.saveAll(validUserTokens);
+    }
+    public void refreshToken(
+            HttpServletRequest request,
+            HttpServletResponse response
+    ) throws IOException {
+        final String authHeader = request.getHeader(HttpHeaders.AUTHORIZATION);
+        final String refreshToken;
+        final String userEmail;
+        if (authHeader == null ||!authHeader.startsWith("Bearer ")) {
+            return;
+        }
+        refreshToken = authHeader.substring(7);
+        userEmail = jwtService.extractUsername(refreshToken);
+        if (userEmail != null) {
+            var user = this.appUserDao.findByEmail(userEmail)
+                    .orElseThrow();
+            if (jwtService.isTokenValid(refreshToken, user)) {
+                var accessToken = jwtService.generateToken(user);
+                revokeAllUserTokens(user);
+                saveUserToken(user, accessToken);
+                var authResponse = AuthenticationResponse.builder()
+                        .accessToken(accessToken)
+                        .refreshToken(refreshToken)
+                        .build();
+                new ObjectMapper().writeValue(response.getOutputStream(), authResponse);
+            }
+        }
+    }
+
 
 }

@@ -1,22 +1,21 @@
 package com.e19co227.gymhub.appuser;
 
-import com.e19co227.gymhub.token.Token;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.experimental.SuperBuilder;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Collection;
-import java.util.List;
 
 @Data
 @Entity
-@Builder
+@SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
+@Inheritance(strategy = InheritanceType.JOINED)
 public class AppUser implements UserDetails {
 
 
@@ -35,8 +34,11 @@ public class AppUser implements UserDetails {
 
     //@Column(name = "user_name",nullable = false)
     private String userName;
+
+    @Column(unique = true)
     private String email;
     private String password;
+
     @Enumerated(EnumType.STRING)
     private AppUserRole appUserRole;
     private String fullName;
@@ -45,29 +47,29 @@ public class AppUser implements UserDetails {
     private String address1;
     private String address2;
     private String address3;
-    private Boolean locked = false;
-    private Boolean enabled = false;
+////    private Boolean locked = false;
+       private Boolean enabled = false;
 
-    @OneToMany(mappedBy = "user")
-    private List<Token> tokens;
-    public AppUser(String userName,
-                   String email,
-                   String password,
-                   String role,
-                   String fullName,
-                   String contactNumber,
-                   String nic
-                   ) {
+/*    @OneToMany(mappedBy = "user")
+    private List<Token> tokens = new ArrayList<>();*/
+
+
+    public AppUser(
+            String userName,
+            String email,
+            String password,
+            AppUserRole appUserRole,
+            String fullName,
+            String contactNumber,
+            String nic) {
         this.userName = userName;
         this.email = email;
         this.password = password;
-        this.appUserRole = AppUserRole.valueOf(role.toUpperCase());;
+        this.appUserRole = appUserRole;
         this.fullName = fullName;
         this.contactNumber = contactNumber;
         this.nic = nic;
-
     }
-
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
@@ -76,7 +78,7 @@ public class AppUser implements UserDetails {
 
     @Override
     public String getUsername() {
-        return userName;
+        return email;
     }
 
 
@@ -91,7 +93,7 @@ public class AppUser implements UserDetails {
 
     @Override
     public boolean isAccountNonLocked() {
-        return !locked;
+        return true;
     }
 
     @Override
@@ -101,7 +103,7 @@ public class AppUser implements UserDetails {
 
     @Override
     public boolean isEnabled() {
-        return enabled;
+        return true;
     }
 }
 

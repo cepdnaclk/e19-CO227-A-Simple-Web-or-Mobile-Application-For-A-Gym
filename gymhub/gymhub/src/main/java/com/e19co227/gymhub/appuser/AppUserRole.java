@@ -21,18 +21,16 @@ public enum AppUserRole {
                     TRAINER_UPDATE,
                     TRAINER_DELETE,
                     TRAINER_CREATE,
+                    TRAINEE_READ
+            )
+    ),
+    TRAINEE(
+            Set.of(
                     TRAINEE_READ,
                     TRAINEE_UPDATE,
                     TRAINEE_DELETE,
-                    TRAINEE_CREATE
-            )
-    ),
-    MANAGER(
-            Set.of(
-                    TRAINER_READ,
-                    TRAINER_UPDATE,
-                    TRAINER_DELETE,
-                    TRAINER_CREATE
+                    TRAINEE_CREATE,
+                    TRAINER_READ
             )
     );
     @Getter

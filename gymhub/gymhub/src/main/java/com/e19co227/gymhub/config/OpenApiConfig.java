@@ -33,7 +33,7 @@ import io.swagger.v3.oas.annotations.servers.Server;
                         url = "http://localhost:8080"
                 ),
                 @Server(
-                        description = "PROD ENV",
+                        description = "AWS Server",
                         url = "https://www.gymhub.com"
                 )
         },

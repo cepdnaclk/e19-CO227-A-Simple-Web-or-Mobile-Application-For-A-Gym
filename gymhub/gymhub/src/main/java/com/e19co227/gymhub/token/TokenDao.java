@@ -16,5 +16,5 @@ public interface TokenDao extends JpaRepository<Token, Integer> {
       """)
     List<Token> findAllValidTokenByUser(Integer id);
 
-    Optional<Token> findByToken(String token);
+    Optional<Token> findByToken(String jwt);
 }
