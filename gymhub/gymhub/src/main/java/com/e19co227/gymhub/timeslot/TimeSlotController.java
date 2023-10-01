@@ -1,6 +1,7 @@
 package com.e19co227.gymhub.timeslot;
 
 import lombok.AllArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -15,27 +16,43 @@ public class TimeSlotController {
 
     private TimeSlotService timeSlotService;
 
-    @GetMapping("/trainer/{trainerId}")
-    public ResponseEntity<List<TimeSlot>> getAllTimeSlotForTrainer(@PathVariable Integer trainerId){
-        return timeSlotService.getAllTimeSlotsForTrainer(trainerId);
+
+    @GetMapping("/allTimeslots")
+    public ResponseEntity<List<TimeSlot>> getAllTimeSlots(){
+        return timeSlotService.getAllTimeSlots();
     }
 
-    @PostMapping("add/{trainerId}")
-    public ResponseEntity<String> addTimeSlot(@PathVariable Integer trainerId,@RequestBody TimeSlot timeSlot){
-        return timeSlotService.addTimeSlot(trainerId,timeSlot);
+    @GetMapping("/{timeSlotId}")
+    public ResponseEntity<TimeSlot> getTimeSlotById(@PathVariable("timeSlotId") int timeSlotId) {
+        TimeSlot timeSlot = timeSlotService.getTimeSlotById(timeSlotId);
+        if (timeSlot != null) {
+            return new ResponseEntity<>(timeSlot, HttpStatus.OK);
+        }
+        return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 
+    @PostMapping("add")
+    public ResponseEntity<String> addTimeSlot(@RequestBody TimeSlot timeSlot){
+        return timeSlotService.addTimeSlot(timeSlot);
+    }
     @PutMapping("/update/{timeSlotId}")
-    public ResponseEntity<String> updateTimeSlot(
-            @PathVariable Integer timeSlotId,
-            @RequestBody TimeSlot updatedTimeSlot) {
-
-        return timeSlotService.updateTimeSlot(timeSlotId, updatedTimeSlot);
+    public ResponseEntity<TimeSlot> updateTimeSlot(
+            @PathVariable("timeSlotId") int timeSlotId,
+            @RequestBody TimeSlot timeSlot
+            ) {
+        TimeSlot updatedTimeSlot = timeSlotService.updateTimeSlot(timeSlotId,timeSlot);
+        if (updatedTimeSlot != null) {
+            return new ResponseEntity<>(updatedTimeSlot, HttpStatus.OK);
+        }
+        return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 
     @DeleteMapping("/delete/{timeSlotId}")
-    public ResponseEntity<String> deleteTimeSlot(@PathVariable Integer timeSlotId) {
-        return timeSlotService.deleteTimeSlot(timeSlotId);
-
+    public ResponseEntity<Void> deleteTimeSlot(@PathVariable("timeSlotId") int timeSlotId) {
+        boolean deleted = timeSlotService.deleteTimeSlot(timeSlotId);
+        if (deleted) {
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        }
+        return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 }

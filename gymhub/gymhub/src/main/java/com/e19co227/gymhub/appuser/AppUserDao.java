@@ -15,7 +15,7 @@ import java.util.Optional;
 public interface AppUserDao extends JpaRepository<AppUser,Integer> {
 
     Optional<AppUser> findByEmail(String email);
-    AppUser findByUserId(Integer userId);
+    Optional<AppUser> findByUserId(Integer userId);
 
     @Modifying
     @Query("UPDATE AppUser a SET a.enabled = true WHERE a.email = :email")
