@@ -1,5 +1,7 @@
-package com.e19co227.gymhub.appuser;
+package com.e19co227.gymhub.registration;
 
+import com.e19co227.gymhub.appuser.AppUser;
+import com.e19co227.gymhub.appuser.AppUserDao;
 import com.e19co227.gymhub.registration.token.ConfirmationToken;
 import com.e19co227.gymhub.registration.token.ConfirmationTokenService;
 import lombok.AllArgsConstructor;
@@ -49,19 +51,19 @@ public class  AppUserService implements UserDetailsService {
     }
 
     public String signUpUser (AppUser appUser){
-        boolean userExists = appUserDao.
+/*        boolean userExists = appUserDao.
                 findByEmail(appUser.getEmail())
                 .isPresent();
 
         if (userExists){
             throw new IllegalStateException("Email already taken");
         }
-        /*String encodedPassword =
+        *//*String encodedPassword =
                 bCryptPasswordEncoder.encode(appUser.getPassword());
 
-        appUser.setPassword(encodedPassword);*/
+        appUser.setPassword(encodedPassword);*//*
 
-        appUserDao.save(appUser);
+        appUserDao.save(appUser);*/
 
         String token = UUID.randomUUID().toString();
         // TODO: Confirmation token
@@ -75,7 +77,7 @@ public class  AppUserService implements UserDetailsService {
         return token;
     }
 
-    public int enableAppUser(String email) {
-        return appUserDao.enableAppUser(email);
+    public void enableAppUser(String email) {
+        appUserDao.enableAppUser(email);
     }
 }

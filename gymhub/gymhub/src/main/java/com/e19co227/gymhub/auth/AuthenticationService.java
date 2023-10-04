@@ -2,9 +2,10 @@ package com.e19co227.gymhub.auth;
 
 import com.e19co227.gymhub.appuser.AppUser;
 import com.e19co227.gymhub.appuser.AppUserDao;
-import com.e19co227.gymhub.appuser.AppUserService;
+import com.e19co227.gymhub.appuser.AppUserRole;
 import com.e19co227.gymhub.config.JwtService;
 import com.e19co227.gymhub.email.EmailSender;
+import com.e19co227.gymhub.registration.AppUserService;
 import com.e19co227.gymhub.registration.EmailValidator;
 import com.e19co227.gymhub.registration.token.ConfirmationToken;
 import com.e19co227.gymhub.registration.token.ConfirmationTokenService;
@@ -33,8 +34,8 @@ public class AuthenticationService {
     private final PasswordEncoder passwordEncoder;
     private final JwtService jwtService;
     private final AuthenticationManager authenticationManager;
-    private ConfirmationTokenService confirmationTokenService;
-    private AppUserService appUserService;
+    private final ConfirmationTokenService confirmationTokenService;
+    private final AppUserService appUserService;
     private final EmailSender emailSender;
     private final EmailValidator emailValidator;
     private final TokenDao tokenDao;
@@ -52,14 +53,23 @@ public class AuthenticationService {
                 .fullName(request.getFullName())
                 .email(request.getEmail())
                 .password(passwordEncoder.encode(request.getPassword()))
-                .appUserRole(request.getAppUserRole())
+                .appUserRole(AppUserRole.valueOf(request.getAppUserRole().toUpperCase()))
                 .nic(request.getNic())
                 .build();
 
+        boolean userExists = appUserDao.
+                findByEmail(appUser.getEmail())
+                .isPresent();
+
+        if (userExists){
+            throw new IllegalStateException("Email already taken");
+        }
+
         var savedUser = appUserDao.save(appUser);
+
         // Generate a confirmation token
         String token = appUserService.signUpUser(appUser);
-        String link = "http://localhost:8080/api/v1/registration/confirm?token="+token;
+        String link = "http://localhost:8080/api/v1/auth/confirm?token="+token;
         emailSender.send(
                 request.getEmail(),
                 buildEmail(request.getFullName(), link));
@@ -70,7 +80,7 @@ public class AuthenticationService {
         return AuthenticationResponse.builder()
                 .accessToken(jwtToken)
                 .refreshToken(refreshToken)
-                .appUserRole(request.getAppUserRole())
+                .appUserRole(AppUserRole.valueOf(request.getAppUserRole().toUpperCase()))
                 .build();
     }
 

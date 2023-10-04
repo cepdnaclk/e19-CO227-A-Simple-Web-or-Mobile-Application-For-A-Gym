@@ -4,7 +4,6 @@ import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 
-import java.util.Collections;
 import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -14,7 +13,7 @@ import static com.e19co227.gymhub.appuser.Permission.*;
 
 @RequiredArgsConstructor
 public enum AppUserRole {
-    USER(Collections.emptySet()),
+    //USER(Collections.emptySet()),
     TRAINER(
             Set.of(
                     TRAINER_READ,

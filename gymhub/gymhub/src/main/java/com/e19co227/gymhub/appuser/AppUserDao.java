@@ -19,7 +19,7 @@ public interface AppUserDao extends JpaRepository<AppUser,Integer> {
 
     @Modifying
     @Query("UPDATE AppUser a SET a.enabled = true WHERE a.email = :email")
-    int enableAppUser(@Param("email") String email);
+    void enableAppUser(@Param("email") String email);
 
 
 }

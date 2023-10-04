@@ -42,13 +42,14 @@ public class AppUser implements UserDetails {
     @Enumerated(EnumType.STRING)
     private AppUserRole appUserRole;
     private String fullName;
+
+    @Column(name = "contact_number")
     private String contactNumber;
     private String nic;
     private String address1;
     private String address2;
     private String address3;
-////    private Boolean locked = false;
-       private Boolean enabled = false;
+    private Boolean enabled = false;
 
 /*    @OneToMany(mappedBy = "user")
     private List<Token> tokens = new ArrayList<>();*/
@@ -103,7 +104,7 @@ public class AppUser implements UserDetails {
 
     @Override
     public boolean isEnabled() {
-        return true;
+        return enabled;
     }
 }
 

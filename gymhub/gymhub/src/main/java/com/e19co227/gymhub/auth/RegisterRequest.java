@@ -1,6 +1,5 @@
 package com.e19co227.gymhub.auth;
 
-import com.e19co227.gymhub.appuser.AppUserRole;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -15,7 +14,7 @@ public class RegisterRequest {
     private String fullName;
     private String email;
     private String password;
-    private AppUserRole appUserRole;
+    private String appUserRole;
     private String contactNumber;
     private String nic;
 
