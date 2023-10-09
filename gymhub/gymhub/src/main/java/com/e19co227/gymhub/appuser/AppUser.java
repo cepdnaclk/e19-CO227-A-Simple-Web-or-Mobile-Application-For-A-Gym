@@ -43,7 +43,7 @@ public class AppUser implements UserDetails {
     private AppUserRole appUserRole;
     private String fullName;
 
-    @Column(name = "contact_number")
+    //@Column(name = "contact_number")
     private String contactNumber;
     private String nic;
     private String address1;

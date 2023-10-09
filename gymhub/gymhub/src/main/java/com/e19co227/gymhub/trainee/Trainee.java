@@ -8,9 +8,11 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
 
+@EqualsAndHashCode(callSuper = true)
 @Data
 @Entity
 @SuperBuilder
@@ -21,9 +23,6 @@ public class Trainee extends AppUser {
 
     private String trainingProgram;
 
-    private String institution;
-
-    private int alertCount;
 
     @ManyToOne
     @JoinColumn(name = "trainer_id")
