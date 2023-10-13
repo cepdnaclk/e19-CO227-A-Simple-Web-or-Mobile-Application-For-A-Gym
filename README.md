@@ -23,7 +23,7 @@ This is a sample image, to show how to add images to your page. To learn more op
 3. [High Level Architecture](#high_level_architecture)
 4. [Data Flow](#data_flow)
 5. [Appointment Approval Process](#appointment_approval_process)
-6. [License](#license)
+6. [License](#license) 
 7. [Links](#links)
 
 ---
@@ -45,15 +45,16 @@ Let's embark on a journey towards a healthier lifestyle with GymHub Web App!
 
 ## High Level Architecture
 
-![Highlevel](https://github.com/cepdnaclk/e19-CO227-A-Simple-Web-or-Mobile-Application-For-A-Gym/assets/111074993/172a1df1-b934-4932-ad49-db9fa5c29f0c)
+![Highlevel](https://github.com/cepdnaclk/e19-CO227-A-Simple-Web-or-Mobile-Application-For-A-Gym/assets/111074993/3862d460-451e-49d7-a551-6e6e3952ab59)
 
 ## Data Flow
 
-![dataflow](https://github.com/cepdnaclk/e19-CO227-A-Simple-Web-or-Mobile-Application-For-A-Gym/assets/111074993/4e081c93-1a5b-493a-9518-78baea39bd5b)
+![dataflow](https://github.com/cepdnaclk/e19-CO227-A-Simple-Web-or-Mobile-Application-For-A-Gym/assets/111074993/02d75de9-d704-45d1-86ea-c23f8de472ec)
 
 ## Appointment Approval Process
 
-![newflowchart](https://github.com/cepdnaclk/e19-CO227-A-Simple-Web-or-Mobile-Application-For-A-Gym/assets/111074993/6d16ed03-adba-46c5-8c0f-dc75f0b34e8e)
+![newflowchart](https://github.com/cepdnaclk/e19-CO227-A-Simple-Web-or-Mobile-Application-For-A-Gym/assets/111074993/ac8ea05e-d016-4458-bb3b-f6baa3723849)
+
 
 ## License
 [MIT License](LICENSE)
