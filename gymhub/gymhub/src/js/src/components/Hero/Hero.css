@@ -79,7 +79,7 @@
   
   .hi-ad > div {
     position: absolute;
-    background-color: red;
+    background-color: brown;
     width: 5.4rem;
     height: 80%;
     left: 8px;
@@ -101,7 +101,7 @@
   }
 
   .the{
-    margin-left: 225px;
+    margin-left: 225px;   
     color: transparent;
     font-family:Arial, Helvetica, sans-serif;
     -webkit-text-stroke-width: 2px;
@@ -190,13 +190,14 @@
     }
 
     .hi-ad {
-      margin-top: 0rem;
+      margin-top: 2rem;
       font-size: small;
-      align-self: center;
+      align-self: left;
       transform: scale(0.8);
     }
 
     .hero-text{
+      
       font-size: xx-large;
       align-items: center;
       justify-content: center;
