@@ -1,4 +1,5 @@
 
+
 import  React, { useRef, useState, useEffect, useContext } from 'react';
 import Header from "../Header/Header"
 import backgroundImage from '../../assets/Hero2.jpg'
@@ -7,7 +8,8 @@ import { Link } from 'react-router-dom';
 import AuthContext from "../../context/AuthProvider";
 
 import axios from '../../api/axios';
-const LOGIN_URL = '/auth';
+
+
 
 
 const Login = () => {
@@ -23,6 +25,7 @@ const Login = () => {
     const [pwd, setPwd] = useState('');
     const [errMsg, setErrMsg] = useState('');
     const [success, setSuccess] = useState(false);
+   
 
     useEffect(() => {
         userRef.current.focus();
@@ -37,7 +40,7 @@ const Login = () => {
         console.log(email);
 
         try {
-            const response = await axios.post(LOGIN_URL,
+            const response = await axios.post('api/v1/login',
                 JSON.stringify({ email, pwd }),
                 {
                     headers: { 'Content-Type': 'application/json' },
@@ -68,7 +71,7 @@ const Login = () => {
 
   return (
     <>
-
+        <section className="login-section">
             {success ? (
                 <section>
                     <h1>You are logged in!</h1>
@@ -98,7 +101,7 @@ const Login = () => {
             ></div>
 
             <form onSubmit={handleSubmit} className="loginform">
-                        <label htmlFor="email" className="loginlable">Username:</label>
+                        <label htmlFor="email" className="loginlable">Email:</label>
                         <input
                             type="email"
                             id="email"
@@ -125,21 +128,24 @@ const Login = () => {
                         />
                         <button className="signinbutton">Sign In</button>
 
-                        <p>
+                        <p style={{color:'white'}}>
                         Need an Account?<br /><br/>
                         
-                        <Link to='/register' className="no-underline">SIGN UP</Link>
+                        <Link to='/register' className="no-underlinelogin" style={{textDecoration:'none', color:'white'}} onMouseEnter={(e) => (e.target.style.color = 'red')}
+  onMouseLeave={(e) => (e.target.style.color = 'white')}>SIGN UP</Link>
                            
             
-                       
+                           
                     </p>
                         </form>
 
             </div>
         </section>
             )}
+            </section>
     </>
   )
 }
 
 export default Login;
+

@@ -1,5 +1,6 @@
 
 
+
 .style{
     background-size: cover;
     position:absolute;
@@ -17,7 +18,7 @@
 
 .trainerdetailsform {
     align-items: center;
-    height: 55rem;
+    height: 65rem;
     width: 60rem;
     background-color: black;
     border: 2px solid white;;
@@ -57,7 +58,7 @@
 .trainerdetailsform>button {
     
   
-  background-color: red;
+  background-color: brown;
   color:black;
 }
 
@@ -68,14 +69,15 @@ label {
 button {
     padding-top: 500rem;
   
-  background-color: red;
+  background-color: brown;
   color:black;
   
   
 }
 
 .trainerdetailssubmit {
-    background-color: red;
+    width:40rem;
+    background-color: brown;
   color:black;
   }
 
@@ -160,4 +162,155 @@ button {
 .time {
     margin-top: 1rem;
 }
+
+.form-container {
+    z-index: 2;
+}
+
+.timeheading {
+    color: white;
+    margin-left: 36rem;
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.starttime {
+  margin-left: 3rem;
+  font-size: 1.25rem;
+}
+
+.endtime {
+  margin-left: 3rem;
+  font-size: 1.25rem;
+}
+
+.addtimeslot {
+  margin-left:41.5rem;
+  margin-top: 3rem;
+  width: 40rem;
+
+}
+
+.timeslots {
+  color: white;
+  background-color: gray;
+  margin-left: 10rem;
+  margin-right: 10rem;
+  padding-bottom: 1.5rem;
+  padding-top: 0.5rem;
+}
+
+.slot {
+  margin-left: 5rem;
+  margin-top: -3rem;
+}
+
+.removeslot {
+  margin-top: 1rem;
+  margin-left: 30rem;
+  width: 25rem;
+}
+
+.trainerprofilein {
+  color: white;
+  margin-right: 50rem;
+  align-self: left;
+}
+
+/* Responsive styles for smaller screens */
+@media screen and (max-width: 768px) {
+    .trainerdetailsform {
+      width: 75%;
+      margin-left: 2.75rem;
+      margin-right: 0;
+      padding: 10px;
+      align-self: center;
+      margin-top: -5rem;
+    }
+  
+    .trainerdetails {
+      margin-top: 1rem;
+      width: 15rem;
+    }
+  
+    .label {
+      margin-left: 0;
+    }
+  
+    .trainerdetailssubmit {
+      width: 15rem;
+      margin-left: 0;
+      margin-right: 0;
+    }
+
+   /* Add your responsive styles here */
+  .time {
+    margin-left: 1rem;
+    flex-direction: column; /* Adjust margins for smaller screens */
+    
+  }
+
+  /* Adjust font size for labels and inputs */
+  .traineravailableday,
+  .traineravailabletime {
+    font-size: 1rem;
+    align-self: center;
+    padding-right: 9rem;
+  }
+
+  /* Make the "Add" button full-width */
+  .time button {
+    width: 15rem;
+    margin-left: 2rem; /* Remove any left margin */
+  }
+
+  /* Modify the styles for existing time slots */
+  .timeSlots {
+    margin: 0; /* Remove margins */
+    padding: 0; /* Remove padding */
+  }
+  .timeSlots div {
+    margin-bottom: 1rem; /* Add spacing between existing time slots */
+  }
+  .timeheading {
+    margin-left: 2rem;
+  }
+  .day {
+    margin-left: 1rem;
+    
+    padding-right: 14rem;
+    
+  }
+
+  .starttime {
+    
+    margin-left: 1rem;
+    padding-right: 5rem;
+  }
+
+  .endtime {
+    margin-left: 1rem;
+    padding-right: 5rem;
+  }
+
+  .addtimeslot {
+    width: 15rem
+  }
+  .timeslots {
+    margin-left: 0.75rem;
+    width: 16rem;
+    padding-left: 4rem;
+  }
+
+  .slot {
+    width: 15rem;
+    
+  }
+
+  .removeslot {
+    margin-left: 4rem;
+    margin-top: 1rem;
+    width: 5rem;
+  }
+  }
 
