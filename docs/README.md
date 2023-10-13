@@ -324,7 +324,7 @@ methodology allows
 
 - Dharmarathne B.A.M.I.E. - Weight Tracking Design (Frontend & Backend)
 - Gunasekara M.H.         - Presentation Design, Wiki Pages Design
-- Jayathunga W.W.k.       - Presentation Design, Readme Design, Git Page Design, UI Design(Using Figma), User Profiles Design (Trainer(Appointments page, Profile Page), Trainee(View Trainers page, Appointments Page)), Home Page Design, Wiki Page Design, Fontend logics(Request Appointments, Accept or Decline Appointments, Mark Available Time slots), Connection of Email Reminder logic to backend
+- Jayathunga W.W.k.       - Presentation Design, Readme Design, Git Page Design, UI Design(Using Figma), Frontend Design(Home, login, register, User Profiles)
 - Weerasinghe H.A.S.N.    - Presentation Design, Appointment Email Reminder Implementation
 
 
