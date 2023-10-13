@@ -1,3 +1,4 @@
+
 import { React, useState, useRef, useEffect} from 'react'
 import './Header.css'
 import Logo from '../../assets/logo.png'
@@ -44,7 +45,7 @@ const Header = () => {
         <li><Link to='/login' className="no-underline">LOGIN</Link></li>
 
         <li><Link to='/register' className="no-underline">REGISTER</Link></li>
-        <li>BMI</li>
+        <li><Link to='/bmi' className="no-underline"> WEIGHT TRACKER</Link></li>
       </ul>   
       }
 
@@ -52,5 +53,6 @@ const Header = () => {
     </div>
   )
 }
+
 
 export default Header

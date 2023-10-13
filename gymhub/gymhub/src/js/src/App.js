@@ -1,4 +1,5 @@
 
+
 import './App.css';
 import { getAllTrainers } from './client';
 
@@ -7,7 +8,7 @@ import Footer from './components/Footer/Footer';
 import Login from './components/Login/Login';
 import Register from './components/Register/Register'
 import Join from "./components/Join/Join";
-
+import BMI from './components/BMI/BMI';
 import {Routes, Route } from 'react-router-dom';
 import TrainerProfile from './components/Trainers/TrainerProfile';
 import Appointments from './components/Trainers/Appointments'
@@ -52,6 +53,7 @@ function App() {
         <Route path='/bookings' element={<Bookings />} />
         <Route path='/traineesettings' element={<TraineeSettings />} />
         <Route path='/viewtrainers' element={<ViewTrainers />} />
+        <Route path='/bmi' element={<BMI />} />
       </Routes>
       <Join/>
       <Footer/>
@@ -62,3 +64,4 @@ function App() {
 }
 
 export default App;
+
