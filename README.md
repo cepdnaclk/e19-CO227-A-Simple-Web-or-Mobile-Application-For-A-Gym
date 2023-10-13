@@ -24,7 +24,7 @@ This is a sample image, to show how to add images to your page. To learn more op
 4. [Data Flow](#data_flow)
 5. [Appointment Approval Process](#appointment_approval_process)
 6. [License](#license) 
-7. [Links](#links)
+7. [Links](#links)          
 
 ---
 
