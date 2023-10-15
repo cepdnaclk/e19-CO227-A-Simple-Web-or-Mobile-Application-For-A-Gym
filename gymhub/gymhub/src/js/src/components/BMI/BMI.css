@@ -1,42 +1,52 @@
+/* Styling for the BMI app container */
 .BMI {
   text-align: center;
 }
 
+/* Uncomment this section if you want to style .bmi-page */
 /* .bmi-page {
   background-color: rgb(44, 44, 44);
 } */
 
+/* Styling for the BMI logo */
 .BMI-logo {
   height: 40vmin;
-  pointer-events: none;
+  pointer-events: none; /* Prevents interaction with the logo */
 }
 
+/* Media query for animations */
 @media (prefers-reduced-motion: no-preference) {
+
+  /* Animation for the BMI logo spin */
   .BMI-logo {
     animation: App-logo-spin infinite 20s linear;
   }
+
 }
 
+/* Styling for the header section of the BMI app */
 .BMI-header {
   background-color: #282c34;
-  min-height: 100vh;
+  min-height: 100vh; /* Minimum height of 100% viewport height */
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  font-size: calc(10px + 2vmin); /* Responsive font size */
+  color: white; /* Text color */
 }
 
+/* Styling for hyperlinks within the BMI app */
 .BMI-link {
-  color: #61dafb;
+  color: #61dafb; /* Link color */
 }
 
+/* Keyframes animation for spinning the logo */
 @keyframes App-logo-spin {
   from {
-    transform: rotate(0deg);
+    transform: rotate(0deg); /* Starting rotation angle */
   }
   to {
-    transform: rotate(360deg);
+    transform: rotate(360deg); /* Ending rotation angle (full circle) */
   }
 }

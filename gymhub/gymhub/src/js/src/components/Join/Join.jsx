@@ -5,10 +5,11 @@ import emailjs from '@emailjs/browser'
 const Join = () => {
     const form = useRef()
 
+    // Function to send an email using emailjs
     /* const sendEmail = (e) => {
         e.preventDefault();
         
-    
+        // Call emailjs to send the email
         emailjs.sendForm('service_6vwdg9t', 'template_870gedn', form.current, 'SfFoyX5A4a5W9fv4P')
           .then((result) => {
               console.log(result.text);
@@ -29,6 +30,7 @@ const Join = () => {
         <span className="stroke-text">WITH US?</span>
     </div>
     </div>
+    {/* Uncommented code for sending an email via emailjs */}
     {/* <div className="right-j">
         <form ref={form} className="email-container" onSubmit={sendEmail}>
             <input type="email" name="user_email" placeholder="Enter your Email address" />

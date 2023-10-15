@@ -1,3 +1,6 @@
+/* Styles for the login page */
+
+/* Entire login page container */
 .login {
     width: 100%;
     height: 100%;
@@ -8,22 +11,23 @@
       background-repeat: no-repeat;
       background-position: top-center;
       background-color: none;
-      
       margin: 0;
       padding: 0;
 }
 
+/* Header section style */
 .headersection {
     z-index: 3;
-    flex:3;
-    
+    flex:3;   
 }
 
+/* Offscreen style (used for offscreen elements) */
 .offscreen {
     position: absolute;
     left: -9999px;
 }
 
+/* Style for the background image */
 .style{
     background-size: cover;
     position:absolute;
@@ -35,12 +39,12 @@
       padding: 0;
 }
 
+/* Style for the left side of the login section */
 .leftlog{
     height:15rem;
-    
-    
 }
 
+/* Style for the login text */
 .login-text {
     position:relative;
     margin-top:5rem ;
@@ -55,11 +59,10 @@
     color: white;
     text-overflow: inherit;
     justify-content: flex-start;
-    
-    
-  }
+}
 
-  .loginform {
+/* Style for the login form container */
+.loginform {
     height: auto;
     max-width: 26rem;
     width: 23rem;
@@ -79,12 +82,12 @@
     justify-content: space-evenly; */
   
     padding: 20px;
-    
     margin-left: -29rem;
     
     /* position: relative; */
 }
 
+/* Style for login inputs and the sign-in button */
 .logininput, .signinbutton {
   font-family: 'Nunito', sans-serif;
   font-size: 22px;
@@ -97,38 +100,39 @@
   padding-right: -7rem;
 }
 
+/* Style for login labels */
 .loginlabel {
     color: rgb(254, 254, 254);
     margin-top: 1rem;
 }
+
+/* Style for the sign-in button */
 .signinbutton {
     padding-top: 500rem;
     margin-left: 3rem;
-  
-  background-color: brown;
-  color:black;
-  
-  
+    background-color: brown;
+    color:black;
 }
 
+/* Hover effect for the sign-in button */
 .signinbutton:hover {
     background-color: white;
     cursor: pointer;
 }
 
+/* Disabled style for the sign-in button */
 .signinbutton:disabled {
     background-color: gray;
     color: white;
 }
 
 .signinbutton {
-    
-  padding: 0.25rem;
-  width: 22rem;
-  margin-left: 0.3rem;
+    padding: 0.25rem;
+    width: 22rem;
+    margin-left: 0.3rem;
 }
 
-
+/* Style for instructions */
 .instructions {
     font-size: 0.75rem;
     border-radius: 0.5rem;
@@ -139,15 +143,17 @@
     bottom: -10px;
 }
 
+/* Style for icons within instructions */
 .instructions > svg {
     margin-right: 0.25rem;
 }
 
-
-  .hide {
+/* Style for hidden elements */
+.hide {
     display: none;
 }
 
+/* Valid and invalid input text styles */
 .valid {
     color: limegreen;
     margin-left: 0.25rem;
@@ -158,6 +164,7 @@
     margin-left: 0.25rem;
 }
 
+/* Error message style */
 .errmsg {
     background-color: lightpink;
     color: firebrick;
@@ -166,23 +173,23 @@
     margin-bottom: 0.5rem;
 }
 
+/* Line element style (used inline) */
 .line {
     display: inline-block;
 }
 
+/* Style for a link that shouldn't have underlines on hover */
 .no-underlinelogin:hover {
     color:brown;
 }
 
-   
-
+/* Media query for smaller screens (max-width: 768px) */
 @media screen and (max-width: 768px) {
     .login-section {
         flex-direction: column;
     }
 
     .leftlog {
-        
         text-align: center;
         width: 100%;
         margin-bottom: 2rem;
@@ -207,7 +214,6 @@
 
     .logininput,
     .signinbutton {
-        
         align-items: center;
         width: 100%; /* Make inputs and button full width */
     }
@@ -222,7 +228,6 @@
     }
 
     .login-text {
-        
         margin-top: 8rem; /* Adjust top margin for text */
         font-size: 2rem; /* Adjust font size for text */
         text-align: left; /* Center text */

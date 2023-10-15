@@ -17,30 +17,29 @@ const Bookings = () => {
       .catch((error) => {
         console.error('Error fetching accepted appointments: ', error);
       });
-  }, [loggedInUserId]);
+  }, [loggedInUserId]); // Execute this effect when the loggedInUserId changes
 
   return (
     <>
         <section className="bookings-container">
           <div>
             <TraineeProfile /></div>
-
             <div className='booking' style={ {top: '17rem', right: '45rem' }}>
               <div className="bookingsheader">
             <h2 style={{color:'white'}}>Accepted Appointments</h2></div>
-      <ul>
-        {acceptedAppointments.map((appointment) => (
-          <li key={appointment.id}>
-            {/* Display appointment details */}
-            <p>Date: {appointment.date}</p>
-            <p>Start Time: {appointment.starttime}</p>
-            <p>End Time: {appointment.endtime}</p>
-            {/* Add more appointment details here */}
-          </li>
-        ))}
-      </ul>
-            </div>
-        </section>
+          <ul>
+            {acceptedAppointments.map((appointment) => (
+              <li key={appointment.id}>
+                {/* Display appointment details */}
+                <p>Date: {appointment.date}</p>
+                <p>Start Time: {appointment.starttime}</p>
+                <p>End Time: {appointment.endtime}</p>
+                {/* Add more appointment details here */}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
     </>
   );
 };

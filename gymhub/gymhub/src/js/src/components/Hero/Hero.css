@@ -1,10 +1,7 @@
-
-
+/* Styling for the hero section */
 .hero {
-    
-  
     width: 100%;
-  height: 100%;
+    height: 100%;
     display: flex;
     justify-content: space-between;
     background-image: none;
@@ -12,54 +9,20 @@
     background-repeat: no-repeat;
     background-position: top-center;
     background-color: black;
-    
     margin: 0;
     padding: 0;
-  }
+}
 
-/*   .hero::before {
-    
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 50%;
-    height: 78%;
-   
-    background-size: cover;
-    background-repeat: no-repeat;
-    opacity: 1; /* Adjust opacity as needed */
-    /* z-index: -1;
-  } */
-
-  /* .hero::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 50%;
-    height: 78%;
-    
-    background-size: cover;
-    background-repeat: no-repeat;
-    opacity: 1; /* Adjust opacity as needed */
-    
-  
-  
-  .left-h {
+/* Styling for the left side of the hero section */
+.left-h {
     flex: 3;
     display: flex;
     gap: 2rem;
     flex-direction: column;
-    
-    
+}
 
-  }
-  
-  
-  
-  
-  
-  .hi-ad {
+/* Styling for the "hi-ad" element */
+.hi-ad {
     margin-top: 12rem;
     background-color: rgb(161, 159, 156);
     border-radius: 4rem;
@@ -71,13 +34,14 @@
     display: flex;
     align-items: center;
     justify-content: flex-start;
-  }
-  
-  .hi-ad > span {
+}
+
+/* Styling for parts of "hi-ad" */
+.hi-ad > span {
     z-index: 4;
-  }
+}
   
-  .hi-ad > div {
+.hi-ad > div {
     position: absolute;
     background-color: brown;
     width: 5.4rem;
@@ -85,9 +49,10 @@
     left: 8px;
     border-radius: 3rem;
     z-index: 3;
-  }
-  
-  .hero-text {
+}
+
+/* Styling for the text within the hero section */
+.hero-text {
     margin-top: 4rem ;
     margin-bottom: 4rem;
     display: flex;
@@ -98,114 +63,123 @@
     font-weight: bold;
     color: white;
     text-overflow: inherit;
-  }
+}
 
-  .the{
+/* Styling for the "the" element */
+.the{
     margin-left: 225px;   
     color: transparent;
     font-family:Arial, Helvetica, sans-serif;
     -webkit-text-stroke-width: 2px;
     -webkit-text-stroke-color: white;
-  }
+}
 
-  .hero-text>div:nth-of-type(3){
+/* Styling for specific elements within "hero-text" */
+.hero-text>div:nth-of-type(3){
     font-size: 1rem;
     font-weight: 200;
     text-transform: none;
     letter-spacing: 1px;
     width: 80%;
-  }
+}
 
-  .figures{
+/* Styling for figure elements within the hero section */
+.figures{
     display: flex;
     gap: 2rem;
-  }
+}
 
-  .figures>div{
+/* Styling for specific elements within the figures */
+.figures>div{
     display: flex;
     flex-direction: column;
-  }
+}
 
-  .figures>div>span:nth-of-type(1){
+.figures>div>span:nth-of-type(1){
     color:white;
     font-size: 2rem;
-  }
+}
 
-  .figures>div>span:nth-of-type(2){
+.figures>div>span:nth-of-type(2){
     color:rgb(211, 210, 210);
     text-transform: uppercase;
-  }
+}
 
-  .hero-buttons{
+/* Styling for the hero buttons */
+.hero-buttons{
     display: flex;
     gap: 1rem;
     font-weight: normal;
-  }
+}
 
-  .hero-buttons>:nth-child(1) {
+/* Styling for the first hero button */
+.hero-buttons>:nth-child(1) {
     width: 8rem;
-  }
+}
 
-  .hero-buttons>:nth-child(1):hover {
+.hero-buttons>:nth-child(1):hover {
     background-color: antiquewhite;
-  }
+}
 
-  .hero-buttons>:nth-child(2) {
+/* Styling for the second hero button */
+.hero-buttons>:nth-child(2) {
     color: white;
     background-color: transparent;
     width: 8rem;
     border: 4px solid red;
-  }
+}
 
-  .hero-buttons>:nth-child(2):hover {
+.hero-buttons>:nth-child(2):hover {
     background-color: red;
-  }
+}
 
-  .right-h>.btn{
+/* Styling for elements on the right side of the hero section */
+.right-h>.btn{
     position: absolute;
     right: 3rem;
     top: 2rem;
     color: black;
-  }
+}
 
-  Join {
+/* Additional styling for the "Join" element */
+Join {
     margin-top: 50rem;
-  }
+}
 
-  .hero-blur {
+/* Styling for the blurred background element */
+.hero-blur {
     width: 22rem;
     height: 45rem;
     right: 0;
-  }
+}
 
-  @media screen and (max-width: 768px) {
-    .hero {
+/* Media query for screens with a maximum width of 768px (Mobile view) */
+@media screen and (max-width: 768px) {
+  .hero {
       flex-direction: column;
       background-size: contain; /* Adjust as needed */
     
-    }
+  }
 
-    .hero-blur {
+  .hero-blur {
       width: 14rem;
-    }
+  }
 
-    .hi-ad {
+  .hi-ad {
       margin-top: 2rem;
       font-size: small;
       align-self: left;
       transform: scale(0.8);
-    }
+  }
 
-    .hero-text{
-      
+  .hero-text{
       font-size: xx-large;
       align-items: center;
       justify-content: center;
-    }
+  }
+
     .the {
       margin-left: -1rem;
     }
-
-    
-  }
+}
   

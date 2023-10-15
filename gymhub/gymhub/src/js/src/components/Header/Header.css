@@ -1,9 +1,10 @@
-
+/* Styling for the header container */
 .header {
     display: flex;
     justify-content: space-between;
     background-color: transparent;
    
+    /* Uncomment the following lines for a fixed header with transitions */
    /* transition: background-color 0.5s;
     position: fixed;
     top: 0;
@@ -12,11 +13,13 @@
     /* z-index: 3; */
 }
 
+/* Styling for the logo within the header */
 .logo{
     width: 10rem;
     height: 5rem;
 }
 
+/* Styling for the header menu */
 .header-menu{
     margin-left: -9rem;
     padding-top: 1rem;
@@ -27,24 +30,25 @@
     
 }
 
+/* Styling for menu item links in the header */
 .header-menu>li>a{
     text-decoration: none;
     color: inherit;
 }
 
+/* Styling for links on hover in the header menu */
 .header-menu>li>a:hover{
     color: brown;
 }
 
-
+/* Styling for the entire menu item on hover */
 .header-menu>li:hover{
     cursor: pointer;
     color: brown;
     cursor: pointer;
 }
 
-
-
+/* Styling for dropdown label */
 .header-dropdown .dropdown-label {
     cursor: pointer;
     position: relative;
@@ -52,16 +56,10 @@
     
   }
   
-  
-
-  
-  
-
- 
-
+/* Media query for screens with a maximum width of 768px */
 @media screen and (max-width: 768px) {
     .header {
-        
+        /* Adjustments for mobile view */
         right: 2rem;
         z-index: 99;
     }
