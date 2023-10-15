@@ -80,21 +80,23 @@ const TraineeProfile = () => {
   };
 
   return (
-    
-
     <div className="traineeprofile">
+
+      {/* Left section containing header and user's name */}
       <div className='lefttp'>
-        <div className="traineepheader"><Header/></div>
-            
+        <div className="traineepheader"><Header/></div>  
         <div className='tp-text'>
           <div><span className='stroke-text'>Hi {TraineeName} </span>
           </div>
         </div>
       </div>
+
+      {/* Right section with background image */}
       <div className="style" style={{
         backgroundImage: `url(${backgroundImage})`}}
         ></div>
-       
+
+      {/* Main content container */}
       <div className='container'>
         <ul className="listoflinks">
           <li ><Link to="/viewtrainers" className={location.pathname === '/viewtrainers' ? 'active-link' : ''} style={{textDecoration: 'none', color:'brown'}}>Find Trainers</Link></li>
@@ -103,6 +105,8 @@ const TraineeProfile = () => {
         </ul>
       <br />
       <br />
+
+      {/* Buttons for actions like logout and delete account */}
       <div className="traineeprofilebuttons">
         <button className="btn" onClick={handleLogout}>Logout</button>
         <button className="btn" onClick={handleDeleteUser}>Delete Account</button>
@@ -119,8 +123,7 @@ const TraineeProfile = () => {
             No
           </button>
         </div>
-      )}
-        
+      )} 
     </div>
   )
 }

@@ -8,44 +8,47 @@ import { useAuth } from '../../context/AuthProvider';
 const Appointments = () => {
 
     const { loggedInUserId } = useAuth(); // Retrieve the logged-in user's ID from the AuthContext
+
     // State to manage appointments
-    //const [appointments, setAppointments] = useState([ ... ]); // Initialize with your appointments data
-    
     const [pendingAppointments, setPendingAppointments] = useState([]);
     const [acceptedAppointments, setAcceptedAppointments] = useState([]);
 
     useEffect(() => {
+
         // Fetch the user's appointments based on the logged-in user's ID
         fetch(`/api/users/${loggedInUserId}/appointments`)
           .then((response) => response.json())
           .then((data) => {
-            // Assuming the data contains an array of user-specific appointments
+
+            // Split the fetched data into pending and accepted appointments
             const pending = data.filter(appointment => appointment.status === 'pending');
-                const accepted = data.filter(appointment => appointment.status === 'accepted');
-                setPendingAppointments(pending);
-                setAcceptedAppointments(accepted);
+            const accepted = data.filter(appointment => appointment.status === 'accepted');
+            setPendingAppointments(pending);
+            setAcceptedAppointments(accepted);
           })
           .catch((error) => {
             console.error('Error fetching appointments: ', error);
           });
-      }, [loggedInUserId]); // Trigger the effect whenever the logged-in user ID changes
+    }, [loggedInUserId]); // Trigger the effect whenever the logged-in user ID changes
 
 
     // Function to accept an appointment
     const handleAccept = (appointmentId) => {
+
         // Make an API request to mark the appointment as accepted in the database
         fetch(`/api/appointments/${appointmentId}/accept`, {
             method: 'PUT', // Assuming we use a PUT request to update the appointment status
         })
         .then((response) => {
             if (response.ok) {
+
                 // If the update was successful, update the appointments state
                 setPendingAppointments((prevAppointments) =>
-                prevAppointments.map((appointment) =>
-                    appointment.id === appointmentId
-                    ? { ...appointment, status: 'accepted' }
-                    : appointment
-                )
+                    prevAppointments.map((appointment) =>
+                        appointment.id === appointmentId
+                        ? { ...appointment, status: 'accepted' }
+                        : appointment
+                    )
                 );
             } else {
                 console.log("Hi");
@@ -58,12 +61,14 @@ const Appointments = () => {
 
     // Function to decline an appointment
     const handleDecline = (appointmentId) => {
-        // Make an API request to delete the appointment from the database
+
+    // Make an API request to delete the appointment from the database
     fetch(`/api/appointments/${appointmentId}`, {
         method: 'DELETE', // Assuming we use a DELETE request to delete the appointment
       })
       .then((response) => {
         if (response.ok) {
+
              // If the deletion was successful, update the appointments state
              setPendingAppointments((prevAppointments) => 
                 prevAppointments.filter((appointment) => appointment.id !== appointmentId)
@@ -77,27 +82,38 @@ const Appointments = () => {
       });
     };
 
-  return (
-    <>
-    <div>
-        <TrainerProfile/></div>
+    return (
+        <>
 
+        {/* Display Trainer's Profile */}
+        <div>
+            <TrainerProfile/>
+        </div>
+
+        {/* Container for Accepted Appointments */}
         <div className="acont">
-                <h2 style={{color:'white'}}>Accepted Appointments</h2>
-                <Table className="tcont"
-                    appointments={acceptedAppointments}
-                    onAccept={handleAccept}
-                    onDecline={handleDecline}
-                />
-            </div>
+            <h2 style={{color:'white'}}>Accepted Appointments</h2>
 
-            <div className="rcont">
-                <h2 style={{color:'white'}}>Pending Appointments</h2>
+            {/* Render a table with accepted appointments, allowing actions to accept or decline */}
+            <Table 
+                className="tcont"
+                appointments={acceptedAppointments}
+                onAccept={handleAccept}
+                onDecline={handleDecline}
+            />
+        </div>
+
+        {/* Container for Pending Appointments */}
+        <div className="rcont">
+            <h2 style={{color:'white'}}>Pending Appointments</h2>
         
-            <Table className="tcont"
-            appointments={pendingAppointments}
-            onAccept={handleAccept}
-            onDecline={handleDecline}/>
+            {/* Render a table with pending appointments, allowing actions to accept or decline */}
+            <Table 
+                className="tcont"
+                appointments={pendingAppointments}
+                onAccept={handleAccept}
+                onDecline={handleDecline}
+            />
         </div>
     </>
   )
