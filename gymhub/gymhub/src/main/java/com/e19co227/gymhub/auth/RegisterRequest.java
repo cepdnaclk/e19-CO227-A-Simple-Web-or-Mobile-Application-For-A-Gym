@@ -10,10 +10,14 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class RegisterRequest {
+
+    // Attributes representing user registration information.
     private String userName;
     private String fullName;
     private String email;
     private String password;
+
+    // Role of the user within the application (e.g., 'ADMIN', 'USER', etc.).
     private String appUserRole;
     private String contactNumber;
     private String nic;

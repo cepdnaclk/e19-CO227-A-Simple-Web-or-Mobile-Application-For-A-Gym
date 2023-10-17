@@ -5,8 +5,6 @@ public class TimeSlotNotFoundException extends RuntimeException {
         super(message);
     }
 
-//    public TimeSlotNotFoundException() {
-//        super();
-//    }
+
 }
 

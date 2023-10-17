@@ -24,9 +24,10 @@ import static org.springframework.http.HttpMethod.*;
 @EnableMethodSecurity
 public class SecurityConfiguration {
 
-    private final JwtAuthenticationFilter jwtAuthFilter;
-    private final AuthenticationProvider authenticationProvider;
-    private final LogoutHandler logoutHandler;
+    // Inject necessary dependencies using constructor injection.
+    private final JwtAuthenticationFilter jwtAuthFilter;  // Custom JWT authentication filter.
+    private final AuthenticationProvider authenticationProvider;  // Custom authentication provider.
+    private final LogoutHandler logoutHandler;  // Custom logout handler.
 
 
     @Bean
@@ -38,6 +39,8 @@ public class SecurityConfiguration {
                 .disable()
                 .authorizeHttpRequests()
                 .requestMatchers(
+
+                        // Permit access to specific paths without authentication.
                         "/api/v1/auth/**",
                         "/v2/api-docs",
                         "/v3/api-docs",
@@ -52,8 +55,10 @@ public class SecurityConfiguration {
                 )
                 .permitAll()
 
+                // Require TRAINER role for requests under "/api/v1/trainer/**".
                 .requestMatchers("/api/v1/trainer/**").hasRole(TRAINER.name())
 
+                // Define specific authorities required for various HTTP methods on "/api/v1/trainer/**".
                 .requestMatchers(GET, "/api/v1/trainer/**").
                 hasAuthority(TRAINER_READ.name())
                 .requestMatchers(POST, "/api/v1/trainer/**").
@@ -63,8 +68,10 @@ public class SecurityConfiguration {
                 .requestMatchers(DELETE, "/api/v1/trainer/**").
                 hasAuthority(TRAINER_DELETE.name())
 
+                // Require TRAINEE role for requests under "/api/v1/trainee/**".
                 .requestMatchers("/api/v1/trainee/**").hasRole(TRAINEE.name())
 
+                // Define specific authorities required for various HTTP methods on "/api/v1/trainee/**".
                 .requestMatchers(GET, "/api/v1/trainee/**").
                 hasAuthority(TRAINEE_READ.name())
                 .requestMatchers(POST, "/api/v1/trainee/**").
@@ -74,6 +81,7 @@ public class SecurityConfiguration {
                 .requestMatchers(DELETE, "/api/v1/trainee/**").
                 hasAuthority(TRAINEE_DELETE.name())
 
+                // Require authentication for any other request.
                 .anyRequest()
                 .authenticated()
                 .and()
@@ -85,8 +93,7 @@ public class SecurityConfiguration {
                 .logout()
                 .logoutUrl("/api/v1/auth/logout")
                 .addLogoutHandler(logoutHandler)
-                .logoutSuccessHandler((request, response, authentication) -> SecurityContextHolder.clearContext())
-        ;
+                .logoutSuccessHandler((request, response, authentication) -> SecurityContextHolder.clearContext());
 
         return http.build();
     }

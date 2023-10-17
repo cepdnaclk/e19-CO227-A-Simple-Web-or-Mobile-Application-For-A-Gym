@@ -23,61 +23,53 @@ public class  AppUserService implements UserDetailsService {
     private final static String USER_NOT_FOUND_MSG =
             "username with email %s not found";
 
-    private final AppUserDao appUserDao;
-    private final ConfirmationTokenService confirmationTokenService;
-
-    //private final BCryptPasswordEncoder bCryptPasswordEncoder;
+    // Dependencies injected using constructor injection.
+    private final AppUserDao appUserDao;  // Data access for AppUser entities.
+    private final ConfirmationTokenService confirmationTokenService;  // Service for managing confirmation tokens.
 
     public ResponseEntity<List<AppUser>> getAllUsers() {
 
+        // Retrieve all users and return them in a ResponseEntity with OK status.
         return new ResponseEntity<>(appUserDao.findAll(), HttpStatus.OK);
     }
 
     public ResponseEntity<String> registerUser(AppUser appUser) {
 
-        //String hashedPassword = bCryptPasswordEncoder.encode(trainer.getPassword());
-        //trainer.setPassword(hashedPassword);
-
+        // Save the user to the database.
         appUserDao.save(appUser);
         return new ResponseEntity<>("Success",HttpStatus.CREATED);
-
     }
 
     @Override
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
+
+        // Load a user by their email (username) and return UserDetails.
         return appUserDao.findByEmail(email)
                 .orElseThrow(() ->
                         new UsernameNotFoundException(String.format(USER_NOT_FOUND_MSG,email)));
     }
 
     public String signUpUser (AppUser appUser){
-/*        boolean userExists = appUserDao.
-                findByEmail(appUser.getEmail())
-                .isPresent();
 
-        if (userExists){
-            throw new IllegalStateException("Email already taken");
-        }
-        *//*String encodedPassword =
-                bCryptPasswordEncoder.encode(appUser.getPassword());
-
-        appUser.setPassword(encodedPassword);*//*
-
-        appUserDao.save(appUser);*/
-
+        // Generate a random token for email confirmation.
         String token = UUID.randomUUID().toString();
-        // TODO: Confirmation token
+
+        // Create a confirmation token with an expiration time.
         ConfirmationToken confirmationToken = new ConfirmationToken(
                 token,
                 LocalDateTime.now(),
                 LocalDateTime.now().plusMinutes(15),
                 appUser
         );
+
+        // Save the confirmation token to the database.
         confirmationTokenService.saveConfirmationToken(confirmationToken);
         return token;
     }
 
     public void enableAppUser(String email) {
+
+        // Enable the app user (usually after email confirmation).
         appUserDao.enableAppUser(email);
     }
 }

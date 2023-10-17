@@ -30,6 +30,8 @@ public class TraineeService {
         this.appointmentDao = appointmentDao;
         this.timeSlotDao = timeSlotDao;
     }
+
+    // Update the trainee's profile
     public Trainee updateTrainerProfile(int traineeId, Trainee trainee) {
         if (appUserDao.existsById(traineeId)) {
             trainee.setUserId(traineeId);
@@ -38,6 +40,7 @@ public class TraineeService {
         return null;
     }
 
+    // Get all appointments for a trainee
     public List<Appointment> getAllAppointmentsForTrainee(int traineeId) {
         AppUser trainee = appUserDao.findByUserId(traineeId).orElse(null);
         if (trainee != null) {
@@ -47,6 +50,7 @@ public class TraineeService {
         }
     }
 
+    // Add an appointment by a trainee
     public ResponseEntity<String> addAppointmentByTrainee(
             int traineeId,
             Appointment appointment) {
@@ -61,6 +65,7 @@ public class TraineeService {
         }
     }
 
+    // Delete an appointment by a trainee
     public boolean deleteAppointment(int traineeId, int appointmentId) {
         AppUser trainee = appUserDao.findByUserId(traineeId).orElse(null);
         Appointment appointment = appointmentDao.findById(appointmentId).orElse(null);
@@ -71,6 +76,7 @@ public class TraineeService {
         return false;
     }
 
+    // Get the username for a trainee
     public String getUserName(int traineeId) {
         Optional<AppUser> optionalAppUser = appUserDao.findByUserId(traineeId);
         if (optionalAppUser.isPresent()){

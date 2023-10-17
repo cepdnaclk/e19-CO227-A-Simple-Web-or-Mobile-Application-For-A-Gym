@@ -9,18 +9,23 @@ import java.util.Optional;
 @Service
 @AllArgsConstructor
 public class ConfirmationTokenService {
+
+    // Inject ConfirmationTokenDao dependency using constructor injection.
     private final ConfirmationTokenDao confirmationTokenDao;
 
+    // Save a confirmation token to the database.
     public void saveConfirmationToken(ConfirmationToken token){
         confirmationTokenDao.save(token);
     }
+
+    // Retrieve a confirmation token by its token value.
     public Optional<ConfirmationToken> getToken(String token) {
         return confirmationTokenDao.findByToken(token);
     }
 
+    // Set the "confirmedAt" timestamp when a token is confirmed during email verification.
     public int setConfirmedAt(String token) {
         return confirmationTokenDao.updateConfirmedAt(
                 token, LocalDateTime.now());
     }
-
 }
