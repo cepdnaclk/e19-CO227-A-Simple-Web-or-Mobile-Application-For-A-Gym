@@ -12,7 +12,7 @@ import {Routes, Route } from 'react-router-dom';
 import TrainerProfile from './components/Trainers/TrainerProfile';
 import Appointments from './components/Trainers/Appointments'
 import TrainerSettings from './components/Trainers/TrainerSettings';
-
+import BMICalculator from './components/BMICalculator/BMI';
 
 
 
@@ -46,6 +46,8 @@ function App() {
         <Route path='trainerprofile' element={<TrainerProfile />} />
         <Route path='/appointments' element={<Appointments />} />
         <Route path='trainersettings' element={<TrainerSettings />} />
+        <Route path='/bmicalculator' element={<BMICalculator />} />
+
 
       </Routes>
       <Join/>
