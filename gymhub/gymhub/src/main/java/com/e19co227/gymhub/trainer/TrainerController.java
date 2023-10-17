@@ -22,6 +22,7 @@ public class TrainerController {
         this.trainerService = trainerService;
     }
 
+    // Update the trainer's profile
     @PutMapping("/editProfile/{trainerId}")
     public ResponseEntity<Trainer> updateTrainerProfile(@PathVariable int trainerId, @RequestBody Trainer trainer) {
         Trainer updatedTrainer = trainerService.updateTrainerProfile(trainerId, trainer);

@@ -17,20 +17,29 @@ import java.time.LocalTime;
 @Table
 public class TimeSlot {
 
+    // Unique identifier for the time slot.
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer timeSlotId;
 
+    // Many-to-One relationship with the associated trainer (AppUser entity).
     @ManyToOne
     @JoinColumn(name = "trainer_id")
-    @Hidden
+    @Hidden  // Hidden from OpenAPI documentation.
     private AppUser trainer;
+
+    // Many-to-One relationship with the associated trainee (AppUser entity).
     @ManyToOne
     @JoinColumn(name="trainee_id")
-    @Hidden
+    @Hidden  // Hidden from OpenAPI documentation.
     private AppUser trainee;
 
+    // Date of the time slot.
     private LocalDate date;
+
+    // Start time of the time slot.
     private LocalTime startTime;
+
+    // End time of the time slot.
     private LocalTime endTime;
 }

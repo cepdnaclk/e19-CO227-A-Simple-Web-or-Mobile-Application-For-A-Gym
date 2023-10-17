@@ -41,21 +41,23 @@ public class TrainerService {
         this.timeSlotDao = timeSlotDao;
     }
 
+    // Helper method to get the currently logged-in user
     private AppUser getCurrentUser() {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-
         String email = authentication.getName();
         AppUser user = appUserDao.findByEmail(email).get();
         return user;
     }
+
+    // Update the trainer's profile
     public Trainer updateTrainerProfile(int trainerId, Trainer trainer) {
         AppUser user = getCurrentUser();
 
         if (trainerDao.existsById(trainerId)) {
             AppUser existingUser = appUserDao.findById(trainerId).get();
+            // Check if the appointment belongs to the current user
             if(!Objects.equals(existingUser.getUserId(), user.getUserId()))
                 throw new IllegalArgumentException("This Appointment Does Not Belong to you");
-
 
             trainer.setUserId(trainerId);
             trainerDao.save(trainer);
@@ -64,6 +66,7 @@ public class TrainerService {
         return null;
     }
 
+    // Get all appointments for the trainer
     public List<Appointment> getAllAppointmentsForTrainer(int trainerId) {
         AppUser user = getCurrentUser();
         AppUser trainer = appUserDao.findByUserId(user.getUserId()).orElse(null);
@@ -72,8 +75,6 @@ public class TrainerService {
         } else {
             return Collections.emptyList();
         }
-
-
     }
 
     //Directly get from the current user id
@@ -85,7 +86,6 @@ public class TrainerService {
         if ( trainer == null ) {
             //return Collections.emptyList();
             throw new IllegalArgumentException("This Timeslots not yours");
-
         }
 
         return timeSlotDao.getTimeSlotsByTrainer(trainer);
@@ -104,10 +104,9 @@ public class TrainerService {
         timeSlot.setTrainer(trainer);
         timeSlotDao.save(timeSlot);
         return new ResponseEntity<>("TimeSlot Added", HttpStatus.CREATED);
-
-
     }
 
+    // Update a time slot for the trainer
     public TimeSlot updateTimeSlotForTrainer(int trainerId, int timeSlotId, TimeSlot updatedTimeSlot) {
         AppUser user = getCurrentUser();
         AppUser trainer = appUserDao.findByUserId(user.getUserId()).orElse(null);
@@ -119,8 +118,8 @@ public class TrainerService {
         return null;
     }
 
+    // Delete a time slot for the trainer
     public boolean deleteTimeSlotForTrainer(int trainerId, int timeSlotId) {
-
         AppUser user = getCurrentUser();
         AppUser trainer = appUserDao.findByUserId(user.getUserId()).orElse(null);
         TimeSlot timeSlot = timeSlotDao.findById(timeSlotId).orElse(null);
@@ -131,6 +130,7 @@ public class TrainerService {
         return false;
     }
 
+    // Get the username for the trainer
     public String getUserName(int trainerId) {
         AppUser user = getCurrentUser();
         Optional<AppUser> optionalAppUser = appUserDao.findByUserId(user.getUserId());
@@ -140,6 +140,4 @@ public class TrainerService {
         }
         return "";
     }
-
-
 }

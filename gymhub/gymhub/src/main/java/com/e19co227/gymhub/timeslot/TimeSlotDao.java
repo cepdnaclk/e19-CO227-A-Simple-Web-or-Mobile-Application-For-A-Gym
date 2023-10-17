@@ -11,8 +11,12 @@ import java.util.List;
 @Transactional(readOnly = true)
 public interface TimeSlotDao extends JpaRepository<TimeSlot,Integer> {
 
+    // Find a time slot by its unique identifier.
     TimeSlot findByTimeSlotId(Integer timeSlotId);
 
+    // Find all time slots associated with a specific trainee (AppUser entity).
     List<TimeSlot> getTimeSlotsByTrainee(AppUser trainee);
+
+    // Find all time slots associated with a specific trainer (AppUser entity).
     List<TimeSlot> getTimeSlotsByTrainer(AppUser trainer);
 }

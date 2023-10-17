@@ -11,8 +11,11 @@ import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import io.swagger.v3.oas.annotations.security.SecurityScheme;
 import io.swagger.v3.oas.annotations.servers.Server;
 
+// OpenAPI definition for GymHub API documentation.
 @OpenAPIDefinition(
         info = @Info(
+
+                // Information about the API.
                 contact = @Contact(
                         name = "Hirushi",
                         email = "hirushig1@gmail.com",
@@ -27,6 +30,8 @@ import io.swagger.v3.oas.annotations.servers.Server;
                 ),
                 termsOfService = "Terms of service"
         ),
+
+        // Servers where the API is hosted.
         servers = {
                 @Server(
                         description = "Local ENV",
@@ -37,12 +42,16 @@ import io.swagger.v3.oas.annotations.servers.Server;
                         url = "https://www.gymhub.com"
                 )
         },
+
+        // Security requirement specifying the need for bearer token authentication.
         security = {
                 @SecurityRequirement(
                         name = "bearerAuth"
                 )
         }
 )
+
+// Security scheme definition for JWT authentication.
 @SecurityScheme(
         name = "bearerAuth",
         description = "JWT auth description",

@@ -21,9 +21,10 @@ import java.io.IOException;
 @RequiredArgsConstructor
 public class JwtAuthenticationFilter extends OncePerRequestFilter {
 
-    private final JwtService jwtService;
-    private final UserDetailsService userDetailsService;
-    private final TokenDao tokenDao;
+    // Inject necessary dependencies using constructor injection.
+    private final JwtService jwtService;  // Service for JWT operations.
+    private final UserDetailsService userDetailsService;  // Custom UserDetailsService.
+    private final TokenDao tokenDao;  // Data access for tokens.
     @Override
     protected void doFilterInternal(
             @NonNull HttpServletRequest request,
@@ -35,32 +36,52 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
         final String jwt;
         final String userEmail;
 
+        // Check if the request has an Authorization header starting with "Bearer".
         if(authHeader == null || !authHeader.startsWith("Bearer ")){
+
+            // If not, continue with the filter chain without authentication.
             filterChain.doFilter(request,response);
             return;
         }
+
+        // Extract the JWT token from the Authorization header.
         jwt = authHeader.substring(7);
+
+        // Extract the user's email from the JWT.
         userEmail = jwtService.extractUsername(jwt);
 
         if (userEmail != null && SecurityContextHolder.getContext().getAuthentication() == null ){
+
+            // If the user email is not null and there is no existing authentication context.
+
+            // Load user details from the custom UserDetailsService.
             UserDetails userDetails = this.userDetailsService.loadUserByUsername(userEmail);
 
+            // Check if the JWT token is valid and not expired or revoked.
             var isTokenValid = tokenDao.findByToken(jwt)
                     .map(t -> !t.isExpired() && !t.isRevoked())
                     .orElse(false);
 
             if(jwtService.isTokenValid(jwt, userDetails) && isTokenValid){
+
+                // If the token is valid, create an authentication token.
                 UsernamePasswordAuthenticationToken authToken = new UsernamePasswordAuthenticationToken(
                         userDetails,
                         null,
                         userDetails.getAuthorities()
                 );
+
+                // Set authentication details.
                 authToken.setDetails(
                         new WebAuthenticationDetailsSource().buildDetails(request)
                 );
+
+                // Set the authentication context in SecurityContextHolder.
                 SecurityContextHolder.getContext().setAuthentication(authToken);
             }
         }
+
+        // Continue with the filter chain.
         filterChain.doFilter(request,response);
 
     }
