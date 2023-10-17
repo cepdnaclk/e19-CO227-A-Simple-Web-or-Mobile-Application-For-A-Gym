@@ -1,20 +1,21 @@
-
-
+/* Styles for the background image */
 .style{
     background-size: cover;
     position:absolute;
     background-repeat: no-repeat;
     width: 100%;
     height: 15rem;
-    z-index:-2;
+    z-index:-2; /* Position the background behind other elements */
     margin: 0;
-      padding: 0;
+    padding: 0;
 }
 
+/* Header styles */
 .header {
     width: 80%;
 }
 
+/* Trainee details form container */
 .traineedetailsform {
     align-items: center;
     height: 65rem;
@@ -23,23 +24,15 @@
     border: 2px solid white;;
     border-color: white;
     border-radius: 10px;
-    margin-top:-32rem;
-    margin-left: 32rem;
-    margin-right: 35rem;
+    margin-top:-32rem;  /* Adjust positioning from the top */
+    margin-left: 32rem; /* Adjust positioning from the left */
+    margin-right: 35rem; /* Adjust positioning from the right */
     position: center;
     margin-bottom: 2rem;
-    
-    /* display: flex;
-    flex-direction: column;
-    justify-content: space-evenly; */
-  
     padding: 20px;
-    
-    
-    
-    /* position: relative; */
 }
 
+/* Trainee details inputs */
 .traineedetails {
   font-family: 'Nunito', sans-serif;
   font-size: 22px;
@@ -54,9 +47,8 @@
   cursor: auto;
 }
 
+/* Submit button styles */
 .traineedetailsform>button {
-    
-  
   background-color: brown;
   color:black;
 }
@@ -67,14 +59,14 @@
     width: '40rem', 
 }
 
-
+/* Hover styles for submit button */
 .traineedetailssubmit {
     background-color: brown;
-  color:black;
-  width:40rem;
-  
+    color:black;
+    width:40rem;
   }
 
+/* Disabled state styles for submit button */
 .traineedetailssubmit:hover {
     background-color: white;
     cursor: pointer;
@@ -99,7 +91,6 @@
   padding: 0.5rem;
 }
 
-
 .instructions {
     font-size: 0.75rem;
     border-radius: 0.5rem;
@@ -114,8 +105,7 @@
     margin-right: 0.25rem;
 }
 
-
-  .hide {
+.hide {
     display: none;
 }
 
@@ -129,6 +119,7 @@
     margin-left: 0.25rem;
 }
 
+/* Error message styles */
 .errmsg {
     background-color: lightpink;
     color: firebrick;
@@ -136,25 +127,22 @@
     padding: 0.5rem;
     margin-bottom: 0.5rem;
 }
+
+/* Trainee profile info */
 .traineeprofilein {
   color: white;
   margin-right: 50rem;
   align-self: left;
 }
 
-
-
-
 /* Media query for screens smaller than 768px (e.g., mobile devices) */
 @media screen and (max-width: 768px) {
   /* Adjust the layout for smaller screens */
  
-
   .form-container {
      /* Adjust the width as needed for mobile screens */
     margin-top: 2rem;
     width:100%;
-   
   }
 
   .traineedetailsform {
@@ -174,9 +162,7 @@
   .traineedetailssubmit:hover {
     background-color: white;
     cursor: pointer;
-}
-
-  /* Add any additional responsive styles here */
+  }
 }
 
 
