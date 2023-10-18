@@ -1,5 +1,4 @@
-
-
+/* Styles for a background image */
 .style{
     background-size: cover;
     position:absolute;
@@ -8,26 +7,61 @@
     height: 15rem;
     z-index:-2;
     margin: 0;
-      padding: 0;
+    padding: 0;
 }
 
+/* Styles for the header element */
 .header {
     width: 80%;
 }
 
+/* Styles for the table */
 table {
-    margin-top: -32rem;
-    margin-left: 30rem;
-    margin-right: 20px; /* Adjust the margin as needed */
-    border: 1px solid;
+    border: 1px solid white;
     color: white;
-    border-color: white;
-    height: 30rem;
-      
+    border-collapse: collapse; /* Combine table borders */
+    width: 100%; /* Make the table take up 100% of its container width */    
   }
-  th, td {
-      width: 10px;
-      border: 1px solid;
-      border-color: white;
+
+/* Styles for table header and data cells */
+th, td {
+    border: 1px solid white;    
   }
+
+/* Styles for the container with class 'acont' */
+.acont {
+    margin-left: 30rem;
+    margin-top: -30rem;
+    display: flex; /* Use flexbox to position elements */
+    justify-content: space-between; /* Spread elements horizontally */
+    align-items: center; /* Center elements vertically */
+    padding: 20px;
+}
+
+/* Styles for the container with class 'tcont' (for the table) */
+.tcont {
+    flex: 1; /* Allow the table container to take up remaining space */
+    margin-left: 20px; /* Adjust margin as needed */
+}
+
+/* Styles for the container with class 'rcont' */
+.rcont {
+    display: flex; /* Use flexbox to position elements */
+    justify-content: space-between; /* Spread elements horizontally */
+    align-items: center; /* Center elements vertically */
+    padding: 20px;
+    margin-left: 30rem;
+  }
+
+/* Media query for screens smaller than 768px (e.g., mobile devices) */
+@media screen and (max-width: 768px) {
+
+  /* Adjust 'acont' and 'rcont' for smaller screens */
+  .acont, .rcont {
+    flex-direction: column; /* Stack elements vertically */
+    align-items: flex-start; /* Align elements to the left */
+    margin-left: 0;
+    margin-top: 5rem;
+  }
+}
 

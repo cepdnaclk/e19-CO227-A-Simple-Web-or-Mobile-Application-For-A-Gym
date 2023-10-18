@@ -1,3 +1,4 @@
+/* Styling for the registration page */
 .register {
     width: 100%;
     height: 100%;
@@ -8,17 +9,16 @@
       background-repeat: no-repeat;
       background-position: top-center;
       background-color: none;
-      
-      margin: 0;
+      margin: 0 auto; /* Center the content horizontally */
       padding: 0;
 }
 
-header {
+.regheader {
     z-index: 3;
-    flex:3;
-    
+    flex:3;  
 }
 
+/* Hidden element for screen readers */
 .offscreen {
     position: absolute;
     left: -9999px;
@@ -36,12 +36,10 @@ header {
 }
 
 .leftreg{
-    height:15rem;
-    
-    
+    height:15rem;   
 }
 
-
+/* Styling for the registration page text */
 .register-text {
     position:relative;
     margin-top:5rem ;
@@ -56,57 +54,25 @@ header {
     color: white;
     text-overflow: inherit;
     justify-content: flex-start;
-    
-    
   }
 
-
-  .leftf {
-    flex: 2;
+/* Styling for the left side of the registration page */
+.leftf {
     display: flex;
     gap: 3rem;
     flex-direction: column;
-  }
+}
 
 .lf {
-    height: 35rem;
-    width: 25rem;
+    height: 55rem;
+    width: 23rem;
     background-color: black;
     border: 2px solid white;;
     border-color: white;
     border-radius: 10px;
     margin-top:20rem;
-    margin-left: 20rem;
+    margin-left: 30rem;
     margin-right: 35rem;
-    position: center;
-    margin-bottom: 2rem;
-    
-    /* display: flex;
-    flex-direction: column;
-    justify-content: space-evenly; */
-  
-    padding: 20px;
-    
-    margin-left: -41rem;
-    
-    /* position: relative; */
-}
-
-.rightf {
-    flex: 2;
-    position: relative;
-}
-
-.rf {
-    height: 35rem;
-    width: 25rem;
-    background-color: black;
-    border: 2px solid white;;
-    border-color: white;
-    border-radius: 10px;
-    margin-top:20rem;
-    margin-left: 35rem;
-    margin-right: 25rem;
     position: center;
     margin-bottom: 2rem;
     color: white;
@@ -115,15 +81,14 @@ header {
     justify-content: space-evenly; */
   
     padding: 20px;
+    margin-left: -41rem;
     
-    margin-left: -22rem;
+    /* position: relative; */
 }
 
-input[type="text"],
-input[type="password"],
-input[type="file"]
-button,
-textarea {
+/* Styling for registration input fields and buttons */
+.reginput,
+.regbutton {
   font-family: 'Nunito', sans-serif;
   font-size: 22px;
   padding: 0.25rem;
@@ -131,47 +96,35 @@ textarea {
   width:22rem;
   background-color: rgb(188, 88, 88);
   margin-bottom: 2rem;
-  
-
 }
 
 .uphoto {
     color: white;
     cursor: pointer;
-   
 }
 
-label {
+.reglabel {
     color: rgb(254, 254, 254);
     margin-top: 1rem;
 }
 
-label>customfile {
-    overflow: hidden;
-    background-color: red;
-    color: white;
-    cursor: pointer;
-}
-
-
-button {
+.regbutton {
   margin-top: 1rem;
-  background-color: red;
+  background-color: brown;
   color:black;
-  width: 10rem;
-  
+  width: 10rem; 
 }
 
-button:disabled {
+.regbutton:disabled {
     background-color: gray;
     color: white;
 }
 
-button {
+.regbutton {
   padding: 0.5rem;
 }
 
-
+/* Styling for instructions and validation messages */
 .instructions {
     font-size: 0.75rem;
     border-radius: 0.5rem;
@@ -186,6 +139,7 @@ button {
     margin-right: 0.25rem;
 }
 
+/* Hidden elements and validation messages */
 .offscreen {
     position: absolute;
     left: -9999px;
@@ -218,19 +172,47 @@ button {
     margin-top: -5rem;
 }
 
-a {
-    
-        
-        color: inherit;
-    
+/* Styling for links with no underline */
+.no-underliner {
+    color: inherit;
+    text-decoration: none;
 }
 
-a:hover{
-    color:red;
+.no-underliner:hover{
+    color:brown;
     cursor: pointer;
 }
 
-p {
+.regp {
     margin-top: 2rem;
     color:white;
 }
+
+/* Responsive styles for smaller screens */
+@media screen and (max-width: 768px) {
+    .register {
+      flex-direction: column;
+      margin-left: 2.3rem;
+    }
+  
+    .leftreg,
+    .rightf {
+      flex: 1;
+      margin-left: 0;
+      margin-right: 0;
+    }
+  
+    .lf,
+    .rf {
+      width: 75%;
+      margin: 0 auto;
+    }
+  
+    .line {
+      margin-top: 0;
+    }
+
+    .reginput {
+        width: 16.8rem;
+    }
+  }

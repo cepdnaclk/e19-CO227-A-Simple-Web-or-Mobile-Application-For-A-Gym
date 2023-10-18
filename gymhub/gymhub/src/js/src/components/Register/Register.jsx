@@ -9,7 +9,7 @@ import '../Login/Login'
 import { Link } from 'react-router-dom';
 import axios from '../../api/axios';
 
-
+// Regular expressions for input validation
 const USER_REGEX = /^[A-z][A-z0-9-_]{3,23}$/;
 const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
 const NAME_REGEX = /^[A-Za-z\s]{2,23}$/;
@@ -23,12 +23,13 @@ const REGISTER_URL = '/register';
 
 export const Register = () => {
   
-  const userRef = useRef();
-  const errRef = useRef();
+    const userRef = useRef();
+    const errRef = useRef();
 
-  const [name, setName] = useState('');
-  const [valid_Name, setValidName] = useState(false);
-  const [nameFocus, setNameFocus] = useState(false);
+    // States for various input fields and their validation
+    const [name, setName] = useState('');
+    const [valid_Name, setValidName] = useState(false);
+    const [nameFocus, setNameFocus] = useState(false);
 
     const [user, setUser] = useState('');
     const [validName, setValidUser] = useState(false);
@@ -65,38 +66,43 @@ export const Register = () => {
         userRef.current.focus();
     }, [])
 
+    // Validation function for username
     useEffect(() => {
       const result = USER_REGEX.test(user);
       setValidUser(result);
     }, [user]);
   
-    // Validation functions for other fields
+    // Validation function for name
     useEffect(() => {
       setValidName(NAME_REGEX.test(name));
     }, [name]);
 
+    // Validation function for email
     useEffect(() => {
       setValidEmail(EMAIL_REGEX.test(email));
     }, [email]);
   
+    // Validation function for phone number
     useEffect(() => {
       setValidpNumber(PHONE_REGEX.test(pNumber));
     }, [pNumber]);
   
+    // Custom validation for role
     useEffect(() => {
       setValidRole(role.trim() !== ''); // Custom validation for role
     }, [role]);
   
+    // Validation function for NIC
     useEffect(() => {
       setValidNic(NIC_REGEX.test(nic) || NIC_REGEX_2.test(nic));
     }, [nic]);
 
-   
-  
+    // Validation function for password
     useEffect(() => {
       setValidPwd(PWD_REGEX.test(pwd));
     }, [pwd]);
   
+    // Validation function for password match
     useEffect(() => {
       setValidMatch(pwd === matchPwd);
     }, [pwd, matchPwd]);
@@ -122,7 +128,7 @@ export const Register = () => {
     }
     try {
         const response = await axios.post(REGISTER_URL,
-            JSON.stringify({ user, pwd }),
+            JSON.stringify({ user, email, pwd, role, name, pNumber, nic }),
             {
                 headers: { 'Content-Type': 'application/json' },
                 withCredentials: true
@@ -135,8 +141,14 @@ export const Register = () => {
         //clear state and controlled inputs
         //need value attrib on inputs for this
         setUser('');
+        setEmail('');
         setPwd('');
         setMatchPwd('');
+        setRole('');
+        setName('');
+        setpNumber('');
+        setNic('');
+
     } catch (err) {
         if (!err?.response) {
             setErrMsg('No Server Response');
@@ -154,8 +166,8 @@ export const Register = () => {
             {success ? (
                 <section>
                     <h1>Success!</h1>
-                    <p>
-                        <Link to="./">Sign In</Link>
+                    <p className="regp">
+                        <Link  to="./" className="no-underline" >Sign In</Link>
                     </p>
                 </section>
             ) : (
@@ -167,8 +179,9 @@ export const Register = () => {
           className="register">
           
           <div className='leftreg'>
+            <div className='regheader'>
           <Header/>
-
+                </div>
           
         
         <div className='register-text'>
@@ -186,12 +199,15 @@ export const Register = () => {
       <p ref={errRef} className={errMsg ? "errmsg" : "offscreen"} aria-live="assertive">{errMsg}</p>
       <div className="leftf">
       <form className="lf" onSubmit={handleSubmit}>
-                        <label htmlFor="username">
+
+                        {/* Username input and validation */}
+                        <label className='reglabel' htmlFor="username">
                             Username:
                             <FontAwesomeIcon icon={faCheck} className={validName ? "valid" : "hide"} />
                             <FontAwesomeIcon icon={faTimes} className={validName || !user ? "hide" : "invalid"} />
                         </label>
                         <input
+                            className='reginput'
                             type="text"
                             id="username"
                             ref={userRef}
@@ -212,12 +228,13 @@ export const Register = () => {
                             Letters, numbers, underscores, hyphens allowed.
                         </p>
 
-                        <label htmlFor="email">
+                        <label className='reglabel' htmlFor="email">
                             Email:
                             <FontAwesomeIcon icon={faCheck} className={validEmail ? "valid" : "hide"} />
                             <FontAwesomeIcon icon={faTimes} className={validEmail || !email ? "hide" : "invalid"} />
                         </label>
                         <input
+                            className='reginput'
                             type="text"
                             id="email"
                             ref={userRef}
@@ -235,12 +252,13 @@ export const Register = () => {
                             Should be in the correct form of your email.
                         </p>
 
-                        <label htmlFor="pwd">
+                        <label className='reglabel' htmlFor="pwd">
                             Password:
                             <FontAwesomeIcon icon={faCheck} className={validPwd ? "valid" : "hide"} />
                             <FontAwesomeIcon icon={faTimes} className={validPwd || !pwd ? "hide" : "invalid"} />
                         </label>
                         <input
+                            className='reginput'
                             type="password"
                             id="pwd"
                             onChange={(e) => setPwd(e.target.value)}
@@ -258,12 +276,13 @@ export const Register = () => {
                             Allowed special characters: <span aria-label="exclamation mark">!</span> <span aria-label="at symbol">@</span> <span aria-label="hashtag">#</span> <span aria-label="dollar sign">$</span> <span aria-label="percent">%</span>
                         </p>
 
-                        <label htmlFor="confirm_pwd">
+                        <label className='reglabel' htmlFor="confirm_pwd">
                             Confirm Password:
                             <FontAwesomeIcon icon={faCheck} className={validMatch && matchPwd ? "valid" : "hide"} />
                             <FontAwesomeIcon icon={faTimes} className={validMatch || !matchPwd ? "hide" : "invalid"} />
                         </label>
                         <input
+                            className='reginput'
                             type="password"
                             id="confirm_pwd"
                             onChange={(e) => setMatchPwd(e.target.value)}
@@ -279,7 +298,7 @@ export const Register = () => {
                             Must match the first password input field.
                         </p>
 
-                        <label htmlFor="role">
+                        {/* <label htmlFor="role">
                             Role:
                             <FontAwesomeIcon icon={faCheck} className={validRole ? "valid" : "hide"} />
                             <FontAwesomeIcon icon={faTimes} className={validRole || !role ? "hide" : "invalid"} />
@@ -301,19 +320,18 @@ export const Register = () => {
                             <FontAwesomeIcon icon={faInfoCircle} />
                             Enter either "Trainer" or "Trainee".
                         </p>
+ */}
 
+
+                
                         
-                        </form>
-      </div>
-
-      <div className="rightf">
-        <form className="rf" onSubmit={handleSubmit}>
-        <label htmlFor="name">
+                        <label className='reglabel' htmlFor="name">
                             Name:
                             <FontAwesomeIcon icon={faCheck} className={valid_Name ? "valid" : "hide"} />
                             <FontAwesomeIcon icon={faTimes} className={valid_Name || !name ? "hide" : "invalid"} />
                         </label>
                         <input
+                            className='reginput'
                             type="text"
                             id="name"
                             ref={userRef}
@@ -332,12 +350,13 @@ export const Register = () => {
                             Numbers are not accepted
                         </p>
 
-                        <label htmlFor="pNumber">
+                        <label className='reglabel' htmlFor="pNumber">
                            Phone Number:
                             <FontAwesomeIcon icon={faCheck} className={validpNumber ? "valid" : "hide"} />
                             <FontAwesomeIcon icon={faTimes} className={validpNumber || !pNumber ? "hide" : "invalid"} />
                         </label>
                         <input
+                            className='reginput'
                             type="text"
                             id="pNumber"
                             ref={userRef}
@@ -358,12 +377,13 @@ export const Register = () => {
 
                         
 
-                        <label htmlFor="nic">
+                        <label className='reglabel' htmlFor="nic">
                             NIC:
                             <FontAwesomeIcon icon={faCheck} className={validNic ? "valid" : "hide"} />
                             <FontAwesomeIcon icon={faTimes} className={validNic || !nic ? "hide" : "invalid"} />
                         </label>
                         <input
+                            className='reginput'
                             type="text"
                             id="nic"
                             ref={userRef}
@@ -381,9 +401,13 @@ export const Register = () => {
                             Old nic with 9 digits and v.<br/>
                             New nic with 12 digits only.
                         </p>
-                        <br />
+
+                        <label className='reglabel' htmlFor="confirm_pwd">
+                            Role:
+                            
+                        </label>
                         <select
-                        name='day'
+                        name='role'
                         className='role'
                         style={{backgroundColor: 'rgb(188, 88, 88)', fontSize:'1.25rem'}}
                         >
@@ -391,21 +415,25 @@ export const Register = () => {
                             <option value="Trainer">Trainer</option>
                             <option value="Trainee">Trainee</option>
                         </select>
+                       
                         <br />
                         <br />
-                        <button disabled={!valid_Name || !validPwd || !validMatch || !validEmail || !validName || !validpNumber || !validRole  ? true : false}>Sign Up</button>
-                        <p>
+                        <button className='regbutton' disabled={!valid_Name || !validPwd || !validMatch || !validEmail || !validName || !validpNumber  ? true : false}>Sign Up</button>
+                        <p className="regp">
 
+                        
                         
 
                         Already registered?<br /><br/>
                         <span className="line">
                             
-                            <Link to="/login" className="no-underline">Sign In</Link>
+                            <Link to="/login" className="no-underliner">Sign In</Link>
                         </span>
                     </p>
-        </form>
+                        </form>
       </div>
+
+      
       
       </div> 
     </section>

@@ -6,7 +6,10 @@ import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';
 import { AuthProvider } from './context/AuthProvider';
 
+// Create a root to render your React app
 const root = ReactDOM.createRoot(document.getElementById('root'));
+
+// Render the app inside a BrowserRouter and wrap it with AuthProvider
 root.render(
   <BrowserRouter>
   <AuthProvider>
@@ -16,7 +19,4 @@ root.render(
   </BrowserRouter>
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();

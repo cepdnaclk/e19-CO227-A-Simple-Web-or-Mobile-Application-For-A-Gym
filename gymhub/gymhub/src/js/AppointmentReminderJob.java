@@ -1,6 +1,5 @@
 import org.quartz.*;
 import org.quartz.impl.StdSchedulerFactory;
-
 import javax.mail.*;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
@@ -13,17 +12,22 @@ import java.util.Properties;
 public class GymAppointmentReminder {
     public static void main(String[] args) {
         try {
+
+            // Initialize the Quartz scheduler
             Scheduler scheduler = StdSchedulerFactory.getDefaultScheduler();
 
+            // Define the job to send appointment reminders
             JobDetail job = JobBuilder.newJob(AppointmentReminderJob.class)
                     .withIdentity("appointmentReminderJob", "group")
                     .build();
 
+            // Define the trigger to run the job daily at midnight
             Trigger trigger = TriggerBuilder.newTrigger()
                     .withIdentity("appointmentReminderTrigger", "group")
                     .withSchedule(CronScheduleBuilder.dailyAtHourAndMinute(0, 0))  // Run every day at midnight
                     .build();
 
+            // Schedule the job
             scheduler.scheduleJob(job, trigger);
             scheduler.start();
         } catch (SchedulerException e) {
@@ -32,6 +36,7 @@ public class GymAppointmentReminder {
     }
 
     public static class AppointmentReminderJob implements Job {
+
         // Method to retrieve the list of gym members with appointments for the next day
         private List<Member> getMembersWithNextDayAppointments() {
             List<Member> membersWithAppointments = new ArrayList<>();
@@ -42,6 +47,7 @@ public class GymAppointmentReminder {
             ResultSet resultSet = null;
 
             try {
+
                 // Create a database connection
                 connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/gym", "root", "");
 
@@ -69,7 +75,6 @@ public class GymAppointmentReminder {
                 e.printStackTrace();
             } finally {
                 // Close the database resources
-                // ...
             }
 
             return membersWithAppointments;
@@ -77,8 +82,10 @@ public class GymAppointmentReminder {
 
         @Override
         public void execute(JobExecutionContext jobExecutionContext) throws JobExecutionException {
+            
             // Logic to send appointment reminders for the next day
             try {
+
                 // Get the list of gym members with appointments for the next day
                 List<Member> members = getMembersWithNextDayAppointments();
 
@@ -87,12 +94,14 @@ public class GymAppointmentReminder {
                     sendAppointmentReminderEmail(member.getEmail(), member.getName());
                 }
             } catch (MessagingException e) {
+
                 // Handle any exceptions or errors that occur during the process
                 throw new JobExecutionException(e);
             }
         }
 
         private void sendAppointmentReminderEmail(String recipientEmail, String memberName) throws MessagingException {
+            
             // Configure the email server properties
             Properties properties = new Properties();
             properties.put("mail.smtp.host", "smtp.example.com");
@@ -108,6 +117,7 @@ public class GymAppointmentReminder {
             });
 
             try {
+                
                 // Create a new email message
                 Message message = new MimeMessage(session);
                 message.setFrom(new InternetAddress("your_email"));
@@ -118,6 +128,7 @@ public class GymAppointmentReminder {
                 // Send the email
                 Transport.send(message);
             } catch (MessagingException e) {
+                
                 // Handle any exceptions or errors that occur during the process
                 throw e;
             }

@@ -6,6 +6,7 @@ const messageElement = document.getElementById("message"); // Add this line
 
 // Function to calculate BMI
 function calculateBmi() {
+    
     // Get weight (kg) and height (cm) from input fields
     const weightKg = parseFloat(weightInput.value);
     const heightCm = parseFloat(heightInput.value);
