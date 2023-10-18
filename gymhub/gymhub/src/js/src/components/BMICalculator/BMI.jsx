@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './BMI.css';
-
+import backgroundImage from '../../assets/Hero2.jpg'
+import Header from '../Header/Header'
 
 function BMICalculator() {
   const [weight, setWeight] = useState('');
@@ -31,36 +32,75 @@ function BMICalculator() {
   };
 
   return (
-    <div>
-      <h1>BMI Calculator</h1>
-      <div>
-        <label htmlFor="weight">Weight (kg):</label>
-        <input
-          type="number"
-          id="weight"
-          value={weight}
-          onChange={(e) => setWeight(e.target.value)}
-          placeholder="Enter weight"
-        />
-      </div>
-      <div>
-        <label htmlFor="height">Height (cm):</label>
-        <input
-          type="number"
-          id="height"
-          value={height}
-          onChange={(e) => setHeight(e.target.value)}
-          placeholder="Enter height"
-        />
-      </div>
-      <button onClick={calculateBMI}>Calculate BMI</button>
-      <button onClick={clearFields}>Clear</button>
-      <div>
-        {bmi && <p>Your BMI is: {bmi}</p>}
-        {message && <p>{message}</p>}
-      </div>
-    </div>
-  );
-}
+    <>
+             
+    <section>
+
+      <div
+          className="bmi">
+          
+          <div className='leftbmi'>
+            <div className='bmiheader'>
+          <Header/>
+                </div>
+          
+        
+        <div className='bmi-text'>
+          
+                  <div><span className='stroke-text'>BMI CALCULATOR</span>
+                  </div>
+                  
+              </div>
+              </div>
+              <div className="style" style={{
+            backgroundImage: `url(${backgroundImage})`
+            
+          }}
+        ></div>
+      
+      <div className="leftf">
+      <form className="lf" >
+                        <label className='BMIlabel' htmlFor="weight">
+                            Weight:
+                        </label>
+                        <input
+                            className='bmiinput'
+                            type="number"
+                            id="weight"
+                            
+                            onChange={(e) => setWeight(e.target.value)}
+                            
+                           
+                        />
+                        
+
+                        <label className='bmilabel' htmlFor="height">
+                            Height:
+                            
+                        </label>
+                        <input
+                            className='bmiinput'
+                            type="number"
+                            id="height"
+                            
+                            onChange={(e) => setHeight(e.target.value)}
+                            
+                        />
+      <button className='bmibutton' onClick={calculateBMI}>Calculate BMI</button>
+      <button className='bmibutton' onClick={clearFields}>Clear</button>
+     
+        {bmi && <p className='bmip'>Your BMI is: {bmi}</p>}
+        {message && <p className='bmip'>{message}</p>}
+        </form>
+          </div>
+    
+          
+          
+          </div> 
+        </section>
+                
+        </>
+      )
+    }
 
 export default BMICalculator;
