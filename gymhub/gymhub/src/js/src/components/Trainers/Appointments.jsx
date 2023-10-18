@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import './Appointments.css'
 import Table from './Table'
@@ -118,5 +119,6 @@ const Appointments = () => {
     </>
   )
 }
+
 
 export default Appointments;

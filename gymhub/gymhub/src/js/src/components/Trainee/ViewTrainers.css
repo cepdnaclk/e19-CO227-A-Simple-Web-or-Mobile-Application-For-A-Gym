@@ -1,3 +1,4 @@
+
 /* Styles for the search container */
 .search-container {
     position: absolute;
@@ -47,4 +48,5 @@
       padding: 0 0.5rem; /* Adjust padding for smaller screens */
       margin-right: -3rem; /* Adjust margin */
     }
+
   }

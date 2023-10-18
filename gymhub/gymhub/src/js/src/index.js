@@ -7,6 +7,7 @@ import { BrowserRouter } from 'react-router-dom';
 import { AuthProvider } from './context/AuthProvider';
 
 // Create a root to render your React app
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 // Render the app inside a BrowserRouter and wrap it with AuthProvider

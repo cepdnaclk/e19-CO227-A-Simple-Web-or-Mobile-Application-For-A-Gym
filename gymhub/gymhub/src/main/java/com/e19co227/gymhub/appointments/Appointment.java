@@ -1,3 +1,4 @@
+
 // Define the package for the Appointments component of the application
 package com.e19co227.gymhub.appointments;
 
@@ -45,3 +46,4 @@ public class Appointment {
     private Time endTime;  // End time of the appointment
 
 }
+

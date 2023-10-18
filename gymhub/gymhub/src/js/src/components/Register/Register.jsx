@@ -1,3 +1,4 @@
+
 import React from 'react'
 import { useRef, useState, useEffect } from "react";
 import { faCheck, faTimes, faInfoCircle } from "@fortawesome/free-solid-svg-icons";
@@ -431,11 +432,8 @@ export const Register = () => {
                         </span>
                     </p>
                         </form>
-      </div>
-
-      
-      
-      </div> 
+                    </div>
+        </div> 
     </section>
             )}
     </>
@@ -443,3 +441,4 @@ export const Register = () => {
 }
 
 export default Register;
+

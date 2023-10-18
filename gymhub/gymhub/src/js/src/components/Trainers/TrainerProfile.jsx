@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react'
 import Header from "../Header/Header";
 import backgroundImage from "../../assets/Hero2.jpg"
@@ -153,5 +154,6 @@ const TrainerProfile = () => {
     </div>
   );
 }
+
 
 export default TrainerProfile;

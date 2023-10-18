@@ -1,3 +1,4 @@
+
 package com.e19co227.gymhub.appuser;
 
 // Import necessary dependencies and classes
@@ -105,4 +106,5 @@ public class AppUser implements UserDetails {
         return enabled;
     }
 }
+
 

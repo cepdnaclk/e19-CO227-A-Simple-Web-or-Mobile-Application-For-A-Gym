@@ -1,3 +1,4 @@
+
 package com.e19co227.gymhub.registration.token;
 
 import lombok.AllArgsConstructor;
@@ -29,3 +30,4 @@ public class ConfirmationTokenService {
                 token, LocalDateTime.now());
     }
 }
+

@@ -1,3 +1,4 @@
+
 package com.e19co227.gymhub.appuser;
 
 // Import necessary dependencies and classes
@@ -30,3 +31,4 @@ public interface AppUserDao extends JpaRepository<AppUser,Integer> {
 
 
 }
+

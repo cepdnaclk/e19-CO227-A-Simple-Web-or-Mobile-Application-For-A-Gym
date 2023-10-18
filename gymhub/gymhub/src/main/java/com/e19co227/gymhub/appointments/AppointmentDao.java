@@ -1,3 +1,4 @@
+
 package com.e19co227.gymhub.appointments;
 
 // Import necessary dependencies and classes
@@ -15,3 +16,4 @@ public interface AppointmentDao extends JpaRepository<Appointment, Integer> {
     // Define a method for retrieving a list of appointments associated with a trainer
     List<Appointment> getAppointmentsByTrainer(AppUser trainer);
 }
+
