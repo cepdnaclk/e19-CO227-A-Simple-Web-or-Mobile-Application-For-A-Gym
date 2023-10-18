@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { useAuth } from '../../context/AuthProvider';
 import TraineeProfile from './TraineeProfile';
@@ -43,5 +44,6 @@ const Bookings = () => {
     </>
   );
 };
+
 
 export default Bookings;

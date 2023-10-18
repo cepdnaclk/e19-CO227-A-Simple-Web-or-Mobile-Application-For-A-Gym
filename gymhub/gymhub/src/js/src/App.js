@@ -17,7 +17,9 @@ import ViewTrainers from './components/Trainee/ViewTrainers';
 import Bookings from './components/Trainee/Bookings';
 import TraineeSettings from './components/Trainee/TraineeSettings'
 import TraineeProfile from './components/Trainee/TraineeProfile';
+
 import BMICalculator from './components/BMICalculator/BMI';
+
 
 function App() {
   
@@ -37,10 +39,12 @@ function App() {
   <div className = "App">
       <Routes>
 
+
         {/* Define routes for your application */}
         <Route path='/' element={< Hero/>} />
         <Route path='/login' element={<Login />} />
         <Route path='/register' element={<Register/>} />
+
         <Route path='/trainerprofile' element={<TrainerProfile />} />
         <Route path='/appointments' element={<Appointments />} />
         <Route path='/trainersettings' element={<TrainerSettings />} />
@@ -48,7 +52,9 @@ function App() {
         <Route path='/bookings' element={<Bookings />} />
         <Route path='/traineesettings' element={<TraineeSettings />} />
         <Route path='/viewtrainers' element={<ViewTrainers />} />
+
         <Route path='/bmicalculator' element={<BMICalculator />} />
+
       </Routes>
       <Join/>
       <Footer/>

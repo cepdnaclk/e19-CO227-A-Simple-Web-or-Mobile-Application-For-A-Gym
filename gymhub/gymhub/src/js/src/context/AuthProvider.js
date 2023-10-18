@@ -1,3 +1,4 @@
+
 import { createContext, useState, useContext } from "react";
 
 // Create an AuthContext
@@ -31,3 +32,4 @@ export const useAuth = () => {
 };
 
 export default AuthContext;
+

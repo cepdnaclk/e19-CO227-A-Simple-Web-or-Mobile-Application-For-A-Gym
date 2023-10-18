@@ -1,3 +1,4 @@
+
 package com.e19co227.gymhub.registration.token;
 
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -25,3 +26,4 @@ public interface ConfirmationTokenDao extends JpaRepository<ConfirmationToken,In
     int updateConfirmedAt(String token,
                           LocalDateTime confirmedAt);
 }
+

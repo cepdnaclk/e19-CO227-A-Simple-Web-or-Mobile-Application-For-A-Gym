@@ -1,3 +1,4 @@
+
 package com.e19co227.gymhub.appuser;
 
 // Import necessary dependencies and classes
@@ -52,3 +53,4 @@ public enum AppUserRole {
         return authorities;
     }
 }
+

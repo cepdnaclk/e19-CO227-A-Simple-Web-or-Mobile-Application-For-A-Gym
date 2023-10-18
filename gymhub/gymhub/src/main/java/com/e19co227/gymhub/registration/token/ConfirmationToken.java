@@ -1,3 +1,4 @@
+
 package com.e19co227.gymhub.registration.token;
 
 import com.e19co227.gymhub.appuser.AppUser;
@@ -63,3 +64,4 @@ public class ConfirmationToken {
         this.appUser = appUser;
     }
 }
+

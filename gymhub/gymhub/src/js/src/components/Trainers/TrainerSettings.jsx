@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import './TrainerSettings.css'
 import TrainerProfile from './TrainerProfile';
@@ -278,5 +279,6 @@ const TrainerSettings = () => {
   </>
 );
 }
+
 
 export default TrainerSettings;

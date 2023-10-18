@@ -1,3 +1,4 @@
+
 package com.e19co227.gymhub.appointments;
 
 // Import necessary dependencies and classes
@@ -66,3 +67,4 @@ public class AppointmentController {
         return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 }
+

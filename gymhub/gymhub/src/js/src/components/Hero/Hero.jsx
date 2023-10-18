@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import './Hero.css'
 import Header from '../Header/Header'
@@ -60,3 +61,4 @@ const Hero = () => {
   
   
 export default Hero;
+
