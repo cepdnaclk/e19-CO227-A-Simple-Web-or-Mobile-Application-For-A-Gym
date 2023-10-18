@@ -1,3 +1,4 @@
+
 import './App.css';
 import { getAllTrainers } from './client';
 import {Routes, Route } from 'react-router-dom';
@@ -16,7 +17,7 @@ import ViewTrainers from './components/Trainee/ViewTrainers';
 import Bookings from './components/Trainee/Bookings';
 import TraineeSettings from './components/Trainee/TraineeSettings'
 import TraineeProfile from './components/Trainee/TraineeProfile';
-
+import BMICalculator from './components/BMICalculator/BMI';
 
 function App() {
   
@@ -47,7 +48,7 @@ function App() {
         <Route path='/bookings' element={<Bookings />} />
         <Route path='/traineesettings' element={<TraineeSettings />} />
         <Route path='/viewtrainers' element={<ViewTrainers />} />
-        <Route path='/bmi' element={<BMI />} />
+        <Route path='/bmicalculator' element={<BMICalculator />} />
       </Routes>
       <Join/>
       <Footer/>
@@ -56,4 +57,5 @@ function App() {
 }
 
 export default App;
+
 
