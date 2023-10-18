@@ -323,9 +323,9 @@ methodology allows
 ## Team & Process
 
 - Dharmarathne B.A.M.I.E. - Weight Tracking Design (Frontend & Backend)
-- Gunasekara M.H.         - Presentation Design, Wiki Pages Design
+- Gunasekara M.H.         - Presentation Design, Wiki Pages Design, Report Writing, Backend Implementation: User Authentication(Login), Registration with Email Verification, Trainer and Trainee Feature Development
 - Jayathunga W.W.k.       - Presentation Design, Readme Design, Git Page Design, UI Design(Using Figma), Frontend Design(Home, login, register, User Profiles)
-- Weerasinghe H.A.S.N.    - Presentation Design, Appointment Email Reminder Implementation
+- Weerasinghe H.A.S.N.    - Presentation Design, Report Writing, Appointment Email Reminder Implementation, BMI Calculator
 
 
 ## Links
