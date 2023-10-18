@@ -1,22 +1,18 @@
 /* Custom CSS for the table */
-
-/* Styling for the table container */
 .table_container {
-  margin-top: 35rem; 
-  margin-bottom: 5rem; 
+  margin-top: 35rem;
+  margin-bottom: 5rem;
   width: 100%;
-  align-content: center; 
+  align-content: center;
   justify-content: center;
 }
 
-/* Styling for the row container */
 .row_ontainer {
   align-content: center;
   justify-content: center;
   text-align: center;
 }
 
-/* Styling for the custom table */
 .custom-table {
   margin-left: 20vw;
   width: 60%;
@@ -28,7 +24,6 @@
   overflow: hidden;
 }
 
-/* Styling for table headers (th elements) */
 .custom-table th {
   border: 1px solid #000;
   padding: 0.5rem;
@@ -36,12 +31,10 @@
   font-weight: bold;
 }
 
-/* Styling for table rows (tr elements) */
 .custom-table tr{
     height: 1rem;
 }
 
-/* Styling for table data cells (td elements) */
 .custom-table td {
   border: 1px solid #000;
   padding: 0.5rem;
@@ -49,13 +42,11 @@
   height: 10px;
 }
 
-/* Styling for the table header (thead) */
 .custom-table thead {
   background-color: #333;
   color: #fff;
 }
 
-/* Styling for table header cells (th elements within thead) */
 .custom-table th {
   font-weight: bold;
 }
