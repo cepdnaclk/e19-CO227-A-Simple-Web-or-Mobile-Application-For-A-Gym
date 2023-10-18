@@ -23,10 +23,10 @@
 }
 
 .left-j>div{
-    display: flex;
+    display: flex;   
     gap: 1rem;
 }
-
+                
 .right-j{
     display: flex;
     flex-direction: column;

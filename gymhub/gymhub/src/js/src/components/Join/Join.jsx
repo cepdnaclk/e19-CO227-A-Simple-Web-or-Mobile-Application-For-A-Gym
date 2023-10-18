@@ -15,7 +15,7 @@ const Join = () => {
           }, (error) => {
               console.log(error.text);
           });
-      }; */
+      }; */   
   return (
     <div className="Join" id="join-us">
     <div className="left-j">

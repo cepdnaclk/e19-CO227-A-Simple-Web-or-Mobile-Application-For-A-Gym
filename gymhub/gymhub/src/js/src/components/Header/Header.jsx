@@ -45,7 +45,7 @@ const Header = () => {
 
         <li><Link to='/register' className="no-underline">REGISTER</Link></li>
         <li>BMI</li>
-      </ul>
+      </ul>   
       }
 
         

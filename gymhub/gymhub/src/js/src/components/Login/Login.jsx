@@ -134,7 +134,7 @@ const Login = () => {
   onMouseLeave={(e) => (e.target.style.color = 'white')}>SIGN UP</Link>
                            
             
-                       
+                           
                     </p>
                         </form>
 

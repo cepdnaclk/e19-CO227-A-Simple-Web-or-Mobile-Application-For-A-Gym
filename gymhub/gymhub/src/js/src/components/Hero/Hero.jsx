@@ -56,7 +56,7 @@ const Hero = () => {
           </div>
           <div className="right-h">
             
-            
+               
           </div>
          
   
