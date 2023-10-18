@@ -1,10 +1,8 @@
-// src/axios.js
-import axios from "axios";
+// // src/axios.js
+// import axios from "axios";
 
-// Create and export an instance of axios with a specific configuration
-const instance = axios.create({
-    // Define the base URL for the HTTP requests
-    baseURL: "http://localhost:8080",
-});
+// const instance = axios.create({
+//     baseURL: "http://localhost:8080", // Replace with your Spring Boot API's base URL
+// });
 
-export default instance;
+// export default instance;

@@ -1,28 +1,37 @@
-// Import the necessary CSS file for styling
-import "./BMI.css";
+import React from 'react';
+import './BMI.css';
+import Header from '../Header/Header';
+import AddGymForm from './addGymForm';
+import Table from './Table';
+import LineCharts from './LineCharts';
+import { chartData } from './LineChartData';
+import backgroundImage from '../../assets/Hero2.jpg';
 
-// Import React components for the BMI page
-import Header from "../Header/Header";
-import AddGymForm from "./addGymForm";
-import Table from "./Table";
-// import WeightLineChart from "./WeightLineChart";
-
-// Define the main BMI functional component
 function BMI() {
   return (
-
-    // Container for the entire BMI page
-    <div className="bmi-page">
-      {/* Display the Header component at the top of the page */}
-      <Header />
-      {/* Display the AddGymForm component for data input */}
-      <AddGymForm />
-      {/* Display the Table component for displaying gym data */}
-      <Table />
-    </div>
-
+    <>
+      <div
+        className="top-section"
+        style={{
+          backgroundImage: `url(${backgroundImage})`,
+          backgroundSize: 'cover',
+          backgroundRepeat: 'no-repeat',
+          backgroundPosition: 'center',
+          height: '15rem', // Set the height to match the Login page
+        }}
+      >
+        <Header />
+      </div>
+      <div className="bmi-content">
+        <div className="login-text">
+          <span className="stroke-text">Track Your Progress</span>
+        </div>
+        <AddGymForm />
+        <Table />
+        <LineCharts data={chartData} />
+      </div>
+    </>
   );
 }
 
-// Export the BMI component for use in other parts of the application
 export default BMI;
