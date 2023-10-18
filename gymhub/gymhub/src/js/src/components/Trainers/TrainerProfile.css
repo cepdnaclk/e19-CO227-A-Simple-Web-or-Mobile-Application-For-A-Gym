@@ -1,48 +1,46 @@
+
+/* Common styles */
+/* Trainer profile section */
 .trainerprofile {
     width: 100%;
     height: 100%;
-      display: flex;
-      justify-content: space-between;
-      
-      background-size: cover;
-      background-repeat: no-repeat;
-      background-position: top-center;
-      background-color: none;
-      z-index: 1;
-      margin: 0;
-      padding: 0;
+    display: flex;
+    justify-content: space-between;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: top-center;
+    background-color: none;
+    z-index: 1;
+    margin: 0;
+    padding: 0;
 }
 
+/* Header */
 header {
     /* z-index: 3; */
     flex:3;
 }
 
+/* Left top section */
 .lefttp{
     height:15rem;
-    
-    
+    width:100%;
 }
 
+/* Offscreen utility class */
 .offscreen {
-    
     left: -9999px;
 }
 
+/* Top text section */
 .style{
     background-size: cover;
-    
     background-repeat: no-repeat;
     width: 100%;
     height: 15rem;
     z-index:-2;
     margin: 0;
-      padding: 0;
-}
-
-.lefttp {
-    width:100%;
-
+    padding: 0;
 }
 
 .tp-text {
@@ -59,20 +57,18 @@ header {
     color: white;
     text-overflow: inherit;
     justify-content: flex-start;
-    
-    
-  }
+}
 
-  .lefttp2 {
-    
+.lefttp2 {
     flex: 1;
     display: flex;
     gap: 2rem;
     flex-direction: column;
-    }
+}
 
-    .container {
-        height: 15rem;
+/* Container */
+.container {
+    height: 15rem;
     width: 20rem;
     background-color: black;
     border: 2px solid white;;
@@ -84,53 +80,54 @@ header {
     position: center;
     margin-bottom: 2rem;
     align-items: center;
-    }
+}
 
-    ul{
-        padding-left: 20rem;
-        padding-top: 3rem;
-        list-style: none;
-        display: flex;
-        gap: 3rem;
-        color: white;
-        
-    }
+/* Unordered list */
+ul{
+    padding-left: 20rem;
+    padding-top: 3rem;
+    list-style: none;
+    display: flex;
+    gap: 3rem;
+    color: white;   
+}
 
-    .listoflinks {
-        padding-left: 0rem;
-        padding-top: 2.5rem;
-        list-style: none;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 3rem;
-        color: white;
-        font-size: 18px;
-    }
+/* List of links */
+.listoflinks {
+    padding-left: 0rem;
+    padding-top: 2.5rem;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3rem;
+    color: white;
+    font-size: 18px;
+}
 
-    .trainerprofilebuttons {
-        padding-top: 2rem;
-        padding-left: 1rem;
-    }
+/* Trainer profile buttons */
+.trainerprofilebuttons {
+    padding-top: 2rem;
+    padding-left: 1rem;
+}
 
-    .trainerprofilebuttons>.btn {
-       align-items: center;
-        width: 12rem;
-        
-    }
-    .active-link {
-        background-color: rgb(188, 88, 88);
-        padding: 1rem;
-        
-    }
+.trainerprofilebuttons>.btn {
+    align-items: center;
+    width: 12rem;   
+}
 
+/* Active link style */
+.active-link {
+    background-color: rgb(188, 88, 88);
+    padding: 1rem;  
+}
 
-    /* Media query for screens smaller than 768px (e.g., mobile devices) */
+/* Media query for screens smaller than 768px (e.g., mobile devices) */
 @media screen and (max-width: 768px) {
     .trainerprofile {
+
       /* Adjust styles for smaller screens */
       flex-direction: column; /* Stack elements vertically */
-      /* Add any other necessary adjustments */
     }
   
     .container {
@@ -154,5 +151,6 @@ header {
         margin-left: 2.75rem;
     }
 }
+
 
    

@@ -1,14 +1,15 @@
 
 import './App.css';
 import { getAllTrainers } from './client';
+import {Routes, Route } from 'react-router-dom';
 
+// Import components
 import Hero from './components/Hero/Hero';
 import Footer from './components/Footer/Footer';
 import Login from './components/Login/Login';
 import Register from './components/Register/Register'
 import Join from "./components/Join/Join";
-
-import {Routes, Route } from 'react-router-dom';
+import BMI from './components/BMI/BMI';
 import TrainerProfile from './components/Trainers/TrainerProfile';
 import Appointments from './components/Trainers/Appointments'
 import TrainerSettings from './components/Trainers/TrainerSettings';
@@ -17,14 +18,15 @@ import Bookings from './components/Trainee/Bookings';
 import TraineeSettings from './components/Trainee/TraineeSettings'
 import TraineeProfile from './components/Trainee/TraineeProfile';
 
+import BMICalculator from './components/BMICalculator/BMI';
+
 
 function App() {
   
+    // fetch data when the component mounts
     getAllTrainers()
       .then((response) => {
-        
         return response.data; // Extract the response data
-        
       })
       .then((trainers) => {
         console.log(trainers);
@@ -35,16 +37,14 @@ function App() {
 
   return (
   <div className = "App">
-    
       <Routes>
-        
+
+
+        {/* Define routes for your application */}
         <Route path='/' element={< Hero/>} />
-        
         <Route path='/login' element={<Login />} />
-        
         <Route path='/register' element={<Register/>} />
-        
-        
+
         <Route path='/trainerprofile' element={<TrainerProfile />} />
         <Route path='/appointments' element={<Appointments />} />
         <Route path='/trainersettings' element={<TrainerSettings />} />
@@ -52,13 +52,16 @@ function App() {
         <Route path='/bookings' element={<Bookings />} />
         <Route path='/traineesettings' element={<TraineeSettings />} />
         <Route path='/viewtrainers' element={<ViewTrainers />} />
+
+        <Route path='/bmicalculator' element={<BMICalculator />} />
+
       </Routes>
       <Join/>
       <Footer/>
-
-  </div>
-  );
-  
+    </div>
+  ); 
 }
 
 export default App;
+
+

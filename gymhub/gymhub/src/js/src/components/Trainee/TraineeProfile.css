@@ -1,34 +1,37 @@
+
+/* Styles for the trainee profile container */
 .traineeprofile {
     width: 100%;
     height: 100%;
-      display: flex;
-      justify-content: space-between;
-      position:relative;
-      background-size: cover;
-      background-repeat: no-repeat;
-      background-position: top-center;
-      background-color: none;
-      
-      margin: 0;
-      padding: 0;
+    display: flex;
+    justify-content: space-between;
+    position:relative;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: top-center;
+    background-color: none;
+    margin: 0;
+    padding: 0;
 }
 
+/* Styles for the trainee profile header */
 .traineepheader {
     z-index: 3;
     flex:3;
 }
 
+/* Container for the left part of the trainee profile */
 .lefttp{
-    height:15rem;
-    
-    
+    height:15rem; 
 }
 
+/* Styles for offscreen elements (hidden) */
 .offscreen {
     position: absolute;
     left: -9999px;
 }
 
+/* Style for background */
 .style{
     background-size: cover;
     position:absolute;
@@ -37,14 +40,15 @@
     height: 15rem;
     z-index:-2;
     margin: 0;
-      padding: 0;
+    padding: 0;
 }
 
+/* Container for the left part of the trainee profile */
 .lefttp {
     width:100%;
-
 }
 
+/* Styles for text within the trainee profile */
 .tp-text {
     position:relative;
     margin-top:5rem ;
@@ -59,20 +63,19 @@
     color: white;
     text-overflow: inherit;
     justify-content: flex-start;
-    
-    
-  }
+}
 
-  .lefttp2 {
-    
+/* Styles for the left part of the trainee profile with links */
+.lefttp2 {
     flex: 1;
     display: flex;
     gap: 2rem;
     flex-direction: column;
-    }
+}
 
-    .container {
-        height: 24rem;
+/* Container for links */
+.container {
+    height: 24rem;
     width: 20rem;
     background-color: black;
     border: 2px solid white;;
@@ -84,48 +87,52 @@
     position: center;
     margin-bottom: 2rem;
     text-decoration: none;
-    }
+}
 
-    .listoflinks{
-        padding-left: 20rem;
-        padding-top: 1rem;
-        list-style: none;
-        display: flex;
-        gap: 3rem;
-        color: white;
-        
-    }
+/* Styles for the list of links */
+.listoflinks{
+    padding-left: 20rem;
+    padding-top: 1rem;
+    list-style: none;
+    display: flex;
+    gap: 3rem;
+    color: white;
+}
 
-    .listoflinks {
-        padding-left: 0rem;
-        padding-top: 1.5rem;
-        list-style: none;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 3rem;
-        color: white;
-        font-size: 18px;
-        text-decoration: none;
-    }
+/* Updated styles for list of links on smaller screens */
+.listoflinks {
+    padding-left: 0rem;
+    padding-top: 1.5rem;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3rem;
+    color: white;
+    font-size: 18px;
+    text-decoration: none;
+}
 
-    .traineeprofilebuttons {
-        padding-top: 1rem;
-        padding-left: 1rem;
-    }
+/* Styles for buttons within the trainee profile */
+.traineeprofilebuttons {
+    padding-top: 1rem;
+    padding-left: 1rem;
+}
 
-    .traineeprofilebuttons>.btn {
-       align-items: center;
-        width: 12rem;
-        
-    }
-    .active-link {
-        background-color: rgb(188, 88, 88);
-        padding: 1rem;
-        color: white;
-    }
+/* Styles for buttons */
+.traineeprofilebuttons>.btn {
+    align-items: center;
+    width: 12rem;    
+}
 
-    /* CSS for centering the confirmation modal */
+/* Active link style */
+.active-link {
+    background-color: rgb(188, 88, 88);
+    padding: 1rem;
+    color: white;
+}
+
+/* Styles for centering the confirmation modal */
 .confirmation-modal {
     position: fixed;
     top: 50%;
@@ -138,19 +145,20 @@
     z-index: 1000; /* Ensure it's above other elements */
     color: white; /* Text color */
     display: flex;
-  flex-direction: column;
-  align-items: center;
-    
-  }
-  
-  .confirmation-modal p {
+    flex-direction: column;
+    align-items: center;
+}
+ 
+/* Styles for paragraphs within the confirmation modal */
+.confirmation-modal p {
     margin: 0.5rem 0; /* Add spacing around the text */
-  }
+}
   
-  .confirmation-modal button {
+/* Styles for buttons within the confirmation modal */
+.confirmation-modal button {
     margin: 0.5rem; /* Add spacing around the buttons */
     flex-direction: row;
-  }
+}
    
 /* Media query for screens smaller than 768px (e.g., mobile devices) */
 @media screen and (max-width: 768px) {
@@ -160,6 +168,7 @@
       /* Add any other necessary adjustments */
     }
   
+    /* Update container styles for smaller screens */
     .container {
       /* Update container styles for smaller screens */
       width: 75%; /* Full width on smaller screens */
@@ -170,6 +179,7 @@
       align-items: center;
     }
   
+    /* Adjust styles for the navigation links on smaller screens */
     .listoflinks {
       /* Adjust styles for the navigation links on smaller screens */
       padding-left: 0; /* Remove left padding */
@@ -177,8 +187,10 @@
       /* Add any other necessary adjustments */
     }
 
+    /* Additional styles for buttons on smaller screens */
     .btn {
         margin-left: 2rem;
         background-color: brown;
     }
+
 }

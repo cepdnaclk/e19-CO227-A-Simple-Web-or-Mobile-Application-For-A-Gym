@@ -1,11 +1,12 @@
+/* Style for the entire table */
 table {
-    
   margin-right: 20px; /* Adjust the margin as needed */
-  border: 1px solid;
-  color: white;
-  border-color: white;
-    
+  border: 1px solid; /* Add a border with white color */
+  color: white; /* Set text color to white */
+  border-color: white; /* Set the border color to white */
 }
+
+/* Style for table headers (th elements) */
 th {
-    width: 75px;
+    width: 75px; /* Set a specific width for table header cells (th) */
 }

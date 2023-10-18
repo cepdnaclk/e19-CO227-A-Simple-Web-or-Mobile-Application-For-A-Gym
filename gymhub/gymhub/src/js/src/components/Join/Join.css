@@ -1,12 +1,14 @@
+
+/* Styling for the "Join" section */
 .Join {
     background-color:black;
-    
     color: white;
     display:flex;
     padding:0 2rem;
     gap: 10rem;
 }
 
+/* Styling for the left side of the "Join" section */
 .left-j{
     font-size: 3rem;
     font-weight: bold;
@@ -26,7 +28,8 @@
     display: flex;   
     gap: 1rem;
 }
-                
+
+/* Styling for the right side of the "Join" section */
 .right-j{
     display: flex;
     flex-direction: column;
@@ -35,8 +38,8 @@
     align-items: center
 }
 
+/* Styling for the email input container */
 .email-container {
-   
     height: 15%;
     display: flex;
     gap: 3rem;
@@ -52,10 +55,12 @@
     color:rgb(232, 224, 224);
 }
 
+/* Styling for the placeholder text in the input field */
 ::placeholder{
     color: rgb(232, 224, 224);
 }
 
+/* Styling for the "Join" button */
 .btn-j{
     display: flex;
     justify-content: center;
@@ -67,11 +72,12 @@
     line-height: 2rem;
 }
 
+/* Styling for the "Join" button on hover */
 .btn-j:hover{
     background-color: white;
-    
 }
 
+/* Media query for screens with a maximum width of 768px (Mobile view) */
 @media screen and (max-width: 768px) {
     .Join {
         flex-direction: column;
@@ -81,4 +87,5 @@
         font-size: x-large;
         flex-direction: column;
     }
+
 }

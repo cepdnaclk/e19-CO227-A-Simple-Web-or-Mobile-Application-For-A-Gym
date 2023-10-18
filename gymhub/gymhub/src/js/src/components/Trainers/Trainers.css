@@ -1,35 +1,37 @@
+
+/* .trainers container for Trainer Profile */
 .trainers {
     width: 100%;
     height: 100%;
-      display: flex;
-      justify-content: space-between;
-      position:relative;
-      background-size: cover;
-      background-repeat: no-repeat;
-      background-position: top-center;
-      background-color: none;
-      
-      margin: 0;
-      padding: 0;
+    display: flex;
+    justify-content: space-between;
+    position:relative;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: top-center;
+    background-color: none;
+    margin: 0;
+    padding: 0;
 }
 
+/* Header styling */
 header {
     z-index: 3;
     flex:3;
-    
 }
 
+/* .leftt container for Trainer Profile */
 .leftt{
     height:15rem;
-    
-    
 }
 
+/* Offscreen element */
 .offscreen {
     position: absolute;
     left: -9999px;
 }
 
+/* Background image style */
 .style{
     background-size: cover;
     position:absolute;
@@ -38,9 +40,10 @@ header {
     height: 15rem;
     z-index:-2;
     margin: 0;
-      padding: 0;
+    padding: 0;
 }
 
+/* Login text styling */
 .login-text {
     position:relative;
     margin-top:5rem ;
@@ -55,11 +58,10 @@ header {
     color: white;
     text-overflow: inherit;
     justify-content: flex-start;
-    
-    
-  }
+}
 
-  .container {
+/* Styling for the container */
+.container {
     max-width: 570px;
     margin-top: 400px;
     margin-left: -380px;
@@ -69,9 +71,10 @@ header {
     display: flex;
     align-items: center;
     justify-content: space-between
-  }
+}
 
-  .inputSearch {
+/* Input field styling for search */
+.inputSearch {
     padding-top: 0.9rem;
     padding-bottom: 1rem;
     padding-left: 7rem;
@@ -83,14 +86,13 @@ header {
     border-color: white;
     border-radius: md;
     align-items: center;
-  }
+}
 
-  button {
-    
+/* Button styling */
+button {
     margin-top: 31px;
     background-color: brown;
     color:black;
     height: 55px;
-    
-    
-  }
+}
+>>>>>>> main

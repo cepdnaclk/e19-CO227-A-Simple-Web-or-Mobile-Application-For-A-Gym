@@ -1,29 +1,34 @@
+
 package com.e19co227.gymhub.appuser;
 
+// Import necessary dependencies and classes
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
+import lombok.experimental.SuperBuilder;
 import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Collection;
-import java.util.Collections;
 
+// Define the 'AppUser' entity class that implements the 'UserDetails' interface
 @Data
 @Entity
-@EqualsAndHashCode
+@SuperBuilder
 @NoArgsConstructor
+@AllArgsConstructor
+@Inheritance(strategy = InheritanceType.JOINED)
 public class AppUser implements UserDetails {
 
-
+    // Define a sequence generator for generating user IDs
     @SequenceGenerator(
             name = "user_sequence",
             sequenceName = "user_sequence",
             allocationSize = 1
     )
 
+    // Specify the primary key field for this entity
     @Id
     @GeneratedValue(
             strategy = GenerationType.SEQUENCE,
@@ -31,53 +36,56 @@ public class AppUser implements UserDetails {
     )
     private Integer userId;
 
-    //@Column(name = "user_name",nullable = false)
+    // Define fields for user information
     private String userName;
+    @Column(unique = true)
     private String email;
     private String password;
     @Enumerated(EnumType.STRING)
     private AppUserRole appUserRole;
     private String fullName;
+    //@Column(name = "contact_number")
     private String contactNumber;
     private String nic;
     private String address1;
     private String address2;
     private String address3;
-    private Boolean locked = false;
     private Boolean enabled = false;
 
-    public AppUser(String userName,
-                   String email,
-                   String password,
-                   String role,
-                   String fullName,
-                   String contactNumber,
-                   String nic
-                   ) {
+    // Define a constructor for creating a user with essential details
+    public AppUser(
+            String userName,
+            String email,
+            String password,
+            AppUserRole appUserRole,
+            String fullName,
+            String contactNumber,
+            String nic) {
         this.userName = userName;
         this.email = email;
         this.password = password;
-        this.appUserRole = AppUserRole.valueOf(role.toUpperCase());
+        this.appUserRole = appUserRole;
         this.fullName = fullName;
         this.contactNumber = contactNumber;
         this.nic = nic;
-
     }
 
-
+    // Implement methods from the 'UserDetails' interface
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        //AppUserRole appUserRole = AppUserRole.valueOf(role.toUpperCase());
-        SimpleGrantedAuthority authority = new SimpleGrantedAuthority(appUserRole.name());
-        return Collections.singletonList(authority);
+        return appUserRole.getAuthorities();
     }
 
     @Override
     public String getUsername() {
-        return userName;
+        return email;
     }
 
 
+     @Override
+     public String getPassword() {
+         return password;
+     }
     @Override
     public boolean isAccountNonExpired() {
         return true;
@@ -85,7 +93,7 @@ public class AppUser implements UserDetails {
 
     @Override
     public boolean isAccountNonLocked() {
-        return !locked;
+        return true;
     }
 
     @Override
@@ -98,4 +106,5 @@ public class AppUser implements UserDetails {
         return enabled;
     }
 }
+
 

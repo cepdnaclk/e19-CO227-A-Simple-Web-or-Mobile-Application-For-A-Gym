@@ -1,3 +1,4 @@
+
 package com.e19co227.gymhub.registration.token;
 
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -12,8 +13,11 @@ import java.util.Optional;
 @Repository
 @Transactional(readOnly = true)
 public interface ConfirmationTokenDao extends JpaRepository<ConfirmationToken,Integer> {
+
+    // Find a confirmation token by its token value.
     Optional<ConfirmationToken> findByToken(String token);
 
+    // Transactional and modifiable method to update the "confirmedAt" timestamp for a token.
     @Transactional
     @Modifying
     @Query("UPDATE ConfirmationToken c " +
@@ -22,3 +26,4 @@ public interface ConfirmationTokenDao extends JpaRepository<ConfirmationToken,In
     int updateConfirmedAt(String token,
                           LocalDateTime confirmedAt);
 }
+

@@ -1,3 +1,4 @@
+
 import React from 'react'
 import { useRef, useState, useEffect } from "react";
 import { faCheck, faTimes, faInfoCircle } from "@fortawesome/free-solid-svg-icons";
@@ -9,7 +10,7 @@ import '../Login/Login'
 import { Link } from 'react-router-dom';
 import axios from '../../api/axios';
 
-
+// Regular expressions for input validation
 const USER_REGEX = /^[A-z][A-z0-9-_]{3,23}$/;
 const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
 const NAME_REGEX = /^[A-Za-z\s]{2,23}$/;
@@ -23,12 +24,13 @@ const REGISTER_URL = '/register';
 
 export const Register = () => {
   
-  const userRef = useRef();
-  const errRef = useRef();
+    const userRef = useRef();
+    const errRef = useRef();
 
-  const [name, setName] = useState('');
-  const [valid_Name, setValidName] = useState(false);
-  const [nameFocus, setNameFocus] = useState(false);
+    // States for various input fields and their validation
+    const [name, setName] = useState('');
+    const [valid_Name, setValidName] = useState(false);
+    const [nameFocus, setNameFocus] = useState(false);
 
     const [user, setUser] = useState('');
     const [validName, setValidUser] = useState(false);
@@ -65,38 +67,43 @@ export const Register = () => {
         userRef.current.focus();
     }, [])
 
+    // Validation function for username
     useEffect(() => {
       const result = USER_REGEX.test(user);
       setValidUser(result);
     }, [user]);
   
-    // Validation functions for other fields
+    // Validation function for name
     useEffect(() => {
       setValidName(NAME_REGEX.test(name));
     }, [name]);
 
+    // Validation function for email
     useEffect(() => {
       setValidEmail(EMAIL_REGEX.test(email));
     }, [email]);
   
+    // Validation function for phone number
     useEffect(() => {
       setValidpNumber(PHONE_REGEX.test(pNumber));
     }, [pNumber]);
   
+    // Custom validation for role
     useEffect(() => {
       setValidRole(role.trim() !== ''); // Custom validation for role
     }, [role]);
   
+    // Validation function for NIC
     useEffect(() => {
       setValidNic(NIC_REGEX.test(nic) || NIC_REGEX_2.test(nic));
     }, [nic]);
 
-   
-  
+    // Validation function for password
     useEffect(() => {
       setValidPwd(PWD_REGEX.test(pwd));
     }, [pwd]);
   
+    // Validation function for password match
     useEffect(() => {
       setValidMatch(pwd === matchPwd);
     }, [pwd, matchPwd]);
@@ -193,6 +200,8 @@ export const Register = () => {
       <p ref={errRef} className={errMsg ? "errmsg" : "offscreen"} aria-live="assertive">{errMsg}</p>
       <div className="leftf">
       <form className="lf" onSubmit={handleSubmit}>
+
+                        {/* Username input and validation */}
                         <label className='reglabel' htmlFor="username">
                             Username:
                             <FontAwesomeIcon icon={faCheck} className={validName ? "valid" : "hide"} />
@@ -423,11 +432,8 @@ export const Register = () => {
                         </span>
                     </p>
                         </form>
-      </div>
-
-      
-      
-      </div> 
+                    </div>
+        </div> 
     </section>
             )}
     </>
@@ -435,3 +441,4 @@ export const Register = () => {
 }
 
 export default Register;
+

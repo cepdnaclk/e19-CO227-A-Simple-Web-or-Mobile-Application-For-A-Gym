@@ -1,3 +1,4 @@
+
 package com.e19co227.gymhub.registration;
 
 import org.springframework.stereotype.Service;
@@ -12,3 +13,4 @@ public class EmailValidator implements Predicate<String> {
         return true;
     }
 }
+

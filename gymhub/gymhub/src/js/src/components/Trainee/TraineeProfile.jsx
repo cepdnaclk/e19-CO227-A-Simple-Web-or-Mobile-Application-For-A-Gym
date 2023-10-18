@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react'
 import Header from "../Header/Header";
 import backgroundImage from "../../assets/Hero2.jpg"
@@ -8,29 +9,31 @@ import Bookings from "./Bookings"
 
 const TraineeProfile = () => {
 
-        const [TraineeName, setTraineeName] = useState('');
-        const location = useLocation();
-        const navigate = useNavigate(); // Using useNavigate instead of useHistory
-        const [showConfirmation, setShowConfirmation] = useState(false);
+  // State variables
+  const [TraineeName, setTraineeName] = useState('');
+  const location = useLocation();
+  const navigate = useNavigate(); // Using useNavigate instead of useHistory
+  const [showConfirmation, setShowConfirmation] = useState(false);
 
-        useEffect(() => {
-            //an HTTP request to fetch the user's name when the component mounts
-            fetch('/api/user/name', { // insert the relevant url
-                method: 'GET',
-                headers: {
-                    'Authorization': `Bearer ${localStorage.getItem('accessToken')}`, // Include the user's access token
-                },
-            })
-            .then((response) => response.json())
-            .then((data) => {
-                setTraineeName(data.name);  // // Set the user's name in state
-            })
-            .catch((error) => {
-                console.error('Error fetching user name;', error);
-            });
-        }, []); // The empty array [] as the second argument ensures that the effect runs only once when the component mounts
+  // Fetch user's name when the component mounts
+  useEffect(() => {
+    //an HTTP request to fetch the user's name when the component mounts
+    fetch('/api/user/name', { // insert the relevant url
+      method: 'GET',
+      headers: {
+          'Authorization': `Bearer ${localStorage.getItem('accessToken')}`, // Include the user's access token
+      },
+  })
+  .then((response) => response.json())
+  .then((data) => {
+    setTraineeName(data.name);  // // Set the user's name in state
+  })
+  .catch((error) => {
+    console.error('Error fetching user name;', error);
+  });
+}, []); // The empty array [] as the second argument ensures that the effect runs only once when the component mounts
 
-        // Function to handle logout confirmation
+  // Function to handle logout confirmation
   const handleLogout = () => {
     // Display the confirmation prompt
     setShowConfirmation(true);
@@ -78,38 +81,41 @@ const TraineeProfile = () => {
   };
 
   return (
-    
-
     <div className="traineeprofile">
-        <div className='lefttp'>
-            <div className="traineepheader"><Header/></div>
-            
-            <div className='tp-text'>
-            <div><span className='stroke-text'>Hi {TraineeName} </span>
-            </div>
-        
-            </div>
+
+      {/* Left section containing header and user's name */}
+      <div className='lefttp'>
+        <div className="traineepheader"><Header/></div>  
+        <div className='tp-text'>
+          <div><span className='stroke-text'>Hi {TraineeName} </span>
+          </div>
         </div>
-        <div className="style" style={{
+      </div>
+
+      {/* Right section with background image */}
+      <div className="style" style={{
         backgroundImage: `url(${backgroundImage})`}}
         ></div>
-       
-            <div className='container'>
-                <ul className="listoflinks">
-                    <li ><Link to="/viewtrainers" className={location.pathname === '/viewtrainers' ? 'active-link' : ''} style={{textDecoration: 'none', color:'brown'}}>Find Trainers</Link></li>
-                    <li><Link to="/bookings" className={location.pathname === '/bookings' ? 'active-link' : ''} style={{textDecoration: 'none', color:'brown'}}>My Appointments</Link></li>
-                    <li ><Link to="/traineesettings" className={location.pathname === '/traineesettings' ? 'active-link' : ''} style={{textDecoration: 'none', color:'brown'}}>Profile</Link></li>
-                </ul>
-                <br />
-                <br />
-                <div className="traineeprofilebuttons">
-                <button className="btn" onClick={handleLogout}>Logout</button>
-                <button className="btn" onClick={handleDeleteUser}>Delete Account</button>
-                </div>
-            </div>
-            {/* Logout confirmation prompt */}
-      {showConfirmation && (
-        <div className="confirmation-modal">
+
+      {/* Main content container */}
+      <div className='container'>
+        <ul className="listoflinks">
+          <li ><Link to="/viewtrainers" className={location.pathname === '/viewtrainers' ? 'active-link' : ''} style={{textDecoration: 'none', color:'brown'}}>Find Trainers</Link></li>
+          <li><Link to="/bookings" className={location.pathname === '/bookings' ? 'active-link' : ''} style={{textDecoration: 'none', color:'brown'}}>My Appointments</Link></li>
+          <li ><Link to="/traineesettings" className={location.pathname === '/traineesettings' ? 'active-link' : ''} style={{textDecoration: 'none', color:'brown'}}>Profile</Link></li>
+        </ul>
+      <br />
+      <br />
+
+      {/* Buttons for actions like logout and delete account */}
+      <div className="traineeprofilebuttons">
+        <button className="btn" onClick={handleLogout}>Logout</button>
+        <button className="btn" onClick={handleDeleteUser}>Delete Account</button>
+      </div>
+    </div>
+    {/* Logout confirmation prompt */}
+    {showConfirmation && (
+      <div className="confirmation-modal">
           <p style={{color:'white'}}>Are you sure you want to logout?</p>
           <button className="btn" onClick={confirmLogout}>
             Yes
@@ -118,10 +124,10 @@ const TraineeProfile = () => {
             No
           </button>
         </div>
-      )}
-        
+      )} 
     </div>
   )
 }
+
 
 export default TraineeProfile;

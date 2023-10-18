@@ -1,0 +1,61 @@
+/* CSS for the gym form */
+
+/* Styling for the main form container */
+.container_form {
+  margin-top: 2rem;
+  width: 100%;
+}
+
+/* Styling for the gym form itself*/
+.gym-form {
+  max-width: 415px;
+  margin: 0 auto;
+  padding: 30px;
+  border: 1px solid #ccc;
+  border-radius: 15px;
+  background-color: #000000;
+}
+
+/* Styling for form labels */
+.form-label {
+  font-weight: bold;
+}
+
+/* Styling for input elements */
+input {
+  background-color: rgb(230, 130, 130);
+  font-size: 14px;
+}
+
+/* Styling for form input elements */
+.form-control {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 18px;
+  background-color: rgb(188, 88, 88);
+  color: #d4d4d4;
+  margin-bottom: 2rem;  /* Added margin for seperation */
+}
+
+/* Styling for the button container */
+.button-container {
+  text-align: center;
+}
+
+/* Styling for the primary button */
+.btn-primary {
+  background-color: #7c1515;
+  color: #fff;
+  border: none;
+  border-radius: 13px;
+  padding: 8px 20px;
+  cursor: pointer;
+}
+
+/* Styling for the primary button on hover */
+.btn-primary:hover {
+  background-color: #b30600;
+}

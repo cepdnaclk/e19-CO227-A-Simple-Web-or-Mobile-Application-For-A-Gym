@@ -1,3 +1,5 @@
+
+/* Styling for the registration page */
 .register {
     width: 100%;
     height: 100%;
@@ -8,17 +10,16 @@
       background-repeat: no-repeat;
       background-position: top-center;
       background-color: none;
-      
-      margin: 0 auto;
+      margin: 0 auto; /* Center the content horizontally */
       padding: 0;
 }
 
 .regheader {
     z-index: 3;
-    flex:3;
-    
+    flex:3;  
 }
 
+/* Hidden element for screen readers */
 .offscreen {
     position: absolute;
     left: -9999px;
@@ -36,12 +37,10 @@
 }
 
 .leftreg{
-    height:15rem;
-    
-    
+    height:15rem;   
 }
 
-
+/* Styling for the registration page text */
 .register-text {
     position:relative;
     margin-top:5rem ;
@@ -56,17 +55,14 @@
     color: white;
     text-overflow: inherit;
     justify-content: flex-start;
-    
-    
   }
 
-
-  .leftf {
-    
+/* Styling for the left side of the registration page */
+.leftf {
     display: flex;
     gap: 3rem;
     flex-direction: column;
-  }
+}
 
 .lf {
     height: 55rem;
@@ -86,14 +82,12 @@
     justify-content: space-evenly; */
   
     padding: 20px;
-    
     margin-left: -41rem;
     
     /* position: relative; */
 }
 
-
-
+/* Styling for registration input fields and buttons */
 .reginput,
 .regbutton {
   font-family: 'Nunito', sans-serif;
@@ -103,14 +97,11 @@
   width:22rem;
   background-color: rgb(188, 88, 88);
   margin-bottom: 2rem;
-  
-
 }
 
 .uphoto {
     color: white;
     cursor: pointer;
-   
 }
 
 .reglabel {
@@ -118,14 +109,11 @@
     margin-top: 1rem;
 }
 
-
-
 .regbutton {
   margin-top: 1rem;
   background-color: brown;
   color:black;
-  width: 10rem;
-  
+  width: 10rem; 
 }
 
 .regbutton:disabled {
@@ -137,7 +125,7 @@
   padding: 0.5rem;
 }
 
-
+/* Styling for instructions and validation messages */
 .instructions {
     font-size: 0.75rem;
     border-radius: 0.5rem;
@@ -152,6 +140,7 @@
     margin-right: 0.25rem;
 }
 
+/* Hidden elements and validation messages */
 .offscreen {
     position: absolute;
     left: -9999px;
@@ -184,12 +173,10 @@
     margin-top: -5rem;
 }
 
+/* Styling for links with no underline */
 .no-underliner {
-    
-        
-        color: inherit;
-        text-decoration: none;
-    
+    color: inherit;
+    text-decoration: none;
 }
 
 .no-underliner:hover{
@@ -202,8 +189,7 @@
     color:white;
 }
 
-
-/* Responsive styles */
+/* Responsive styles for smaller screens */
 @media screen and (max-width: 768px) {
     .register {
       flex-direction: column;
@@ -230,4 +216,5 @@
     .reginput {
         width: 16.8rem;
     }
+
   }
